@@ -25,6 +25,46 @@ body {
   color: var(--text);
   min-height: 100vh;
 }
+#lockScreen {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+#lockScreen h2 { color: white; font-size: 1.5rem; margin-bottom: 1.5rem; }
+#lockScreen input {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  text-align: center;
+  width: 200px;
+  letter-spacing: 3px;
+}
+#lockScreen input:focus { outline: 2px solid var(--accent); }
+#lockScreen button {
+  margin-top: 1rem;
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+#lockScreen button:hover { background: #d49530; }
+#lockScreen .lock-error {
+  color: #ffcdd2;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  min-height: 1.2rem;
+}
+#appContent { display: none; }
 header {
   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
   color: white;
@@ -312,6 +352,14 @@ nav button.active {
 </head>
 <body>
 
+<div id="lockScreen">
+  <h2>Menu Famille</h2>
+  <input type="password" id="codeInput" placeholder="Code d'acces" onkeydown="if(event.key==='Enter')checkCode()">
+  <button onclick="checkCode()">Entrer</button>
+  <div class="lock-error" id="lockError"></div>
+</div>
+
+<div id="appContent">
 <header>
   <h1>Menu Famille</h1>
   <p id="headerDate"></p>
@@ -378,8 +426,30 @@ nav button.active {
 <div class="modal-overlay hidden" id="modalOverlay" onclick="if(event.target===this)closeModal()">
   <div class="modal" id="modalContent"></div>
 </div>
+</div><!-- end appContent -->
 
 <script>
+// ============ ACCESS CODE ============
+const ACCESS_CODE = 'lldm7';
+function checkCode() {
+  const input = document.getElementById('codeInput');
+  if (input.value === ACCESS_CODE) {
+    document.getElementById('lockScreen').style.display = 'none';
+    document.getElementById('appContent').style.display = 'block';
+    sessionStorage.setItem('menuAuth', 'ok');
+  } else {
+    document.getElementById('lockError').textContent = 'Code incorrect';
+    input.value = '';
+    input.focus();
+  }
+}
+// Auto-unlock if already authenticated this session
+if (sessionStorage.getItem('menuAuth') === 'ok') {
+  document.getElementById('lockScreen').style.display = 'none';
+  document.getElementById('appContent').style.display = 'block';
+}
+document.getElementById('codeInput').focus();
+
 const DAYS = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
 const MEALS = ['midi','soir'];
 
