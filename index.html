@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu Famille</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #4a7c59;
+  --primary-light: #6a9e78;
+  --primary-dark: #3a6249;
+  --accent: #e8a838;
+  --bg: #f5f0e8;
+  --card: #ffffff;
+  --text: #2c2c2c;
+  --text-light: #666;
+  --border: #e0d8cc;
+  --danger: #c0392b;
+  --success: #27ae60;
+}
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+header h1 { font-size: 1.5rem; font-weight: 700; }
+header p { font-size: 0.85rem; opacity: 0.85; margin-top: 0.2rem; }
+nav {
+  display: flex;
+  gap: 0.5rem;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid var(--border);
+  overflow-x: auto;
+  position: sticky;
+  top: 68px;
+  z-index: 99;
+}
+nav button {
+  padding: 0.6rem 1.2rem;
+  border: 2px solid var(--border);
+  background: white;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+nav button:hover { border-color: var(--primary); color: var(--primary); }
+nav button.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 1rem; }
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  border: 1px solid var(--border);
+}
+.card h3 {
+  color: var(--primary);
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.week-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.week-nav { display: flex; gap: 0.5rem; align-items: center; }
+.week-nav button {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.week-nav button:hover { background: var(--primary); color: white; }
+.week-label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  min-width: 180px;
+  text-align: center;
+}
+.day-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.8rem;
+}
+.day-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.day-card .day-name {
+  background: var(--primary);
+  color: white;
+  padding: 0.5rem 0.8rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.day-card .day-name.weekend {
+  background: var(--accent);
+}
+.day-card .meals { padding: 0.6rem 0.8rem; }
+.meal-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.meal-row:last-child { border-bottom: none; }
+.meal-label { font-size: 0.75rem; color: var(--text-light); text-transform: uppercase; font-weight: 600; }
+.meal-name { font-size: 0.85rem; flex: 1; margin: 0 0.5rem; }
+.meal-row button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  opacity: 0.5;
+  padding: 0.2rem;
+}
+.meal-row button:hover { opacity: 1; }
+.shopping-section { margin-bottom: 1.5rem; }
+.shopping-section h4 {
+  font-size: 0.95rem;
+  color: var(--primary);
+  padding: 0.5rem 0;
+  border-bottom: 2px solid var(--primary-light);
+  margin-bottom: 0.5rem;
+}
+.shopping-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.3rem;
+  border-bottom: 1px solid #f5f5f5;
+  cursor: pointer;
+  user-select: none;
+}
+.shopping-item:hover { background: #fafafa; }
+.shopping-item.checked .item-text {
+  text-decoration: line-through;
+  color: #aaa;
+}
+.shopping-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--success);
+  cursor: pointer;
+}
+.item-text { font-size: 0.9rem; }
+.item-qty { font-size: 0.8rem; color: var(--text-light); margin-left: auto; }
+.btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-accent { background: var(--accent); color: white; }
+.btn-accent:hover { background: #d49530; }
+.btn-danger { background: var(--danger); color: white; }
+.btn-danger:hover { background: #a93226; }
+.btn-outline {
+  background: white;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+.btn-outline:hover { background: var(--primary); color: white; }
+.btn-sm { padding: 0.3rem 0.7rem; font-size: 0.8rem; }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 0.3rem; font-size: 0.9rem; }
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+.form-group textarea { resize: vertical; min-height: 80px; }
+.tag { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+.tag-easy { background: #d5f5e3; color: #1e8449; }
+.tag-medium { background: #fdebd0; color: #d68910; }
+.tag-balance { background: #d4efdf; color: #1a7a3a; }
+.tag-plaisir { background: #fce4b8; color: #b87d15; }
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 0.8rem;
+}
+.recipe-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.recipe-card:hover { border-color: var(--primary); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.recipe-card h4 { margin-bottom: 0.3rem; }
+.recipe-card p { font-size: 0.8rem; color: var(--text-light); }
+.recipe-actions { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+  padding: 1rem;
+}
+.modal {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 500px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.modal h3 { margin-bottom: 1rem; }
+.modal-actions { display: flex; gap: 0.5rem; justify-content: flex-end; margin-top: 1rem; }
+.recipe-select-list { max-height: 300px; overflow-y: auto; }
+.recipe-select-item {
+  padding: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.recipe-select-item:hover { background: #e8f5e9; border-color: var(--primary); }
+.week-selector { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.week-chip {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.15s;
+}
+.week-chip.active { background: var(--primary); color: white; border-color: var(--primary); }
+.progress-bar { background: #eee; border-radius: 10px; height: 8px; margin: 0.5rem 0; }
+.progress-fill { background: var(--success); height: 100%; border-radius: 10px; transition: width 0.3s; }
+.stats { display: flex; gap: 1rem; font-size: 0.85rem; color: var(--text-light); }
+.print-actions { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.add-item-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+}
+.add-item-row input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.macro-info {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
+}
+.macro-info span {
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.macro-p { background: #fde8e8; color: #c0392b; }
+.macro-g { background: #fef3cd; color: #856404; }
+.macro-l { background: #e8f4fd; color: #2471a3; }
+@media (max-width: 600px) {
+  .day-grid { grid-template-columns: 1fr; }
+  nav { gap: 0.3rem; padding: 0.4rem 0.5rem; }
+  nav button { padding: 0.5rem 0.8rem; font-size: 0.8rem; }
+  .container { padding: 0.5rem; }
+}
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Menu Famille</h1>
+  <p id="headerDate"></p>
+</header>
+
+<nav>
+  <button class="active" onclick="showTab('planning')">Planning</button>
+  <button onclick="showTab('courses')">Liste de courses</button>
+  <button onclick="showTab('recettes')">Mes recettes</button>
+</nav>
+
+<div class="container">
+  <!-- PLANNING TAB -->
+  <div id="tab-planning">
+    <div class="week-header">
+      <div class="week-nav">
+        <button onclick="changeWeek(-1)">&larr;</button>
+        <span class="week-label" id="weekLabel"></span>
+        <button onclick="changeWeek(1)">&rarr;</button>
+      </div>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+        <button class="btn btn-outline btn-sm" onclick="goToCurrentWeek()">Semaine actuelle</button>
+        <button class="btn btn-primary btn-sm" onclick="generateShoppingList()">Courses de la semaine</button>
+      </div>
+    </div>
+    <div class="day-grid" id="dayGrid"></div>
+  </div>
+
+  <!-- COURSES TAB -->
+  <div id="tab-courses" class="hidden">
+    <div class="card">
+      <h3>Semaines</h3>
+      <div class="week-selector" id="weekSelector"></div>
+    </div>
+    <div class="print-actions">
+      <button class="btn btn-primary btn-sm" onclick="printList()">Imprimer la liste</button>
+      <button class="btn btn-outline btn-sm" onclick="uncheckAll()">Tout decocher</button>
+      <button class="btn btn-danger btn-sm" onclick="clearChecked()">Supprimer les coches</button>
+    </div>
+    <div id="shoppingContent"></div>
+    <div class="card">
+      <h3>Ajouter un article</h3>
+      <div class="add-item-row">
+        <input type="text" id="customItemInput" placeholder="Ex: Sopalin, Lessive..." onkeydown="if(event.key==='Enter')addCustomItem()">
+        <button class="btn btn-primary btn-sm" onclick="addCustomItem()">Ajouter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECETTES TAB -->
+  <div id="tab-recettes" class="hidden">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem">
+      <h2>Mes recettes</h2>
+      <button class="btn btn-primary" onclick="showRecipeForm()">+ Nouvelle recette</button>
+    </div>
+    <div style="margin-bottom:1rem">
+      <input type="text" id="recipeSearch" placeholder="Rechercher une recette..." style="width:100%;padding:0.6rem;border:1px solid var(--border);border-radius:8px;font-size:0.9rem" oninput="renderRecipes()">
+    </div>
+    <div class="recipe-grid" id="recipeGrid"></div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay hidden" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<script>
+const DAYS = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+const MEALS = ['midi','soir'];
+
+const DEFAULT_RECIPES = [
+  // ===== SEMAINE : EQUILIBRE (proteines + sucres lents + legumes) =====
+  // Poulet / Dinde
+  {id:'e1',name:'Poulet grille, patate douce et brocolis',category:'Plat',type:'equilibre',difficulty:'facile',time:30,
+    ingredients:[{name:'Blancs de poulet',qty:'4',cat:'Viandes'},{name:'Patates douces',qty:'600g',cat:'Legumes'},{name:'Brocolis',qty:'1 tete',cat:'Legumes'},{name:'Huile olive',qty:'2 cs',cat:'Epicerie'},{name:'Paprika',qty:'',cat:'Epicerie'}],
+    steps:'Couper patates douces en cubes, enfourner 200C 20min avec huile et paprika. Griller les blancs de poulet a la poele 6min/face. Cuire brocolis vapeur 8min. Servir ensemble.'},
+  {id:'e2',name:'Emince de dinde aux legumes et riz complet',category:'Plat',type:'equilibre',difficulty:'facile',time:25,
+    ingredients:[{name:'Emince de dinde',qty:'500g',cat:'Viandes'},{name:'Riz complet',qty:'300g',cat:'Feculents'},{name:'Courgettes',qty:'2',cat:'Legumes'},{name:'Poivrons',qty:'2',cat:'Legumes'},{name:'Sauce soja',qty:'3 cs',cat:'Epicerie'},{name:'Ail',qty:'2 gousses',cat:'Legumes'},{name:'Huile olive',qty:'',cat:'Epicerie'}],
+    steps:'Cuire le riz complet (25min). Faire sauter la dinde emincee a feu vif. Ajouter legumes coupes en laniere, ail, sauce soja. Cuire 8min en remuant. Servir sur le riz.'},
+  {id:'e3',name:'Poulet curry, lentilles corail et epinards',category:'Plat',type:'equilibre',difficulty:'facile',time:25,
+    ingredients:[{name:'Blancs de poulet',qty:'4',cat:'Viandes'},{name:'Lentilles corail',qty:'250g',cat:'Feculents'},{name:'Epinards frais',qty:'200g',cat:'Legumes'},{name:'Lait de coco',qty:'20cl',cat:'Epicerie'},{name:'Curry',qty:'2 cc',cat:'Epicerie'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Tomates concassees',qty:'400g',cat:'Conserves'}],
+    steps:'Faire revenir oignon et poulet coupe en morceaux avec le curry. Ajouter tomates et lentilles. Couvrir d eau, cuire 15min. Ajouter lait de coco et epinards en fin. Servir tel quel ou avec un peu de riz.'},
+  {id:'e4',name:'Wok de poulet, nouilles et legumes croquants',category:'Plat',type:'equilibre',difficulty:'facile',time:20,
+    ingredients:[{name:'Blancs de poulet',qty:'400g',cat:'Viandes'},{name:'Nouilles chinoises',qty:'300g',cat:'Feculents'},{name:'Carottes',qty:'2',cat:'Legumes'},{name:'Chou chinois',qty:'1/2',cat:'Legumes'},{name:'Sauce soja',qty:'4 cs',cat:'Epicerie'},{name:'Huile sesame',qty:'1 cs',cat:'Epicerie'},{name:'Gingembre frais',qty:'1 morceau',cat:'Legumes'}],
+    steps:'Cuire les nouilles. Emincer poulet et legumes. Saisir le poulet a feu vif, reserver. Faire sauter les legumes 3min. Ajouter nouilles, poulet, soja, sesame, gingembre rape. Melanger 2min.'},
+
+  // Boeuf
+  {id:'e5',name:'Boeuf aux oignons, riz basmati et haricots verts',category:'Plat',type:'equilibre',difficulty:'facile',time:25,
+    ingredients:[{name:'Boeuf a emincer',qty:'500g',cat:'Viandes'},{name:'Riz basmati',qty:'300g',cat:'Feculents'},{name:'Haricots verts',qty:'400g',cat:'Legumes'},{name:'Oignons',qty:'3',cat:'Legumes'},{name:'Sauce soja',qty:'3 cs',cat:'Epicerie'},{name:'Huile olive',qty:'',cat:'Epicerie'}],
+    steps:'Cuire le riz. Cuire haricots verts 10min vapeur. Saisir le boeuf emince a feu tres vif 2min. Reserver. Faire carameliser les oignons 10min. Reunir avec sauce soja. Servir avec riz et haricots.'},
+  {id:'e6',name:'Chili con carne maison',category:'Plat',type:'equilibre',difficulty:'facile',time:35,
+    ingredients:[{name:'Viande hachee 5%',qty:'500g',cat:'Viandes'},{name:'Haricots rouges',qty:'2 boites',cat:'Conserves'},{name:'Tomates concassees',qty:'400g',cat:'Conserves'},{name:'Mais',qty:'1 boite',cat:'Conserves'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Poivron',qty:'1',cat:'Legumes'},{name:'Cumin',qty:'2 cc',cat:'Epicerie'},{name:'Riz basmati',qty:'250g',cat:'Feculents'}],
+    steps:'Faire revenir oignon et poivron. Ajouter viande hachee, faire dorer. Ajouter tomates, haricots rouges, mais, cumin. Mijoter 20min. Servir avec riz basmati.'},
+  {id:'e7',name:'Steak, lentilles vertes et carottes',category:'Plat',type:'equilibre',difficulty:'facile',time:35,
+    ingredients:[{name:'Steaks haches 5%',qty:'4',cat:'Viandes'},{name:'Lentilles vertes',qty:'300g',cat:'Feculents'},{name:'Carottes',qty:'4',cat:'Legumes'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Bouillon de legumes',qty:'1 cube',cat:'Epicerie'},{name:'Moutarde',qty:'',cat:'Epicerie'}],
+    steps:'Cuire lentilles 25min avec carottes coupees, oignon et bouillon. Griller les steaks a la poele 3min/face. Servir steaks sur lit de lentilles-carottes, moutarde a cote.'},
+
+  // Poisson
+  {id:'e8',name:'Saumon, riz complet et courgettes grillees',category:'Plat',type:'equilibre',difficulty:'facile',time:25,
+    ingredients:[{name:'Paves de saumon',qty:'4',cat:'Poissons'},{name:'Riz complet',qty:'300g',cat:'Feculents'},{name:'Courgettes',qty:'3',cat:'Legumes'},{name:'Citron',qty:'1',cat:'Fruits'},{name:'Huile olive',qty:'2 cs',cat:'Epicerie'},{name:'Aneth',qty:'',cat:'Epicerie'}],
+    steps:'Cuire riz complet. Couper courgettes en rondelles, griller a la poele avec huile. Cuire saumon 4min/face a la poele. Servir avec citron et aneth.'},
+  {id:'e9',name:'Dos de cabillaud, puree de pois casses et poireaux',category:'Plat',type:'equilibre',difficulty:'facile',time:30,
+    ingredients:[{name:'Dos de cabillaud',qty:'4 filets',cat:'Poissons'},{name:'Pois casses',qty:'250g',cat:'Feculents'},{name:'Poireaux',qty:'3',cat:'Legumes'},{name:'Beurre',qty:'20g',cat:'Frais'},{name:'Citron',qty:'1',cat:'Fruits'},{name:'Bouillon',qty:'1 cube',cat:'Epicerie'}],
+    steps:'Cuire pois casses 25min dans le bouillon, ecraser en puree avec beurre. Emincer et faire fondre les poireaux 10min. Cuire cabillaud a la poele 4min/face. Servir ensemble.'},
+  {id:'e10',name:'Papillote de poisson, pommes de terre et legumes',category:'Plat',type:'equilibre',difficulty:'facile',time:30,
+    ingredients:[{name:'Filets de poisson blanc',qty:'4',cat:'Poissons'},{name:'Pommes de terre',qty:'600g',cat:'Legumes'},{name:'Tomates cerises',qty:'250g',cat:'Legumes'},{name:'Courgette',qty:'1',cat:'Legumes'},{name:'Citron',qty:'1',cat:'Fruits'},{name:'Herbes de Provence',qty:'',cat:'Epicerie'},{name:'Huile olive',qty:'',cat:'Epicerie'}],
+    steps:'Couper PDT en rondelles fines, precuire 10min a l eau. Dans du papier alu : PDT, poisson, legumes coupes, filet de citron, herbes, huile. Fermer. Four 200C 20min.'},
+
+  // Oeufs / Vegetarien
+  {id:'e11',name:'Omelette aux legumes et pain complet',category:'Plat',type:'equilibre',difficulty:'facile',time:15,
+    ingredients:[{name:'Oeufs',qty:'8',cat:'Frais'},{name:'Champignons',qty:'200g',cat:'Legumes'},{name:'Poivrons',qty:'1',cat:'Legumes'},{name:'Tomates',qty:'2',cat:'Legumes'},{name:'Gruyere rape',qty:'80g',cat:'Frais'},{name:'Pain complet',qty:'4 tranches',cat:'Boulangerie'},{name:'Beurre',qty:'20g',cat:'Frais'}],
+    steps:'Faire revenir champignons et poivrons 5min. Battre les oeufs, verser dans la poele avec legumes. Fromage au centre. Plier. Servir avec pain complet grille et tomate.'},
+  {id:'e12',name:'Dahl de lentilles corail, riz et yaourt',category:'Plat',type:'equilibre',difficulty:'facile',time:25,
+    ingredients:[{name:'Lentilles corail',qty:'300g',cat:'Feculents'},{name:'Riz basmati',qty:'250g',cat:'Feculents'},{name:'Tomates concassees',qty:'400g',cat:'Conserves'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Ail',qty:'2 gousses',cat:'Legumes'},{name:'Curcuma',qty:'1 cc',cat:'Epicerie'},{name:'Cumin',qty:'1 cc',cat:'Epicerie'},{name:'Lait de coco',qty:'20cl',cat:'Epicerie'},{name:'Yaourt nature',qty:'4',cat:'Frais'}],
+    steps:'Revenir oignon et ail. Ajouter epices, tomates, lentilles et eau. Cuire 15min. Ajouter lait de coco. Cuire riz a part. Servir avec yaourt.'},
+  {id:'e13',name:'Shakshuka (oeufs en sauce tomate) et semoule',category:'Plat',type:'equilibre',difficulty:'facile',time:20,
+    ingredients:[{name:'Oeufs',qty:'6',cat:'Frais'},{name:'Tomates concassees',qty:'800g',cat:'Conserves'},{name:'Poivrons',qty:'2',cat:'Legumes'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Ail',qty:'2 gousses',cat:'Legumes'},{name:'Cumin',qty:'1 cc',cat:'Epicerie'},{name:'Semoule complete',qty:'300g',cat:'Feculents'},{name:'Feta',qty:'100g',cat:'Frais'}],
+    steps:'Faire revenir oignon, poivrons et ail. Ajouter tomates et cumin, mijoter 10min. Creuser des puits, casser les oeufs dedans. Couvrir 5min. Feta emietee dessus. Servir avec semoule.'},
+
+  // Porc / Saucisse equilibre
+  {id:'e14',name:'Saucisses de volaille, lentilles et carottes',category:'Plat',type:'equilibre',difficulty:'facile',time:35,
+    ingredients:[{name:'Saucisses de volaille',qty:'6',cat:'Viandes'},{name:'Lentilles vertes',qty:'350g',cat:'Feculents'},{name:'Carottes',qty:'4',cat:'Legumes'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Bouillon',qty:'1 cube',cat:'Epicerie'},{name:'Laurier',qty:'1 feuille',cat:'Epicerie'}],
+    steps:'Cuire lentilles 25min avec carottes, oignon, bouillon et laurier. Griller les saucisses a la poele. Servir ensemble.'},
+  {id:'e15',name:'Filet mignon, puree de brocolis et quinoa',category:'Plat',type:'equilibre',difficulty:'facile',time:35,
+    ingredients:[{name:'Filet mignon de porc',qty:'600g',cat:'Viandes'},{name:'Brocolis',qty:'500g',cat:'Legumes'},{name:'Quinoa',qty:'250g',cat:'Feculents'},{name:'Creme legere 15%',qty:'10cl',cat:'Frais'},{name:'Moutarde',qty:'1 cs',cat:'Epicerie'},{name:'Huile olive',qty:'',cat:'Epicerie'}],
+    steps:'Saisir filet mignon, enfourner 200C 20min. Cuire brocolis, mixer avec creme. Cuire quinoa 12min. Trancher le filet mignon, servir avec puree de brocolis et quinoa.'},
+
+  // Salades completes (soir semaine)
+  {id:'e16',name:'Salade complete poulet, quinoa et avocat',category:'Plat',type:'equilibre',difficulty:'facile',time:15,
+    ingredients:[{name:'Blancs de poulet',qty:'2',cat:'Viandes'},{name:'Quinoa',qty:'200g',cat:'Feculents'},{name:'Avocat',qty:'2',cat:'Legumes'},{name:'Tomates cerises',qty:'200g',cat:'Legumes'},{name:'Concombre',qty:'1',cat:'Legumes'},{name:'Huile olive',qty:'2 cs',cat:'Epicerie'},{name:'Citron',qty:'1',cat:'Fruits'}],
+    steps:'Cuire quinoa et poulet (ou utiliser restes). Couper tous les legumes. Assembler dans un grand saladier. Assaisonner huile olive + citron.'},
+  {id:'e17',name:'Soupe epaisse de legumes et tartines de chevre',category:'Plat',type:'equilibre',difficulty:'facile',time:30,
+    ingredients:[{name:'Carottes',qty:'3',cat:'Legumes'},{name:'Poireaux',qty:'2',cat:'Legumes'},{name:'Pommes de terre',qty:'2',cat:'Legumes'},{name:'Courgettes',qty:'1',cat:'Legumes'},{name:'Bouillon',qty:'1 cube',cat:'Epicerie'},{name:'Pain complet',qty:'8 tranches',cat:'Boulangerie'},{name:'Buche de chevre',qty:'1',cat:'Frais'},{name:'Oeufs',qty:'4',cat:'Frais'}],
+    steps:'Cuire legumes dans bouillon 20min, mixer epais. Oeufs durs a cote. Tartiner pain complet de chevre, gratiner au four. Servir soupe avec tartines et oeufs.'},
+  {id:'e18',name:'Salade nicoise proteinee',category:'Plat',type:'equilibre',difficulty:'facile',time:15,
+    ingredients:[{name:'Thon en boite',qty:'3 boites',cat:'Conserves'},{name:'Oeufs',qty:'4',cat:'Frais'},{name:'Haricots verts',qty:'300g',cat:'Legumes'},{name:'Pommes de terre',qty:'400g',cat:'Legumes'},{name:'Tomates',qty:'3',cat:'Legumes'},{name:'Olives noires',qty:'100g',cat:'Epicerie'},{name:'Salade verte',qty:'1',cat:'Legumes'},{name:'Huile olive',qty:'',cat:'Epicerie'}],
+    steps:'Cuire PDT et haricots verts. Oeufs durs 10min. Assembler tout dans saladier avec tomates, thon, olives, salade. Assaisonner.'},
+
+  // Plats complets equilibres
+  {id:'e19',name:'Couscous poulet et legumes',category:'Plat',type:'equilibre',difficulty:'facile',time:40,
+    ingredients:[{name:'Cuisses de poulet',qty:'4',cat:'Viandes'},{name:'Semoule complete',qty:'400g',cat:'Feculents'},{name:'Carottes',qty:'3',cat:'Legumes'},{name:'Courgettes',qty:'2',cat:'Legumes'},{name:'Navets',qty:'2',cat:'Legumes'},{name:'Pois chiches',qty:'1 boite',cat:'Conserves'},{name:'Tomates concassees',qty:'400g',cat:'Conserves'},{name:'Ras el hanout',qty:'2 cc',cat:'Epicerie'}],
+    steps:'Faire revenir poulet. Ajouter legumes coupes, tomates, pois chiches, epices. Couvrir d eau, cuire 30min. Semoule : verser eau bouillante, couvrir 5min. Servir.'},
+  {id:'e20',name:'Bolognaise a la dinde, pates completes et salade',category:'Plat',type:'equilibre',difficulty:'facile',time:25,
+    ingredients:[{name:'Hache de dinde',qty:'500g',cat:'Viandes'},{name:'Pates completes',qty:'400g',cat:'Feculents'},{name:'Sauce tomate',qty:'500ml',cat:'Conserves'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Carottes',qty:'2',cat:'Legumes'},{name:'Ail',qty:'2 gousses',cat:'Legumes'},{name:'Salade verte',qty:'1',cat:'Legumes'},{name:'Huile olive',qty:'',cat:'Epicerie'}],
+    steps:'Faire revenir oignon, ail, carottes rapees. Ajouter dinde hachee, dorer. Ajouter sauce tomate, mijoter 15min. Cuire pates completes. Servir avec salade a cote.'},
+  {id:'e21',name:'Tomates farcies et riz',category:'Plat',type:'equilibre',difficulty:'facile',time:50,
+    ingredients:[{name:'Tomates',qty:'8 grosses',cat:'Legumes'},{name:'Chair a saucisse',qty:'500g',cat:'Viandes'},{name:'Riz complet',qty:'250g',cat:'Feculents'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Persil',qty:'',cat:'Epicerie'},{name:'Ail',qty:'1 gousse',cat:'Legumes'}],
+    steps:'Evider les tomates. Melanger chair a saucisse, oignon hache, ail, persil, un peu de riz precuit. Farcir les tomates. Four 180C 40min. Servir avec le reste du riz.'},
+
+  // ===== WEEK-END : PLAISIR =====
+  {id:'p1',name:'Poulet roti et gratin dauphinois',category:'Plat',type:'plaisir',difficulty:'facile',time:70,
+    ingredients:[{name:'Poulet entier',qty:'1.5kg',cat:'Viandes'},{name:'Pommes de terre',qty:'1kg',cat:'Legumes'},{name:'Creme fraiche',qty:'30cl',cat:'Frais'},{name:'Lait',qty:'30cl',cat:'Frais'},{name:'Ail',qty:'4 gousses',cat:'Legumes'},{name:'Noix de muscade',qty:'',cat:'Epicerie'},{name:'Herbes de Provence',qty:'',cat:'Epicerie'}],
+    steps:'Poulet : huiler, herbes, ail, four 200C 1h. Gratin : PDT en rondelles fines, alterner avec creme+lait+muscade dans plat frotte a l ail. Four 180C 1h.'},
+  {id:'p2',name:'Tartiflette',category:'Plat',type:'plaisir',difficulty:'facile',time:45,
+    ingredients:[{name:'Pommes de terre',qty:'1kg',cat:'Legumes'},{name:'Reblochon',qty:'1',cat:'Frais'},{name:'Lardons',qty:'200g',cat:'Viandes'},{name:'Oignons',qty:'2',cat:'Legumes'},{name:'Creme fraiche',qty:'15cl',cat:'Frais'}],
+    steps:'Cuire PDT a l eau, couper en rondelles. Revenir lardons et oignons. Alterner dans plat. Reblochon coupe en deux dessus. Four 200C 20min.'},
+  {id:'p3',name:'Pizza maison',category:'Plat',type:'plaisir',difficulty:'facile',time:30,
+    ingredients:[{name:'Pate a pizza',qty:'2',cat:'Frais'},{name:'Sauce tomate',qty:'200ml',cat:'Conserves'},{name:'Mozzarella',qty:'2 boules',cat:'Frais'},{name:'Jambon',qty:'4 tranches',cat:'Viandes'},{name:'Champignons',qty:'200g',cat:'Legumes'},{name:'Olives',qty:'',cat:'Epicerie'}],
+    steps:'Etaler pate. Sauce tomate, garniture au choix, mozzarella. Four 220C 12-15min.'},
+  {id:'p4',name:'Burger maison avec frites au four',category:'Plat',type:'plaisir',difficulty:'facile',time:30,
+    ingredients:[{name:'Pains burger',qty:'4',cat:'Boulangerie'},{name:'Steaks haches',qty:'4',cat:'Viandes'},{name:'Cheddar',qty:'4 tranches',cat:'Frais'},{name:'Salade',qty:'',cat:'Legumes'},{name:'Tomates',qty:'1',cat:'Legumes'},{name:'Pommes de terre',qty:'800g',cat:'Legumes'},{name:'Huile olive',qty:'',cat:'Epicerie'},{name:'Ketchup',qty:'',cat:'Epicerie'}],
+    steps:'Frites : couper PDT en frites, huiler, four 220C 25min. Griller steaks. Toaster pains. Assembler : salade, steak, cheddar, tomate, sauce.'},
+  {id:'p5',name:'Pates carbonara',category:'Plat',type:'plaisir',difficulty:'facile',time:20,
+    ingredients:[{name:'Spaghetti',qty:'500g',cat:'Feculents'},{name:'Lardons',qty:'200g',cat:'Viandes'},{name:'Oeufs',qty:'3',cat:'Frais'},{name:'Parmesan',qty:'80g',cat:'Frais'},{name:'Poivre',qty:'',cat:'Epicerie'}],
+    steps:'Cuire les pates. Griller lardons. Melanger oeufs + parmesan. Hors du feu : pates + lardons + sauce oeufs. Bien melanger, poivrer.'},
+  {id:'p6',name:'Quiche lorraine et salade',category:'Plat',type:'plaisir',difficulty:'facile',time:40,
+    ingredients:[{name:'Pate brisee',qty:'1',cat:'Frais'},{name:'Lardons',qty:'200g',cat:'Viandes'},{name:'Oeufs',qty:'3',cat:'Frais'},{name:'Creme fraiche',qty:'20cl',cat:'Frais'},{name:'Gruyere rape',qty:'100g',cat:'Frais'},{name:'Salade verte',qty:'1',cat:'Legumes'}],
+    steps:'Etaler pate. Revenir lardons. Melanger oeufs + creme. Verser lardons puis appareil. Fromage dessus. Four 180C 30min. Servir avec salade.'},
+  {id:'p7',name:'Gratin de pates au jambon',category:'Plat',type:'plaisir',difficulty:'facile',time:30,
+    ingredients:[{name:'Pates',qty:'400g',cat:'Feculents'},{name:'Jambon',qty:'4 tranches',cat:'Viandes'},{name:'Bechamel',qty:'50cl',cat:'Epicerie'},{name:'Gruyere rape',qty:'150g',cat:'Frais'}],
+    steps:'Cuire pates. Melanger avec jambon coupe et bechamel. Fromage dessus. Four 200C 15min.'},
+  {id:'p8',name:'Hachis parmentier',category:'Plat',type:'plaisir',difficulty:'facile',time:45,
+    ingredients:[{name:'Viande hachee',qty:'500g',cat:'Viandes'},{name:'Pommes de terre',qty:'1kg',cat:'Legumes'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Lait',qty:'15cl',cat:'Frais'},{name:'Beurre',qty:'30g',cat:'Frais'},{name:'Gruyere rape',qty:'100g',cat:'Frais'}],
+    steps:'Puree : cuire PDT, ecraser avec lait et beurre. Viande : revenir avec oignon. Viande dans plat, puree dessus, fromage. Four 200C 20min.'},
+  {id:'p9',name:'Croque-monsieur et soupe',category:'Plat',type:'plaisir',difficulty:'facile',time:20,
+    ingredients:[{name:'Pain de mie',qty:'8 tranches',cat:'Boulangerie'},{name:'Jambon',qty:'4 tranches',cat:'Viandes'},{name:'Gruyere rape',qty:'150g',cat:'Frais'},{name:'Bechamel',qty:'20cl',cat:'Epicerie'},{name:'Soupe en brique',qty:'1L',cat:'Epicerie'}],
+    steps:'Tartiner bechamel sur pain. Jambon + fromage. Refermer. Fromage dessus. Four 200C 10min. Rechauffer la soupe. Servir ensemble.'},
+  {id:'p10',name:'Galettes completes (jambon-fromage-oeuf)',category:'Plat',type:'plaisir',difficulty:'facile',time:20,
+    ingredients:[{name:'Galettes de ble noir',qty:'4',cat:'Frais'},{name:'Jambon',qty:'4 tranches',cat:'Viandes'},{name:'Gruyere rape',qty:'150g',cat:'Frais'},{name:'Oeufs',qty:'4',cat:'Frais'},{name:'Beurre',qty:'20g',cat:'Frais'}],
+    steps:'Rechauffer galette a la poele avec beurre. Garnir jambon et fromage. Casser oeuf dessus. Plier les bords. Cuire jusqu a l oeuf pris.'},
+  {id:'p11',name:'Blanquette de veau et riz',category:'Plat',type:'plaisir',difficulty:'moyen',time:90,
+    ingredients:[{name:'Veau (epaule)',qty:'800g',cat:'Viandes'},{name:'Carottes',qty:'4',cat:'Legumes'},{name:'Champignons',qty:'200g',cat:'Legumes'},{name:'Creme fraiche',qty:'20cl',cat:'Frais'},{name:'Riz',qty:'300g',cat:'Feculents'},{name:'Bouillon',qty:'1 cube',cat:'Epicerie'}],
+    steps:'Blanchir la viande. Cuire 1h dans bouillon avec carottes. Ajouter champignons. Lier avec creme + jaune d oeuf. Servir avec riz.'},
+  {id:'p12',name:'Lasagnes maison',category:'Plat',type:'plaisir',difficulty:'facile',time:50,
+    ingredients:[{name:'Feuilles de lasagne',qty:'1 paquet',cat:'Feculents'},{name:'Viande hachee',qty:'500g',cat:'Viandes'},{name:'Sauce tomate',qty:'500ml',cat:'Conserves'},{name:'Bechamel',qty:'50cl',cat:'Epicerie'},{name:'Gruyere rape',qty:'150g',cat:'Frais'},{name:'Oignon',qty:'1',cat:'Legumes'}],
+    steps:'Bolognaise : revenir oignon, viande, ajouter sauce tomate 15min. Alterner dans un plat : lasagnes, bolo, bechamel. Finir par bechamel + fromage. Four 180C 30min.'},
+  {id:'p13',name:'Raclette',category:'Plat',type:'plaisir',difficulty:'facile',time:10,
+    ingredients:[{name:'Fromage a raclette',qty:'800g',cat:'Frais'},{name:'Pommes de terre',qty:'1.5kg',cat:'Legumes'},{name:'Charcuterie',qty:'400g',cat:'Viandes'},{name:'Cornichons',qty:'1 pot',cat:'Epicerie'},{name:'Salade verte',qty:'1',cat:'Legumes'}],
+    steps:'Cuire PDT a l eau ou vapeur. Preparer la charcuterie en assiette. Faire fondre le fromage dans l appareil. Servir avec cornichons et salade.'},
+  {id:'p14',name:'Poulet basquaise et riz',category:'Plat',type:'plaisir',difficulty:'facile',time:45,
+    ingredients:[{name:'Cuisses de poulet',qty:'4',cat:'Viandes'},{name:'Poivrons',qty:'3',cat:'Legumes'},{name:'Tomates concassees',qty:'400g',cat:'Conserves'},{name:'Oignon',qty:'2',cat:'Legumes'},{name:'Riz',qty:'300g',cat:'Feculents'},{name:'Huile olive',qty:'',cat:'Epicerie'},{name:'Piment d Espelette',qty:'',cat:'Epicerie'}],
+    steps:'Faire dorer le poulet. Reserver. Revenir oignons et poivrons. Ajouter tomates, piment, poulet. Mijoter 30min. Servir avec riz.'},
+];
+
+// 13 weeks : Lun-Ven = equilibre, Sam-Dim = plaisir
+function generateDefaultMenus() {
+  // Semaine type : [midi, soir] x 7 jours
+  // Lun-Ven : recettes eXX / Sam-Dim : recettes pXX
+  const weeklyPlans = [
+    [['e1','e17'],['e5','e11'],['e20','e8'],['e3','e18'],['e6','e16'],['p1','p5'],['p3','p9']],
+    [['e2','e12'],['e7','e17'],['e4','e10'],['e15','e13'],['e19','e16'],['p2','p10'],['p4','p6']],
+    [['e8','e11'],['e6','e17'],['e1','e12'],['e20','e18'],['e5','e9'],['p8','p5'],['p14','p9']],
+    [['e3','e16'],['e14','e11'],['e2','e13'],['e10','e17'],['e4','e18'],['p1','p12'],['p3','p10']],
+    [['e7','e12'],['e1','e17'],['e15','e8'],['e6','e16'],['e19','e11'],['p11','p5'],['p4','p6']],
+    [['e20','e13'],['e5','e18'],['e3','e9'],['e2','e17'],['e14','e12'],['p2','p10'],['p14','p9']],
+    [['e8','e11'],['e4','e16'],['e21','e17'],['e1','e13'],['e10','e18'],['p8','p5'],['p13','p6']],
+    [['e6','e12'],['e15','e17'],['e20','e11'],['e7','e16'],['e3','e9'],['p1','p12'],['p3','p10']],
+    [['e2','e18'],['e14','e13'],['e5','e8'],['e4','e17'],['e19','e12'],['p11','p5'],['p4','p9']],
+    [['e1','e16'],['e10','e11'],['e3','e17'],['e21','e18'],['e15','e13'],['p2','p10'],['p14','p6']],
+    [['e7','e12'],['e8','e17'],['e6','e9'],['e20','e16'],['e2','e11'],['p8','p5'],['p13','p9']],
+    [['e4','e13'],['e14','e18'],['e1','e12'],['e5','e17'],['e10','e16'],['p1','p12'],['p3','p10']],
+    [['e3','e11'],['e19','e17'],['e15','e8'],['e6','e13'],['e21','e18'],['p11','p5'],['p4','p6']],
+  ];
+  const menus = {};
+  for (let w = 0; w < 13; w++) {
+    for (let d = 0; d < 7; d++) {
+      menus[`${w}-${d}-midi`] = weeklyPlans[w][d][0];
+      menus[`${w}-${d}-soir`] = weeklyPlans[w][d][1];
+    }
+  }
+  return menus;
+}
+
+// ============ STATE ============
+// Force reset to get new recipes
+let state = loadState();
+let currentWeek = getCurrentWeekIndex();
+let shoppingWeek = currentWeek;
+
+function loadState() {
+  const saved = localStorage.getItem('menuFamille_v2');
+  if (saved) return JSON.parse(saved);
+  return freshState();
+}
+
+function freshState() {
+  return {
+    recipes: [...DEFAULT_RECIPES],
+    menus: generateDefaultMenus(),
+    shopping: {},
+    customItems: [],
+    startDate: getMonday(new Date()).toISOString().split('T')[0]
+  };
+}
+
+function saveState() {
+  localStorage.setItem('menuFamille_v2', JSON.stringify(state));
+}
+
+function resetAll() {
+  if (!confirm('Reinitialiser tous les menus et recettes ? Les modifications seront perdues.')) return;
+  localStorage.removeItem('menuFamille_v2');
+  state = freshState();
+  saveState();
+  currentWeek = 0;
+  renderPlanning();
+}
+
+function getMonday(d) {
+  d = new Date(d);
+  const day = d.getDay();
+  const diff = d.getDate() - day + (day === 0 ? -6 : 1);
+  return new Date(d.setDate(diff));
+}
+
+function getCurrentWeekIndex() {
+  const start = new Date(state.startDate);
+  const now = getMonday(new Date());
+  const diff = Math.floor((now - start) / (7 * 24 * 60 * 60 * 1000));
+  return Math.max(0, Math.min(12, diff));
+}
+
+function getWeekDates(weekIdx) {
+  const start = new Date(state.startDate);
+  start.setDate(start.getDate() + weekIdx * 7);
+  const end = new Date(start);
+  end.setDate(end.getDate() + 6);
+  const fmt = d => d.toLocaleDateString('fr-FR', {day:'numeric',month:'short'});
+  return `${fmt(start)} - ${fmt(end)}`;
+}
+
+function getRecipe(id) {
+  return state.recipes.find(r => r.id === id);
+}
+
+// ============ TABS ============
+function showTab(tab) {
+  document.querySelectorAll('[id^="tab-"]').forEach(el => el.classList.add('hidden'));
+  document.getElementById('tab-' + tab).classList.remove('hidden');
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  if (tab === 'courses') renderShopping();
+  if (tab === 'recettes') renderRecipes();
+}
+
+// ============ PLANNING ============
+function renderPlanning() {
+  document.getElementById('weekLabel').textContent = `Semaine ${currentWeek + 1}/13 — ${getWeekDates(currentWeek)}`;
+  const grid = document.getElementById('dayGrid');
+  grid.innerHTML = '';
+  DAYS.forEach((day, di) => {
+    const isWeekend = di >= 5;
+    const card = document.createElement('div');
+    card.className = 'day-card';
+    let mealsHtml = '';
+    MEALS.forEach(meal => {
+      const key = `${currentWeek}-${di}-${meal}`;
+      const recipeId = state.menus[key];
+      const recipe = recipeId ? getRecipe(recipeId) : null;
+      const typeTag = recipe ? (recipe.type === 'plaisir'
+        ? '<span class="tag tag-plaisir" style="font-size:0.65rem;margin-left:0.3rem">plaisir</span>'
+        : '<span class="tag tag-balance" style="font-size:0.65rem;margin-left:0.3rem">equilibre</span>') : '';
+      mealsHtml += `
+        <div class="meal-row">
+          <span class="meal-label">${meal === 'midi' ? 'Midi' : 'Soir'}</span>
+          <span class="meal-name">${recipe ? recipe.name + typeTag : '<i style="color:#aaa">Aucun</i>'}</span>
+          <button onclick="chooseMeal(${currentWeek},${di},'${meal}')" title="Changer">&#9998;</button>
+          ${recipe ? `<button onclick="removeMeal(${currentWeek},${di},'${meal}')" title="Supprimer">&times;</button>` : ''}
+        </div>`;
+    });
+    card.innerHTML = `<div class="day-name ${isWeekend ? 'weekend' : ''}">${day} ${isWeekend ? '(plaisir)' : ''}</div><div class="meals">${mealsHtml}</div>`;
+    grid.appendChild(card);
+  });
+}
+
+function changeWeek(delta) {
+  currentWeek = Math.max(0, Math.min(12, currentWeek + delta));
+  renderPlanning();
+}
+
+function goToCurrentWeek() {
+  currentWeek = getCurrentWeekIndex();
+  renderPlanning();
+}
+
+function chooseMeal(week, day, meal) {
+  const modal = document.getElementById('modalContent');
+  const search = `<input type="text" id="mealSearch" placeholder="Rechercher..." style="width:100%;padding:0.5rem;border:1px solid var(--border);border-radius:8px;margin-bottom:0.5rem;font-size:0.9rem" oninput="filterMealList(${week},${day},'${meal}')">`;
+  const list = renderMealSelectList(state.recipes, week, day, meal);
+  modal.innerHTML = `<h3>Choisir un plat</h3>${search}<div class="recipe-select-list" id="mealList">${list}</div>
+    <div class="modal-actions"><button class="btn btn-outline" onclick="closeModal()">Annuler</button></div>`;
+  document.getElementById('modalOverlay').classList.remove('hidden');
+}
+
+function renderMealSelectList(recipes, week, day, meal) {
+  return recipes.map(r => {
+    const typeLabel = r.type === 'plaisir' ? '<span class="tag tag-plaisir">plaisir</span>' : '<span class="tag tag-balance">equilibre</span>';
+    return `<div class="recipe-select-item" onclick="selectMeal(${week},${day},'${meal}','${r.id}')">
+      <strong>${r.name}</strong> ${typeLabel}
+      <span class="tag ${r.difficulty === 'facile' ? 'tag-easy' : 'tag-medium'}">${r.difficulty}</span>
+      <span style="font-size:0.8rem;color:var(--text-light);margin-left:0.5rem">${r.time}min</span>
+    </div>`;
+  }).join('');
+}
+
+function filterMealList(week, day, meal) {
+  const q = document.getElementById('mealSearch').value.toLowerCase();
+  const filtered = state.recipes.filter(r => r.name.toLowerCase().includes(q));
+  document.getElementById('mealList').innerHTML = renderMealSelectList(filtered, week, day, meal);
+}
+
+function selectMeal(week, day, meal, recipeId) {
+  state.menus[`${week}-${day}-${meal}`] = recipeId;
+  saveState();
+  closeModal();
+  renderPlanning();
+}
+
+function removeMeal(week, day, meal) {
+  delete state.menus[`${week}-${day}-${meal}`];
+  saveState();
+  renderPlanning();
+}
+
+// ============ SHOPPING ============
+function generateShoppingList() {
+  shoppingWeek = currentWeek;
+  showTab('courses');
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('nav button')[1].classList.add('active');
+}
+
+function renderShopping() {
+  const sel = document.getElementById('weekSelector');
+  sel.innerHTML = '';
+  for (let w = 0; w < 13; w++) {
+    const chip = document.createElement('span');
+    chip.className = `week-chip ${w === shoppingWeek ? 'active' : ''}`;
+    chip.textContent = `S${w + 1}`;
+    chip.onclick = () => { shoppingWeek = w; renderShopping(); };
+    sel.appendChild(chip);
+  }
+
+  const ingredients = {};
+  for (let d = 0; d < 7; d++) {
+    MEALS.forEach(meal => {
+      const recipeId = state.menus[`${shoppingWeek}-${d}-${meal}`];
+      if (!recipeId) return;
+      const recipe = getRecipe(recipeId);
+      if (!recipe) return;
+      recipe.ingredients.forEach(ing => {
+        const key = ing.name.toLowerCase();
+        if (!ingredients[key]) ingredients[key] = {name: ing.name, cat: ing.cat, qtys: []};
+        if (ing.qty) ingredients[key].qtys.push(ing.qty);
+      });
+    });
+  }
+
+  const categories = {};
+  Object.values(ingredients).forEach(ing => {
+    if (!categories[ing.cat]) categories[ing.cat] = [];
+    categories[ing.cat].push(ing);
+  });
+
+  const customItems = (state.customItems || []).filter(i => i.week === shoppingWeek);
+  if (customItems.length > 0) {
+    if (!categories['Divers']) categories['Divers'] = [];
+    customItems.forEach(ci => {
+      categories['Divers'].push({name: ci.name, cat: 'Divers', qtys: [], custom: true, customId: ci.id});
+    });
+  }
+
+  const shopKey = `shop-${shoppingWeek}`;
+  if (!state.shopping[shopKey]) state.shopping[shopKey] = {};
+
+  const content = document.getElementById('shoppingContent');
+
+  if (Object.keys(categories).length === 0) {
+    content.innerHTML = '<div class="card"><p style="color:var(--text-light)">Aucun menu prevu cette semaine.</p></div>';
+    return;
+  }
+
+  const total = Object.values(ingredients).length + customItems.length;
+  const checked = Object.keys(state.shopping[shopKey]).filter(k => state.shopping[shopKey][k]).length;
+
+  let html = `<div class="card">
+    <div class="stats"><span>${checked}/${total} articles coches</span></div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${total ? (checked/total*100) : 0}%"></div></div>
+  </div>`;
+
+  const catOrder = ['Legumes','Fruits','Viandes','Poissons','Frais','Feculents','Boulangerie','Conserves','Surgeles','Epicerie','Divers'];
+  const sortedCats = Object.keys(categories).sort((a, b) => {
+    const ia = catOrder.indexOf(a), ib = catOrder.indexOf(b);
+    return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+  });
+
+  sortedCats.forEach(cat => {
+    html += `<div class="shopping-section"><h4>${cat}</h4>`;
+    categories[cat].forEach(item => {
+      const itemKey = item.custom ? `custom-${item.customId}` : item.name.toLowerCase();
+      const isChecked = state.shopping[shopKey][itemKey];
+      const escapedKey = itemKey.replace(/'/g, "\\'");
+      html += `
+        <div class="shopping-item ${isChecked ? 'checked' : ''}" onclick="toggleShopItem('${shopKey}','${escapedKey}')">
+          <input type="checkbox" ${isChecked ? 'checked' : ''} onclick="event.stopPropagation();toggleShopItem('${shopKey}','${escapedKey}')">
+          <span class="item-text">${item.name}</span>
+          <span class="item-qty">${item.qtys.join(' + ') || ''}</span>
+          ${item.custom ? `<button onclick="event.stopPropagation();removeCustomItem('${item.customId}')" style="background:none;border:none;color:var(--danger);cursor:pointer;font-size:1rem">&times;</button>` : ''}
+        </div>`;
+    });
+    html += '</div>';
+  });
+
+  content.innerHTML = html;
+}
+
+function toggleShopItem(shopKey, itemKey) {
+  if (!state.shopping[shopKey]) state.shopping[shopKey] = {};
+  state.shopping[shopKey][itemKey] = !state.shopping[shopKey][itemKey];
+  saveState();
+  renderShopping();
+}
+
+function uncheckAll() {
+  state.shopping[`shop-${shoppingWeek}`] = {};
+  saveState();
+  renderShopping();
+}
+
+function clearChecked() {
+  const shopKey = `shop-${shoppingWeek}`;
+  if (!state.shopping[shopKey]) return;
+  Object.keys(state.shopping[shopKey]).forEach(k => {
+    if (state.shopping[shopKey][k]) delete state.shopping[shopKey][k];
+  });
+  saveState();
+  renderShopping();
+}
+
+function addCustomItem() {
+  const input = document.getElementById('customItemInput');
+  const name = input.value.trim();
+  if (!name) return;
+  if (!state.customItems) state.customItems = [];
+  state.customItems.push({id: Date.now().toString(), name, week: shoppingWeek});
+  input.value = '';
+  saveState();
+  renderShopping();
+}
+
+function removeCustomItem(id) {
+  state.customItems = (state.customItems || []).filter(i => i.id !== id);
+  saveState();
+  renderShopping();
+}
+
+function printList() { window.print(); }
+
+// ============ RECIPES ============
+function renderRecipes() {
+  const q = (document.getElementById('recipeSearch')?.value || '').toLowerCase();
+  const grid = document.getElementById('recipeGrid');
+  const filtered = state.recipes.filter(r => r.name.toLowerCase().includes(q));
+  grid.innerHTML = filtered.map(r => {
+    const typeTag = r.type === 'plaisir' ? '<span class="tag tag-plaisir">plaisir</span>' : '<span class="tag tag-balance">equilibre</span>';
+    return `<div class="recipe-card">
+      <h4>${r.name}</h4>
+      <p>${r.category} &bull; ${r.time}min &bull; <span class="tag ${r.difficulty === 'facile' ? 'tag-easy' : 'tag-medium'}">${r.difficulty}</span> ${typeTag}</p>
+      <p style="margin-top:0.3rem;font-size:0.8rem;color:var(--text-light)">${r.ingredients.map(i=>i.name).join(', ')}</p>
+      <div class="recipe-actions">
+        <button class="btn btn-outline btn-sm" onclick="viewRecipe('${r.id}')">Voir</button>
+        <button class="btn btn-sm" style="background:#eee" onclick="editRecipe('${r.id}')">Modifier</button>
+        ${r.id.startsWith('custom-') ? `<button class="btn btn-danger btn-sm" onclick="deleteRecipe('${r.id}')">Supprimer</button>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function viewRecipe(id) {
+  const r = getRecipe(id);
+  if (!r) return;
+  const typeTag = r.type === 'plaisir' ? '<span class="tag tag-plaisir">plaisir</span>' : '<span class="tag tag-balance">equilibre</span>';
+  const modal = document.getElementById('modalContent');
+  modal.innerHTML = `
+    <h3>${r.name}</h3>
+    <p>${typeTag} <span class="tag ${r.difficulty === 'facile' ? 'tag-easy' : 'tag-medium'}">${r.difficulty}</span> &bull; ${r.time}min &bull; ${r.category}</p>
+    <h4 style="margin-top:1rem;margin-bottom:0.5rem">Ingredients</h4>
+    <ul style="padding-left:1.2rem">${r.ingredients.map(i => `<li>${i.name}${i.qty ? ' — ' + i.qty : ''}</li>`).join('')}</ul>
+    <h4 style="margin-top:1rem;margin-bottom:0.5rem">Preparation</h4>
+    <p style="font-size:0.9rem;line-height:1.5">${r.steps}</p>
+    <div class="modal-actions"><button class="btn btn-primary" onclick="closeModal()">Fermer</button></div>`;
+  document.getElementById('modalOverlay').classList.remove('hidden');
+}
+
+function showRecipeForm(existingId) {
+  const r = existingId ? getRecipe(existingId) : null;
+  const modal = document.getElementById('modalContent');
+  modal.innerHTML = `
+    <h3>${r ? 'Modifier' : 'Nouvelle'} recette</h3>
+    <div class="form-group">
+      <label>Nom</label>
+      <input type="text" id="rf-name" value="${r ? r.name : ''}">
+    </div>
+    <div class="form-group">
+      <label>Type</label>
+      <select id="rf-type">
+        <option value="equilibre" ${r?.type==='equilibre'||!r?'selected':''}>Equilibre (semaine)</option>
+        <option value="plaisir" ${r?.type==='plaisir'?'selected':''}>Plaisir (week-end)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Categorie</label>
+      <select id="rf-cat">
+        <option ${r?.category==='Plat'?'selected':''}>Plat</option>
+        <option ${r?.category==='Entree'?'selected':''}>Entree</option>
+        <option ${r?.category==='Accompagnement'?'selected':''}>Accompagnement</option>
+        <option ${r?.category==='Dessert'?'selected':''}>Dessert</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Difficulte</label>
+      <select id="rf-diff">
+        <option value="facile" ${r?.difficulty==='facile'?'selected':''}>Facile</option>
+        <option value="moyen" ${r?.difficulty==='moyen'?'selected':''}>Moyen</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Temps (min)</label>
+      <input type="number" id="rf-time" value="${r ? r.time : 20}">
+    </div>
+    <div class="form-group">
+      <label>Ingredients (un par ligne : Nom, Quantite, Categorie)</label>
+      <textarea id="rf-ing" rows="6" placeholder="Pates completes, 500g, Feculents&#10;Sauce tomate, 500ml, Conserves">${r ? r.ingredients.map(i=>`${i.name}, ${i.qty}, ${i.cat}`).join('\n') : ''}</textarea>
+      <small style="color:var(--text-light)">Categories : Legumes, Fruits, Viandes, Poissons, Frais, Feculents, Boulangerie, Conserves, Surgeles, Epicerie</small>
+    </div>
+    <div class="form-group">
+      <label>Etapes de preparation</label>
+      <textarea id="rf-steps">${r ? r.steps : ''}</textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeModal()">Annuler</button>
+      <button class="btn btn-primary" onclick="saveRecipe('${existingId || ''}')">Enregistrer</button>
+    </div>`;
+  document.getElementById('modalOverlay').classList.remove('hidden');
+}
+
+function editRecipe(id) { showRecipeForm(id); }
+
+function saveRecipe(existingId) {
+  const name = document.getElementById('rf-name').value.trim();
+  if (!name) { alert('Le nom est obligatoire'); return; }
+  const ingredients = document.getElementById('rf-ing').value.trim().split('\n').filter(l=>l.trim()).map(line => {
+    const parts = line.split(',').map(s => s.trim());
+    return {name: parts[0] || '', qty: parts[1] || '', cat: parts[2] || 'Epicerie'};
+  });
+  const recipe = {
+    id: existingId || 'custom-' + Date.now(),
+    name,
+    type: document.getElementById('rf-type').value,
+    category: document.getElementById('rf-cat').value,
+    difficulty: document.getElementById('rf-diff').value,
+    time: parseInt(document.getElementById('rf-time').value) || 20,
+    ingredients,
+    steps: document.getElementById('rf-steps').value.trim()
+  };
+  if (existingId) {
+    const idx = state.recipes.findIndex(r => r.id === existingId);
+    if (idx >= 0) state.recipes[idx] = recipe;
+  } else {
+    state.recipes.push(recipe);
+  }
+  saveState();
+  closeModal();
+  renderRecipes();
+}
+
+function deleteRecipe(id) {
+  if (!confirm('Supprimer cette recette ?')) return;
+  state.recipes = state.recipes.filter(r => r.id !== id);
+  Object.keys(state.menus).forEach(k => {
+    if (state.menus[k] === id) delete state.menus[k];
+  });
+  saveState();
+  renderRecipes();
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.add('hidden');
+}
+
+// ============ INIT ============
+document.getElementById('headerDate').textContent = new Date().toLocaleDateString('fr-FR', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+renderPlanning();
+</script>
+</body>
+</html>
