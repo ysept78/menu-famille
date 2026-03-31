@@ -386,6 +386,7 @@ nav button.active {
   <button onclick="showTab('courses')">Liste de courses</button>
   <button onclick="showTab('recettes')">Mes recettes</button>
   <button onclick="showTab('frrecipes')">Recettes FR</button>
+  <button onclick="showTab('lightrecipes')">Recettes Light</button>
   <button onclick="showTab('extrecipes')">Recettes+</button>
 </nav>
 
@@ -454,6 +455,19 @@ nav button.active {
     </div>
     <div class="ext-cats" id="frCats"></div>
     <div class="ext-grid" id="frResults"></div>
+  </div>
+
+  <!-- RECETTES LIGHT TAB -->
+  <div id="tab-lightrecipes" class="hidden">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;flex-wrap:wrap;gap:0.5rem">
+      <h2>Recettes Light</h2>
+      <span style="font-size:0.8rem;color:var(--text-light)">94 recettes dietetiques &bull; Dr Jean-Michel Cohen</span>
+    </div>
+    <div class="ext-search-bar">
+      <input type="text" id="lightSearch" placeholder="Rechercher une recette light..." oninput="renderLightRecipes()">
+    </div>
+    <div class="ext-cats" id="lightCats"></div>
+    <div class="ext-grid" id="lightResults"></div>
   </div>
 
   <!-- RECETTES+ TAB -->
@@ -728,6 +742,7 @@ function showTab(tab) {
   if (tab === 'courses') renderShopping();
   if (tab === 'recettes') renderRecipes();
   if (tab === 'frrecipes') { loadFrRecipes().then(() => renderFrRecipes()); }
+  if (tab === 'lightrecipes') { loadLightRecipes().then(() => renderLightRecipes()); }
   if (tab === 'extrecipes') renderExtSaved();
 }
 
@@ -2045,10 +2060,124 @@ function initFrCategories() {
   document.getElementById('frCats').innerHTML = cats.map(c => `<button data-cat="${c.id}" onclick="filterFrRecipes('${c.id}')">${c.label}</button>`).join('');
 }
 
+// ============ RECETTES LIGHT (Savoir Maigrir) ============
+let lightRecipesData = [];
+let lightFilter = '';
+
+async function loadLightRecipes() {
+  if (lightRecipesData.length > 0) return;
+  try {
+    const resp = await fetch('recettes-light.json');
+    lightRecipesData = await resp.json();
+  } catch(e) { console.error('Erreur chargement recettes light:', e); }
+}
+
+function renderLightRecipes() {
+  const q = (document.getElementById('lightSearch')?.value || '').toLowerCase();
+  let recipes = lightRecipesData;
+  if (q) recipes = recipes.filter(r => r.name.toLowerCase().includes(q) || r.ingredients.some(i => i.name.toLowerCase().includes(q)));
+  if (lightFilter) recipes = recipes.filter(r => {
+    if (lightFilter === 'Viandes') return r.ingredients.some(i => i.cat === 'Viandes');
+    if (lightFilter === 'Poissons') return r.ingredients.some(i => i.cat === 'Poissons');
+    if (lightFilter === 'Vegetarien') return !r.ingredients.some(i => i.cat === 'Viandes' || i.cat === 'Poissons');
+    if (lightFilter === 'Rapide') return r.time <= 30;
+    if (lightFilter === 'Salade') return r.name.toLowerCase().includes('salade');
+    return true;
+  });
+  const grid = document.getElementById('lightResults');
+  if (recipes.length === 0) {
+    grid.innerHTML = '<div class="ext-loading">Aucune recette trouvee.</div>';
+    return;
+  }
+  grid.innerHTML = recipes.map(r => {
+    const isSaved = state.recipes.some(sr => sr.id === r.id);
+    const ingPreview = r.ingredients.slice(0, 4).map(i => i.name).join(', ');
+    return `<div class="ext-card" style="cursor:default;border-left:3px solid var(--success)">
+      <div class="ext-body">
+        <h4>${r.name} ${isSaved ? '<span class="ext-saved-badge">Importe</span>' : ''}</h4>
+        <p>${r.time} min &bull; ${r.servings} pers. &bull; <span style="color:var(--success);font-weight:600">Dietetique</span></p>
+        <p style="margin-top:0.3rem;font-size:0.8rem;color:var(--text-light)">${ingPreview}...</p>
+        <div class="ext-actions">
+          <button class="btn btn-outline btn-sm" onclick="viewLightRecipe('${r.id}')">Voir</button>
+          ${!isSaved ? `<button class="btn btn-primary btn-sm" onclick="importLightRecipe('${r.id}')">Ajouter au planning</button>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function filterLightRecipes(cat) {
+  lightFilter = lightFilter === cat ? '' : cat;
+  document.querySelectorAll('#lightCats button').forEach(b => b.classList.toggle('active', b.dataset.cat === lightFilter));
+  renderLightRecipes();
+}
+
+function viewLightRecipe(id) {
+  const r = lightRecipesData.find(x => x.id === id);
+  if (!r) return;
+  const modal = document.getElementById('modalContent');
+  const isSaved = state.recipes.some(sr => sr.id === r.id);
+  const ingByCat = {};
+  r.ingredients.forEach(i => { if (!ingByCat[i.cat]) ingByCat[i.cat] = []; ingByCat[i.cat].push(i); });
+  let ingHtml = '';
+  Object.keys(ingByCat).forEach(cat => {
+    ingHtml += `<div style="margin-bottom:0.3rem"><strong style="font-size:0.8rem;color:var(--text-light)">${cat}</strong>`;
+    ingHtml += '<ul style="padding-left:1.2rem;margin:0.2rem 0">' + ingByCat[cat].map(i => `<li>${i.name}${i.qty ? ' — <em>' + i.qty + '</em>' : ''}</li>`).join('') + '</ul></div>';
+  });
+  const stepsText = r.steps || '';
+  const numberedSteps = stepsText.match(/\d+\.\s[^]*?(?=\d+\.|$)/g);
+  let stepsHtml;
+  if (numberedSteps && numberedSteps.length > 1) {
+    stepsHtml = '<ol style="padding-left:1.2rem;font-size:0.9rem;line-height:1.6">' + numberedSteps.map(s => `<li style="margin-bottom:0.4rem">${s.replace(/^\d+\.\s*/, '').trim()}</li>`).join('') + '</ol>';
+  } else {
+    stepsHtml = `<p style="font-size:0.9rem;line-height:1.5">${stepsText}</p>`;
+  }
+  modal.innerHTML = `
+    <h3>${r.name}</h3>
+    <p style="margin-bottom:0.5rem">
+      <span style="font-size:0.85rem;color:var(--text-light)">${r.time} min &bull; ${r.servings} personne(s)</span>
+      <span style="display:inline-block;background:#d4efdf;color:#1a7a3a;font-size:0.75rem;padding:0.15rem 0.5rem;border-radius:10px;font-weight:600;margin-left:0.3rem">Dietetique</span>
+      ${isSaved ? ' <span class="ext-saved-badge">Dans le planning</span>' : ''}
+    </p>
+    <h4 style="margin-top:0.8rem;margin-bottom:0.5rem">Ingredients</h4>
+    ${ingHtml}
+    <h4 style="margin-top:1rem;margin-bottom:0.5rem">Preparation</h4>
+    ${stepsHtml}
+    <div class="modal-actions">
+      ${!isSaved ? `<button class="btn btn-primary" onclick="importLightRecipe('${r.id}');closeModal()">Ajouter au planning</button>` : ''}
+      <button class="btn btn-outline" onclick="closeModal()">Fermer</button>
+    </div>`;
+  document.getElementById('modalOverlay').classList.remove('hidden');
+}
+
+function importLightRecipe(id) {
+  const r = lightRecipesData.find(x => x.id === id);
+  if (!r || state.recipes.some(sr => sr.id === r.id)) return;
+  state.recipes.push({
+    id: r.id, name: r.name, category: 'Plat', type: 'equilibre',
+    difficulty: r.difficulty, time: r.time, ingredients: r.ingredients,
+    steps: r.steps, source: 'light'
+  });
+  saveState();
+  renderLightRecipes();
+}
+
+function initLightCategories() {
+  const cats = [
+    {id:'Viandes',label:'Viandes'},
+    {id:'Poissons',label:'Poissons'},
+    {id:'Vegetarien',label:'Vegetarien'},
+    {id:'Rapide',label:'Rapide (< 30 min)'},
+    {id:'Salade',label:'Salades'}
+  ];
+  document.getElementById('lightCats').innerHTML = cats.map(c => `<button data-cat="${c.id}" onclick="filterLightRecipes('${c.id}')">${c.label}</button>`).join('');
+}
+
 // ============ INIT ============
 document.getElementById('headerDate').textContent = new Date().toLocaleDateString('fr-FR', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
 initExtCategories();
 initFrCategories();
+initLightCategories();
 renderPlanning();
 </script>
 </body>

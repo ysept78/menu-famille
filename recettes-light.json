@@ -1,0 +1,4056 @@
+[
+  {
+    "name": "Salade de betterave",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Betteraves rouges cuites",
+        "qty": "120 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Salade verte",
+        "qty": "1 au choix",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oeuf",
+        "qty": "1 dur",
+        "cat": "Frais"
+      },
+      {
+        "name": "Persil ciselé",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Cumin moulu",
+        "qty": "1/2 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Couper la betterave en petits dés et les déposer sur les feuilles de salade (à volonté). 2. Ajouter le persil, le poivre, le sel et le cumin moulu. 3. Saupoudrer d'un oeuf dur émietté et déguster bien frais.",
+    "id": "sm1",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Tagliatelle au thon et aux champignons",
+    "time": 60,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Tagliatelle",
+        "qty": "30 g cru",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Thon au naturel",
+        "qty": "125 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Champignons de Paris",
+        "qty": "150 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Citron",
+        "qty": "1/4",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Persil haché",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Curcuma",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : tagliatelle = 50 g poids cru à 1600 kcal et 65 g poids cru à 1800 kcal 2. Couper les pieds sableux des champignons et les nettoyer dans un torchon. 3. Émincer finement les champignons, en faire de même avec l'oignon. Les faire revenir ensemble à sec, dans une poêle à revêtement antiadhésif. 4. Lorsque l'eau de constitution des champignons s'est évaporée, ajouter le thon égoutté émietté, le curcuma, le jus de citron, le persil haché, un peu de sel et de poivre. Bien mélanger. 5. Cuire les tagliatelle à l'eau bouillante salée le temps indiqué sur le paquet. 6. Égoutter les tagliatelle et les mélanger avec la garniture. 7. Servir bien chaud !",
+    "id": "sm2",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Poêlée de pommes de terre, champignons et jambon",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Pommes de terre",
+        "qty": "125 g",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Champignons de Paris",
+        "qty": "70 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Jambon blanc découenné dégraissé",
+        "qty": "130 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Persil ciselé",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Noix de muscade râpée",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : autres kcal - pommes de terre = 185 g à 1600 kcal et 250 g à 1800 kcal 2. Laver et brosser les pommes de terre. Les éplucher, et les couper en fins bâtonnets (type \"frites\"). Les faire cuire à l'eau bouillante salée, 8 à 10 minutes. 3. Pendant ce temps, émincer finement les champignons, les faire suer dans une poêle antiadhésive jusqu'à évaporation de l'eau de constitution. Bien égoutter et sécher les pommes de terre. 4. Peler et émincer l'oignon et le faire revenir dans une poêle antiadhésive, ajouter ensuite les bâtonnets de pommes de terre égouttés, remuer constamment. Ajouter le jambon coupé en petits dés, les champignons, le persil, la noix de muscade râpée, un peu de sel et de poivre. 5. La durée totale de cuisson de la poêlée sera d'environ 10-15 minutes. Servir aussitôt !",
+    "id": "sm3",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Pamplemousse au fromage blanc et aux crevettes",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Pamplemousse",
+        "qty": "1/2",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Fromage blanc nature 0% de MG (20% de MG à 1600 et 1800 kcal)",
+        "qty": "50 g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Crevettes roses décortiquées",
+        "qty": "80 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Câpres",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Moutarde",
+        "qty": "1/2 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Paprika",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Couper le pamplemousse en deux. 2. Détacher la pulpe avec un couteau spécial. Épépiner et couper en grands cubes. 3. Mélanger le fromage blanc, les crevettes, les câpres et le paprika dans un récipient approprié, assaisonner de sel et de poivre. 4. Verser les cubes de pamplemousse bien égouttés dans cette préparation et en remplir la moitié du pamplemousse.",
+    "id": "sm4",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Onglet aux échalotes",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Onglet dégraissé",
+        "qty": "100 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Echalotes",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Éplucher et émincer finement les échalotes. Dans une casserole à revêtement antiadhésif, les faire fondre dans 3 CàS d'eau, à feu doux. 2. Faire cuire l'onglet sur le gril ou à sec dans une poêle à revêtement antiadhésif. 3. Étaler les échalotes revenues sur l'onglet grillé.",
+    "id": "sm5",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Papillote de blanc de poulet à l'estragon et sa fondue de poireaux",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Blanc de poulet",
+        "qty": "150 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Blancs de poireaux",
+        "qty": "300 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Estragon",
+        "qty": "3 feuilles",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Citron",
+        "qty": "1 non traité",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Fond de volaille",
+        "qty": "1 cc",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Papier sulfurisé",
+        "qty": "1 carré",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Préchauffer le four à 210°C (th. 7). 2. Laver et émincer finement les blancs de poireaux. Les faire revenir avec un peu d'eau dans une poêle à revêtement antiadhésif, saler et poivrer. Presser le citron et prélever le zeste. Ciseler l'estragon. 3. Découper un carré de papier sulfurisé et y déposer un lit de poireaux. Saisir le blanc de poulet dans une poêle bien chaude sans matière grasse (environ 2 minutes de chaque côté). 4. Ensuite, poser le poulet sur les poireaux, ajouter le jus de citron, le sel et le poivre. Mélanger le fond de volaille dilué avec l'estragon et le zeste de citron. 5. Napper le poulet et fermer hermétiquement la papillote. 6. Mettre au four pendant 15 minutes environ. 7. Dégustez bien chaud !",
+    "id": "sm6",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Salade tropicale",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Maïs en grains",
+        "qty": "100 g égoutté",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Ananas",
+        "qty": "2 tranches",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Poivron rouge",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Poivron vert",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Bâtonnets de surimi",
+        "qty": "8",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Eau",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Citron, jus de citron",
+        "qty": "2",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : maïs en grains = 150 g net égoutté à 1600 kcal, 200 g à 1800 kcal). 2. Égoutter les grains de maïs, couper en 6 chaque tranche d'ananas. Couper les poivrons en dés après avoir enlevé les queues et les graines. Couper chaque bâtonnet de surimi en 4. 3. Préparer un assaisonnement avec le jus de citron, le sel et le poivre. 4. Mettre dans un saladier le maïs, l'ananas, les poivrons et le surimi. 5. Arroser avec la sauce et mélanger. Servir bien frais.",
+    "id": "sm7",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Filets de barbue en papillote exotique",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filets de barbue",
+        "qty": "180 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Banane",
+        "qty": "1/2",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Citron",
+        "qty": "1/2",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Papier sulfurisé",
+        "qty": "1",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Préchauffer le four à 200°C (th. 7), couper la banane en rondelles et presser le citron. 2. Prendre un carré de papier sulfurisé, disposer par dessus le poisson, verser le jus de citron, couvrir de rondelles de bananes. Ouvrir la gousse de vanille en deux dans le sens de la longueur, gratter chaque partie à l'aide de la pointe d'un couteau et ajouter les grains de vanille prélevés sur les rondelles de banane. Saler, poivrer. 3. Refermer hermétiquement la papillote et cuire au four 15 à 20 minutes. Servir bien chaud.",
+    "id": "sm8",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Flan de chou-fleur",
+    "time": 60,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Chou-fleur",
+        "qty": "150 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oeuf",
+        "qty": "1",
+        "cat": "Frais"
+      },
+      {
+        "name": "Lait écrémé",
+        "qty": "150 ml",
+        "cat": "Frais"
+      },
+      {
+        "name": "Noix de muscade râpée",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Préchauffer le four à 200°C (th. 6-7). 2. Faire cuire à la vapeur pendant 10 minutes le chou-fleur préalablement lavé et coupé. 3. Battre l'oeuf avec le lait, le sel, le poivre, la muscade. 4. Étaler le chou-fleur dans un plat allant a four, le recouvrir de l'appareil à flan. 5. Faire cuire 40 minutes.",
+    "id": "sm9",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Salade de poireaux",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Blancs de poireaux",
+        "qty": "150 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Noix de muscade râpée",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : blancs de poireaux en rondelles, surgelés 2. Disposer les rondelles de poireaux dans un saladier en verre, couvrir de film alimentaire spécial micro-ondes, et percer quelques trous en surface à l'aide d'un couteau. 3. Décongeler quelques minutes au micro-ondes. 4. Saler, poivrer, ajouter la noix de muscade et enrober de votre sauce d'accompagnement prévue au menu. 5. Bon appétit !",
+    "id": "sm10",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Cuisse de poulet au citron en papillote",
+    "time": 60,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Cuisse de poulet",
+        "qty": "1",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Citron",
+        "qty": "1",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Herbes de Provence",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Papier sulfurisé",
+        "qty": "1",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Préchauffer le four à 200 °C (th. 6/7). 2. Découper un rectangle dans le papier sulfurisé. 3. Couper le citron en deux. Presser un demi-citron. Saler, poivrer le jus et ajouter les herbes de Provence. 4. Retirer la peau de la cuisse de poulet et la déposer sur le papier sulfurisé. Avec un pinceau, badigeonner la cuisse du mélange citronné. Couper le demi-citron restant en rondelles et les déposer sur la cuisse. 5. Fermer hermétiquement la papillote et enfourner pour 40 minutes. 6. Bon appétit !",
+    "id": "sm11",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Poireaux au four",
+    "time": 54,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Poireaux",
+        "qty": "300 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Lait écrémé",
+        "qty": "150 ml",
+        "cat": "Frais"
+      },
+      {
+        "name": "Jambon blanc découenné dégraissé",
+        "qty": "60 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oeuf",
+        "qty": "1",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. *Note pour les autres kcals : lait écrémé = demi-écrémé à 1600 et 1800 kcal 2. Préchauffer le four à 150°C (th. 5). 3. Laver, couper les poireaux en tronçons de 1 centimètre d'épaisseur et les placer dans un plat allant au four. 4. Verser le lait, l'oeuf battu. 5. Découper en dés le jambon. 6. Ajouter le jambon, le sel et le poivre. Mélanger le tout. 7. Mettre au four doux pendant 1 heure au moins recouvert d'une feuille de papier aluminium. 8. Découvrir et servir dans le plat de cuisson.",
+    "id": "sm12",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Fricassée de gambas aux fèves",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Fèves surgelées",
+        "qty": "160 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Ciboulette ciselée",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Gambas",
+        "qty": "160 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Huile d'olive",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : fèves surgelées = 240 g à 1600 kcal et 320 g à 1800 kcal 2. Cuire les fèves à l'eau pendant 15 minutes. 3. Décortiquer les gambas et les saisir dans l'huile à feu vif 3 à 4 minutes. 4. Mettre les fèves dans une assiette creuse et disposer les gambas sur le dessus. 5. Ajouter la cuillerée à café d'huile d'olive et servir aussitôt.",
+    "id": "sm13",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Salade aïda",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Macédoine de legumes",
+        "qty": "50 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Tomate",
+        "qty": "1 moyenne",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Poivron",
+        "qty": "50 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Fonds d'artichaut",
+        "qty": "50 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Huile de colza",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Vinaigre au choix",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Citron, jus de citron",
+        "qty": "1/2",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Moutarde",
+        "qty": "1/2 cc",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Laver et préparer les légumes en les coupant en petits morceaux. Egoutter et rincer les légumes en conserve. Mélanger le tout. 2. Préparer la sauce en mélangeant l'huile, 1 CàC d'eau, le vinaigre, le jus de citron, le sel, le poivre et la moutarde. 3. Verser la sauce sur les légumes et servir frais.",
+    "id": "sm14",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Aile de raie au vinaigre de cidre",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Eau",
+        "qty": "1 L",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Aile de raie",
+        "qty": "180 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Carotte",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Vinaigre de cidre",
+        "qty": "50 ml",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Echalotes",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Câpres",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Persil ciselé",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Bouquet garni",
+        "qty": "1",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Peler et laver la carotte puis la couper en rondelles. Éplucher et émincer l'oignon. 2. Dans un faitout, préparer un court-bouillon avec la carotte, le bouquet garni, le sel et le poivre. 3. Laver l'aile de raie et la faire pocher 5 minutes dans le court-bouillon. La retirer à l'aide d'une écumoire, égoutter et réserver au chaud. 4. Peler et émincer l'ail, les échalotes. Mixer l'ail, les échalotes et le persil afin d'obtenir un hachis grossier. 5. Faire chauffer une poêle à revêtement antiadhésif et y faire revenir à sec le hachis. Mouiller avec le vinaigre, ajouter les câpres et laisser mijoter quelques minutes. 6. Dresser l'aile de raie sur assiette et napper avec la sauce. Déguster aussitôt.",
+    "id": "sm15",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Lapin à la moutarde",
+    "time": 60,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Râbles de lapin",
+        "qty": "2",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Tomates",
+        "qty": "250 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Moutarde",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Parer les râbles de lapin si nécessaire, les couper en morceaux et les badigeonner largement de moutarde. 2. Laver et monder les tomates. 3. Faire doucement fondre les tomates coupées en tranches dans une cocotte avec sel et poivre. Ajouter ensuite les râbles. 4. Laisser cuire environ 35 minutes à couvert en remuant de temps en temps. Servir très chaud.",
+    "id": "sm16",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Concombre au yaourt",
+    "time": 60,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Concombre",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Yaourt nature 0% de MG (nature classique non sucré à 1600 et 1800 kcal)",
+        "qty": "1/2",
+        "cat": "Frais"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Citron, jus de citron",
+        "qty": "1/4",
+        "cat": "Fruits"
+      }
+    ],
+    "steps": "1. Éplucher le concombre et le couper en 2 dans le sens de la longueur. Saupoudrer les deux moitiés de sel et laisser dégorger au moins 30 minutes. 2. Quand le concombre a perdu son eau, le râper grossièrement et mettre dans un saladier. 3. Ajouter le yaourt brassé nature et bien mélanger. Mettre ensuite l'ail haché, quelques gouttes de jus de citron, le sel et le poivre. Mélanger à nouveau et placer au réfrigérateur jusqu'au moment de servir. 4. Bon appétit !",
+    "id": "sm17",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Piperade basquaise",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Oeufs",
+        "qty": "2",
+        "cat": "Frais"
+      },
+      {
+        "name": "Tomate",
+        "qty": "150 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Courgette",
+        "qty": "60 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Poivron jaune",
+        "qty": "60 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Piment d’Espelette",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Bouquet garni",
+        "qty": "1",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Note : piment d'Espelette est facultatif, Bouquet garni = Persil, 1 feuille de laurier, thym 2. Laver les légumes, les couper en petits morceaux réguliers. Émincer l'oignon et presser la gousse d'ail. 3. Pré-cuire les morceaux de poivron et de courgettes quelques minutes au micro-ondes (3 minutes environ) avec un peu d'eau, pour les ramollir. 4. Faire pré-cuire l'oignon, la gousse d'ail et le poivron dans une cocotte antiadhésive, sans matière grasse. 5. Ajouter ensuite tous les autres légumes, le bouquet garni. Couvrir, baisser le feu et laisser mijoter 25 minutes. 6. Incorporer les oeufs battus aux légumes, environ 5 minutes avant la fin de cuisson. Mélanger pour brouiller les oeufs. 7. Assaisonner (sel et poivre en grains), ajouter une pincée de piment d'Espelette et servir immédiatement.",
+    "id": "sm18",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Filet de cabillaud à l'échalote",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filet de cabillaud",
+        "qty": "180 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Échalote",
+        "qty": "1",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Citron",
+        "qty": "1/2",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Moutarde",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Fromage blanc nature 0% de MG (20% de MG à 1600 et 1800 kcal)",
+        "qty": "50 g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Persil haché",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Préchauffer le four à 180°C (th. 6). 2. Faire une réduction d'échalote : ciseler l'échalote, la faire revenir à sec dans une poêle à revêtement antiadhésif, ajouter un peu d'eau et de jus de citron, laisser cuire jusqu'à ce qu'elles soient translucides. 3. Mélanger le fromage blanc, le jus de citron restant, la moutarde, le sel, le poivre et le persil. 4. Dans un plat à gratin, déposer le lit d'échalote, disposer le poisson par-dessus, et recouvrir du mélange au fromage blanc. 5. Enfourner pendant 15 à 20 minutes et servir dès la sortie du four.",
+    "id": "sm19",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Blanc de poulet farci au fromage",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Blanc de poulet épais",
+        "qty": "150 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Fromage pour burger",
+        "qty": "1 tranche",
+        "cat": "Frais"
+      },
+      {
+        "name": "Persil ciselé",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Noix de muscade râpée",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Cure-dents",
+        "qty": "5",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Fil de cuisine",
+        "qty": "1",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Entailler le blanc de poulet en portefeuille : inciser sur la tranche sur le côté sur toute la longueur. 2. Découper la tranche de fromage pour burger en petites lanières et garnir l'intérieur du blanc de poulet. 3. Saler, poivrer l'intérieur du blanc de poulet, saupoudrer de persil ciselé et de noix de muscade râpée. 4. Refermer le blanc de poulet à l'aide d'un fil de cuisine afin d'éviter que le fromage ne sorte à la cuisson ou, à défaut, fermer le blanc de poulet à l'aide de cure-dents. 5. Émincer l'oignon et le faire revenir à sec dans une poêle à revêtement antiadhésif jusqu'à ce qu'il soit translucide. Ajouter le blanc de poulet farci et le faire dorer de chaque côté. 6. Baisser le feu, poursuivre la cuisson 10/15 minutes à couvert pour que l'intérieur soit bien cuit et le fromage fondant. 7. Servir aussitôt, bon appétit !",
+    "id": "sm20",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Émincé de boeuf aux oignons",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Rumsteck",
+        "qty": "150 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Sauce de soja",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Vinaigre balsamique",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Gingembre râpé",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Coriandre fraîche",
+        "qty": "5 feuilles",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Éplucher l'oignon et l'émincer finement. 2. Couper le rumsteck en fines lamelles. 3. Faire revenir les oignons à sec dans une poêle à revêtement antiadhésif, ajouter 3 cuillerées à soupe d'eau et saupoudrer de gingembre. Baisser le feu et laisser mijoter jusqu'à ce que les oignons soient bien fondants. Ajouter le vinaigre et cuire encore 1 minute, puis réserver de côté. 4. Mettre les lamelles de boeuf dans la poêle et les faire revenir sur toutes les faces jusqu'à ce qu'elles soient dorées. 5. Ajouter les oignons, la sauce soja et rectifier l'assaisonnement. 6. Servir bien chaud, décoré de quelques feuilles de coriandre fraîche. 7. Bon appétit !",
+    "id": "sm21",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Fondue de boeuf au bouillon épicé",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Eau",
+        "qty": "600 ml",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Julienne de légumes",
+        "qty": "200 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Bouquet garni",
+        "qty": "1",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Persil haché",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sauce pimentée",
+        "qty": "2 gouttes",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Clou de girofle",
+        "qty": "1",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Rumsteck dégraissé",
+        "qty": "150 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Bouillon de boeuf dégraissé",
+        "qty": "1/2 cube",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Couper le rumsteck en très fines tranches. 2. Émincer l'oignon et presser la gousse d'ail. Les faire revenir à sec dans une cocotte à revêtement antiadhésif jusqu'à ce qu'ils soient translucides. Ajouter ensuite le bouquet garni, le persil haché, la julienne de légumes, l'eau et le cube de bouillon de boeuf, le clou de girofle, la sauce pimentée. Couvrir, baisser le feu et laisser mijoter 15 minutes. Assaisonner. 3. Récupérer les légumes précuits, les disposer dans une assiette. 4. Transvaser le bouillon aromatique dans un caquelon à fondue, le mettre sur la table, et, à l'aide de pics à fondue (ou \"d'épuisettes\" spéciales fondues asiatiques), prendre un morceau de viande, et procéder comme pour une fondue bourguignonne classique. 5. Servir avec la julienne de légumes. 6. Bon appétit !",
+    "id": "sm22",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Salade de blé",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Cuit de blé",
+        "qty": "100 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Tomates",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Persil ciselé",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : cuit de blé = 150 g à 1600 kcal, 200 g à 1800 kcal 2. Coupez les tomates en petits dés. 3. Mélangez le blé, les tomates, le sel, le poivre et le persil dans un saladier. 4. Assaisonner avec la sauce prévue dans votre menu.",
+    "id": "sm23",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Cassoulet façon minceur",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Haricots blancs en conserve",
+        "qty": "100 g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Saucisse de volaille",
+        "qty": "1",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Carottes",
+        "qty": "50 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Huile d'olive",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Concentré de tomate",
+        "qty": "1 cc",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Eau",
+        "qty": "1/4 verre",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Aiguillettes canard",
+        "qty": "50 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Thym branche",
+        "qty": "1",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Tomates pelées et concassées au jus",
+        "qty": "1 p boîte",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Faire revenir l'oignon dans l'huile, ajouter les aiguillettes de canard coupées en 2, puis les haricots ( (150 g à 1600 kcal et 200 g à 1800 kcal), la petite boîte de tomates pelées et concassées au jus et les carottes, l'ail, le thym effeuillé, le sel et le poivre. 2. Mettre la saucisse sur le dessus. 3. Délayer le concentré de tomate dans le 1/4 de verre d'eau et verser dans la casserole. 4. Laisser mijoter au moins 20 minutes en ajoutant un peu d'eau si nécessaire. 5. Bon appétit !",
+    "id": "sm24",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Fondue de poireaux",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Blancs de poireaux",
+        "qty": "200 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Noix de muscade râpée",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Laver les blanc poireaux et les émincer le plus finement possible. 2. Faire cuire 5 minutes en ajoutant de l'eau à mi-hauteur des blancs de poireaux émincés (un petit verre d'eau). 3. Égoutter, remettre dans la casserole, poursuivre la cuisson sans ajouter de matières grasses à couvert, pendant 5 minutes, le temps que les blancs de poireaux soient bien fondants. 4. Assaisonner et servir. Bon appétit !",
+    "id": "sm25",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Calamars à l'italienne",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Bouquet garni",
+        "qty": "1",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Citron, jus de citron",
+        "qty": "1/2",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Céleri-branche",
+        "qty": "5 cm",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Tomates pelées au jus",
+        "qty": "200 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Anneaux de calamars surgelés nature non cuisinés",
+        "qty": "160 g",
+        "cat": "Poissons"
+      }
+    ],
+    "steps": "1. Faire décongeler les calamars au four à micro-ondes en position décongélation. Laisser égoutter. 2. Émincer l'oignon et presser la gousse d'ail. Couper des petits tronçons de céleri. 3. Faire revenir l'oignon émincé et l'ail pressé à sec dans une poêle à revêtement antiadhésif jusqu'à ce qu'ils soient translucides. 4. Ajouter les calamars égouttés, le bouquet garni, les morceaux de céleri-branche, les tomates pelées et un peu de leur jus. Couvrir, baisser le feu et laisser mijoter 15 à 20 minutes. 5. Retirer le bouquet garni, ajuster l'assaisonnement et servir bien chaud ! 6. Bon appétit !",
+    "id": "sm26",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Daurade rôtie au sel et sa sauce vinaigrée au soja",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filet de daurade",
+        "qty": "180 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Vinaigre balsamique",
+        "qty": "5 cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sauce de soja",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Coriandre ciselée",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Préchauffer le grill du four. 2. Entailler la peau du filet de daurade et faire pénétrer le sel en massant la peau. Disposer le filet dans un plat adapté au four côté peau vers le haut et enfourner pendant 15 minutes. 3. Pendant ce temps, dans une casserole, faire réduire le vinaigre et la sauce soja jusqu'à obtenir une consistance sirupeuse. Ajouter de l'eau si la sauce vous semble trop épaisse. 4. Présenter la daurade arrosée de la sauce vinaigrée au soja et saupoudrée de coriandre ciselée. 5. Bon appétit !",
+    "id": "sm27",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Oeufs pochés",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Oeufs",
+        "qty": "2",
+        "cat": "Frais"
+      },
+      {
+        "name": "Vinaigre blanc",
+        "qty": "10 ml",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. NB : Réaliser un oeuf poché après l'autre 2. Dans une casserole assez large (type sauteuse), verser environ 1/2 l d'eau additionnée du vinaigre blanc, porter jusqu'au léger frémissement. 3. Casser l'oeuf dans une louche (type louche à soupe), le déposer avec précaution dans l'eau frémissante, enrober le jaune avec le blanc à l'aide d'une écumoire. Cuire environ 3-4 minutes. 4. Retirer l'oeuf à l'aide de l'écumoire, et le rafraîchir à l'eau fraîche afin d'ôter la saveur vinaigrée. 5. Servir sans attendre. Bon appétit !",
+    "id": "sm28",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Émincé de dinde à la provençale",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Escalope de dinde",
+        "qty": "150 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Tomates pelées au jus",
+        "qty": "100 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Olives vertes dénoyautées",
+        "qty": "12 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Paprika",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Thym déshydraté",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Origan déshydraté",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Éplucher et émincer l'oignon, couper l'escalope de dinde en morceaux réguliers et les olives en fines rondelles. 2. Couper les tomates en petits dés. 3. Faire revenir l'oignon émincé dans une poêle à revêtement antiadhésif jusqu'à ce qu'il soit translucide. Réserver et mettre à la place les morceaux de dinde, les faire dorer sur toutes les faces avec le paprika, le thym et l'origan. 4. Baisser le feu, ajouter l'oignon précuit, les dés de tomate et un peu de leur jus. Cuire pendant 5 minutes. Saler et poivrer en fin de cuisson. 5. Bon appétit !",
+    "id": "sm29",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Röstis céleri-carottes aux oignons",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Céleri-rave",
+        "qty": "150 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Carotte",
+        "qty": "150 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oeuf",
+        "qty": "1",
+        "cat": "Frais"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Curcuma",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Persil ciselé",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : curcuma = facultatif 2. Émincer l'oignon le plus finement possible. Laver, éplucher et râper les carottes et le céleri. 3. Dans un bol, mélanger le céleri, l'oignon, les carottes, l'oeuf et l'assaisonnement. 4. Faire chauffer une poêle à revêtement antiadhésif, disposer des petits tas de légumes et les aplatir légèrement à l'aide d'une spatule ou d'une cuillère. 5. Laisser cuire d'un côté jusqu'à ce que chaque tas forme une petite galette, puis les retourner et laisser dorer de l'autre côté. 6. Servir immédiatement. Bon appétit !",
+    "id": "sm30",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Purée de pommes chaudes",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Belle golden",
+        "qty": "1",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Laver et éplucher la pomme. La couper en quartiers. 2. La faire cuire à feu doux avec un peu d'eau jusqu'à formation d'une purée épaisse. 3. C'est prêt!",
+    "id": "sm31",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Langoustines sur lit de salade",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Langoustines",
+        "qty": "170 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Cœur de laitue",
+        "qty": "100 g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Jus de citron sans sucre ajouté",
+        "qty": "5 gouttes",
+        "cat": "Fruits"
+      }
+    ],
+    "steps": "1. Faire bouillir de l'eau dans une cocotte. Jeter les langoustines dans l'eau bouillante. 2. À reprise de l'ébullition, faire cuire 2 minutes puis égoutter les langoustines. 3. Laver et essorer le coeur de laitue. 4. Disposer dans une assiette le coeur de laitue taillé en lanières et les langoustines. 5. Arroser que quelques gouttes de jus de citron sans pulpe et déguster aussitôt !",
+    "id": "sm32",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Carpaccio de saumon fumé au radis noir",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Saumon fumé",
+        "qty": "40 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Citron vert le jus d’½",
+        "qty": "1",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Radis noir",
+        "qty": "85 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Baies roses concassées",
+        "qty": "3",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Aneth",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Lavez, épluchez et râpez finement le radis noir, puis répartissez-le sur une petite assiette. 2. Coupez la tranche de saumon en petits morceaux réguliers et disposez-les au centre de la rosace de radis. 3. Arrosez de jus de citron vert, saupoudrez de baies roses concassées, de poivre en grains et répartissez l'aneth. 4. Réservez au frais jusqu'au service.",
+    "id": "sm33",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Aiguillettes de canard poêlées aux airelles",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Aiguillettes de canard",
+        "qty": "100 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oignon émincé",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Airelles en conserve au naturel",
+        "qty": "50 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Miel",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Jus d'airelles (provenant du bocal)",
+        "qty": "50 ml",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Faire revenir les aiguillettes de canard à sec, dans une poêle à revêtement antiadhésif. Réserver. 2. Faire revenir l'oignon émincé dans la poêle, toujours à sec, jusqu'à ce qu'il soit translucide. 3. Baisser le feu et déglacer avec le miel, les airelles et le jus. 4. Assaisonner et laisser réduire la sauce 5 minutes environ jusqu'à obtenir une consistance sirupeuse. 5. Ajouter les aiguillettes de canard à la sauce et bien les enrober. Assaisonner à voyante convenance. 6. Servir de suite !",
+    "id": "sm34",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Dés de carottes au thym",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Carottes",
+        "qty": "300 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Branche de thym",
+        "qty": "1 petite",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Laver les carottes, les éplucher et les couper en dés. 2. Les faire cuire dans un grand volume d'eau bouillante salée ou à la vapeur pendant 10-15 minutes. Bien les égoutter. 3. Émincer l'oignon et le faire revenir à sec dans une poêle à revêtement antiadhésif jusqu'à ce qu'il soit translucide. Ajouter le thym effeuillé, les carottes et laisser colorer. 4. Assaisonner et servir bien chaud ! 5. Bon appétit !",
+    "id": "sm35",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Toast de pain d'épices au foie gras",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Pain d'épices",
+        "qty": "1 Tranche",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Foie Gras",
+        "qty": "1 Tranche",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Figue",
+        "qty": "2",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Laver les figues fraîches et les fendre en deux. récupérer la chair à l'aide d'une cuillère et réserver. 2. Toaster les 1/2 tranches de pain d'épices. 3. Disposer 1/2 tranche de foie gras sur chaque demi-toast et superposer de chair de figues. 4. Déguster de suite sur lit de salade !",
+    "id": "sm36",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Filets de sole aux morilles",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filets de sole",
+        "qty": "150 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Morilles",
+        "qty": "60 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Échalote",
+        "qty": "1/2",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Fumet de poisson",
+        "qty": "1 cc",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Vin blanc sec",
+        "qty": "75 ml",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Crème à 3% de MG",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Noix de muscade râpée",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Faire cuire le poisson à la vapeur, pendant 10 minutes. 2. Pendant ce temps, ciseler l'échalote et égoutter les morilles. 3. Faire revenir l'échalote à sec dans une poêle à revêtement antiadhésif, rajouter le fumet de poisson, le vin blanc puis la crème et les morilles bien égouttées. 4. Baisser le feu, rajouter le poisson, assaisonner et laisser épaissir la sauce pendant 2 minutes. 5. Servir bien chaud !",
+    "id": "sm37",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Salade de roquette aux herbes",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Roquette",
+        "qty": "100 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Herbes fraîches : thym, coriandre, ciboulette, basilic",
+        "qty": "1",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Ciseler les herbes, les mélanger à la roquette. 2. Enrober de la sauce prévue à votre repas, saler et servir bien frais.",
+    "id": "sm38",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Thon poêlé en croûte de pain d'épices",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Steak de thon",
+        "qty": "125 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Pain d'épices",
+        "qty": "1/2 tranche",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Moutarde",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Réduire le pain d'épices en fine chapelure. 2. Badigeonner les deux faces du thon de moutarde, puis passer dans la chapelure de pain d'épices. 3. Poêler le thon sur chaque face à sec dans une poêle à revêtement antiadhésif. L'intérieur doit être encore légèrement rosé. 4. Saler, poivrer et servir immédiatement. 5. Bon appétit !",
+    "id": "sm39",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Dés de potiron à la vapeur et trompettes de la mort",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Potiron",
+        "qty": "200 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Trompettes de la mort surgelés",
+        "qty": "50 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Noix de muscade râpée",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Éplucher le potiron, le couper en petits dés. 2. Le faire cuire à la vapeur pendant 8 minutes. Pendant ce temps, décongeler les trompettes de la mort au four à micro-ondes et éliminer l'excédent d'eau. 3. Mélanger les dés de potiron et les trompettes de la mort. Saler, poivrer et assaisonner d'une pointe de noix de muscade. 4. Bon appétit !",
+    "id": "sm40",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Noix de saint-jacques rôties aux noisettes, fondue d'échalotes",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Noix de Saint-Jacques",
+        "qty": "160 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Poudre de noisettes",
+        "qty": "8 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Echalotes",
+        "qty": "3",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Vinaigre de vin",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Persil haché",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Ciseler les échalotes. 2. Passer les deux faces de chaque noix de saint-jacques dans la poudre de noisettes. Poêler à sec quelques minutes de chaque côté dans une poêle à revêtement antiadhésif. Saler, poivrer et saupoudrer de persil. Réserver. 3. Remplacer par les échalotes ciselées, les faire revenir à sec jusqu'à ce qu'elles soient translucides, ajouter le vinaigre, le sel et le poivre en grains. 4. Servir la fondue d'échalotes entourée des noix de saint-jacques poêlées.",
+    "id": "sm41",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Poêlée forestière",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Mélange de champignons forestiers",
+        "qty": "250 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Échalote",
+        "qty": "1",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Persil ciselé",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Noix de muscade râpée",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Faire suer l'échalote ciselée finement dans une poêle antiadhésive. 2. Lorsqu'elle est translucide, rajouter les champignons, remuer constamment. 3. Saler, poivrer (poivre en grains), ajouter de la muscade râpée et le persil. 4. Servir bien chaud. Bon appétit !",
+    "id": "sm42",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Brochette de foie gras mi-cuit, pain d'épice et radis noir sur lit de mâche",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Foie gras mi-cuit",
+        "qty": "30 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Pain d'épice (45 g de pain d'épices à 1600 kcal et 60 g de pain d'épices à 1800 kcal)",
+        "qty": "30 g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Radis noir",
+        "qty": "25 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Mâche",
+        "qty": "100 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Poire",
+        "qty": "1/2",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Vinaigre balsamique",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Pics à brochettes",
+        "qty": "3",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Couper le foie gras et le pain d'épice en petits dés. 2. Peler le radis noir et le couper en fines rondelles. Peler la demi-poire, l'épépiner et la couper en dés. 3. Alterner ces ingrédients sur un pic à brochette. Assaisonner. 4. Sur assiette, dresser la mâche, les dés de poire, napper de vinaigre balsamique et déposer dessus la brochette au foie gras. 5. Bon appétit !",
+    "id": "sm43",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Velouté de chou-fleur",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Chou-fleur",
+        "qty": "150 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Eau",
+        "qty": "150 ml",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Lait écrémé",
+        "qty": "150 ml",
+        "cat": "Frais"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Persil ciselé",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Noix de muscade",
+        "qty": "1/2 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Notes : 2. - chou-fleur frais ou surgelé suivant la saison 3. - lait écrémé = demi-écrémé à 1600 et 1800 kcal 4.  5. Peler et émincer l'oignon, Laver et découper le chou-fleur en bouquets. 6. Faire revenir l'oignon à sec dans une marmite à cuisson sous pression (cocotte minute). Dès qu'il est translucide, ajouter le chou-fleur et l'eau, fermer la cocotte minute et laisser cuire 10 minutes à partir de la rotation de la soupape. 7. Mixer en ajoutant le lait, assaisonner et saupoudrer de persil. 8. Servir bien chaud !",
+    "id": "sm44",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Taboulé libanais",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Boulghour (50 g poids cru à 1600 kcal et 65 g poids cru à 1800 kcal)",
+        "qty": "30 g cru",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Persil plat",
+        "qty": "1/4 botte",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Menthe fraîche",
+        "qty": "1/7 botte",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Citron, jus de citron",
+        "qty": "1/4",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Poivron vert",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Tomate",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Mettre dans un saladier le boulghour cru et verser le jus de citron dessus. 2. Pendant que le boughour se réhydrate, laver les herbes et les légumes, les couper les plus finement possible. En faire de même avec l'oignon. Petite astuce : pour ciseler finement les herbes, servez-vous d'une paire de ciseaux ! 3. Ajouter dans le saladier les herbes, l'oignon et les légumes ciselées, saler et poivrer. 4. Servir bien frais. Bon appétit !",
+    "id": "sm45",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Moussaka grecque",
+    "time": 84,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Viande hachée de boeuf à 5% de MG",
+        "qty": "125 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Aubergine",
+        "qty": "1 petite",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Tomates",
+        "qty": "150 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Bouillon de volaille dégraissé",
+        "qty": "1/4 cube",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Fécule de maïs",
+        "qty": "10 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Lait écrémé",
+        "qty": "125 ml",
+        "cat": "Frais"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Cumin",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Cannelle",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Noix de muscade",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : lait écrémé = demi-écrémé à 1600 kcal et à 1800 kcal 2. Laver les légumes. Couper l'aubergine en fines tranches dans la longueur. Parsemer de sel et laisser dégorger 30 minutes. 3. Dans une poêle à revêtement antiadhésif, faire griller chaque tranche à sec. Réserver. 4. Dans la même poêle, faire revenir à sec l'oignon, ajouter la viande de boeuf hachée, le cumin, la cannelle. Ajouter les dés de tomates, ainsi que le cube de bouillon de volaille dégraissé. Ajouter un peu d'eau si les tomates n'en rendent pas suffisamment. 5. Préparer la béchamel diététique : délayer la fécule de maïs avec un peu de lait froid. Porter le reste de lait à ébullition, puis verser sur le premier mélange. Remettre le tout dans la casserole et porter sur le feu jusqu'à épaississement, sans cesser de remuer. Assaisonner de sel, poivre, et muscade râpée. 6. Préchauffer le four à 180ºC (th. 6). 7. Dans un plat à gratin, alterner les tranches d'aubergines et la viande en sauce. Terminer par la couche de béchamel diététique. 8. Enfourner pour 45 minutes, servir chaud.",
+    "id": "sm46",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Raïta de concombre",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Fromage blanc nature 0% de MG",
+        "qty": "100 g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Concombre",
+        "qty": "100 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Ail pressée",
+        "qty": "1/4 gousse",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Cumin en poudre",
+        "qty": "1/2 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Menthe",
+        "qty": "1 feuille",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : fromage blanc nature 0% de MG = 20% de MG à 1600 et 1800 kcal 2. Râper le concombre finement, le faire dégorger 5 minutes, puis le mélanger au fromage blanc, à l'ail, au sel et au poivre. 3. Décorer avec une feuille de menthe. 4. Réserver au frais jusqu'au service. Bon appétit !",
+    "id": "sm47",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Gambas au curry",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Citron, jus de citron",
+        "qty": "1/2",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Tomates pelées au jus",
+        "qty": "100 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Curry",
+        "qty": "3 pincées",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Gambas",
+        "qty": "160 g cru",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Curcuma",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Coriandre hachée",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Faire décongeler les gambas dans un saladier d'eau. Dès décongelées, les décortiquer. 2. Faire revenir l'ail à sec dans une poêle à revêtement antiadhésif, ajouter les épices et les gambas, faire revenir jusqu'à ce qu'elles soient roses. 3. Baisser le feu et ajouter la tomate coupée en petits morceaux, un peu de son jus, la coriandre et le jus de citron. Laisser mijoter 10 minutes. 4. Saler, poivrer. 5. Servir bien chaud. Excellent appétit !",
+    "id": "sm48",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Tajine de lotte aux fèves",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Lotte",
+        "qty": "150 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Fèves",
+        "qty": "160 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Tomates pelées au jus",
+        "qty": "200 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Huile d'olive",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Gingembre",
+        "qty": "2 pincées",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Cumin",
+        "qty": "2 pincées",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Raz-el-hanout",
+        "qty": "2 pincées",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Coriandre fraîche",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : lotte sans arêtes 2. - fèves fraîches = 240 g à 1600 kcal et 320 g à 1800 kcal 3. Couper la lotte en tronçons réguliers, la faire revenir avec les épices et l'huile d'olive dans une cocotte à revêtement antiadhésif. Colorer sur tous les côtés. 4. Sortir les morceaux de lotte, réserver et les remplacer par la gousse d'ail pressée. 5. Lorsque l'ail est devenu translucide, rajouter à nouveau les tronçons de lotte, les tomates pelées avec un peu de leur jus et les fèves décongelées préalablement au micro-ondes. 6. Couvrir et laisser mijoter à feu doux pendant 20 minutes. 7. Saupoudrer de coriandre fraîche, et servir bien chaud. Bon appétit !",
+    "id": "sm49",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Goulash de dinde",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Escalope de dinde",
+        "qty": "150 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Tomates pelées au jus",
+        "qty": "200 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Fond de volaille",
+        "qty": "1 cc",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Paprika",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Couper l'escalope de dinde en dés grossiers. Émincer l'oignon finement et presser l'ail. 2. Faire revenir les morceaux de dinde dans une casserole à revêtement antiadhésif, saupoudrer de paprika. 3. Les sortir de la casserole, réserver et les remplacer par l'oignon émincé. Le faire revenir jusqu'à ce qu'il soit translucide. 4. Rajouter à nouveau les dés de dinde, saupoudrer de fond de volaille, ajouter l'ail, les tomates et leur jus. 5. Baisser le feu, couvrir et laisser mijoter à feu doux pendant 15 minutes. 6. Servir immédiatement. Bon appétit !",
+    "id": "sm50",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Galettes de poisson à la coriandre",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filet de colin",
+        "qty": "180 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Citron vert",
+        "qty": "1/2",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Gingembre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Oeuf",
+        "qty": "1 blanc",
+        "cat": "Frais"
+      },
+      {
+        "name": "Coriandre hachée",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Presser le citron vert. 2. Émincer finement l'ail et le poisson. 3. Les mixer avec la moitié du jus de citron vert, le gingembre, la coriandre et le blanc d'oeuf. Assaisonner. 4. Former des petites galettes plates, les faire cuire à sec de chaque côté dans une poêle à revêtement antiadhésif. 5. Servir en arrosant du restant de jus de citron vert. 6. Bon appétit !",
+    "id": "sm51",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Émincé de poulet à l'orange et au sésame",
+    "time": 60,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Blanc de poulet",
+        "qty": "150 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Jus d'orange sans sucres ajoutés",
+        "qty": "150 ml pur",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Citron, jus de citron",
+        "qty": "1/2",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Sauce de soja",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Gingembre frais râpé",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Graines de sésame",
+        "qty": "2 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Couper le blanc de poulet en gros morceaux réguliers. Dans un saladier, mélanger le jus d'orange, le jus de citron, la gousse d'ail écrasée, le gingembre râpé, le poivre et la sauce soja. Ajouter les morceaux de poulet, bien les enrober et laisser mariner 30 minutes au frais. 2. Dans une poêle à revêtement antiadhésif, faire revenir les morceaux de poulet sur tous les côtés, puis ajouter la marinade et les graines de sésame. 3. Laisser réduire le jus jusqu'à obtenir une consistance sirupeuse. 4. Servir bien chaud. Bon appétit !",
+    "id": "sm52",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Brochette de roulés de cabillaud au curcuma et sésame",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filet de cabillaud",
+        "qty": "180 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Citron",
+        "qty": "1",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Curcuma",
+        "qty": "1/2 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Graines de sésame",
+        "qty": "2 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Pics à brochettes",
+        "qty": "1",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Préchauffer le four à 200 ºC (th. 6/7). 2. Couper le filet de cabillaud en 3 sur sa longueur. 3. Arroser de jus de citron. Saler et poivrer. 4. Mettre un peu de curcuma et de sésame dans une assiette plate et enrober les lanières de cabillaud sur toutes les faces. 5. Rouler les lanières et les embrocher sur le pique à brochette. 6. Cuire au four sur la plaque recouverte de papier sulfurisé pendant 10 minutes. 7. Déguster arrosé de jus de citron. 8. Bon appétit !",
+    "id": "sm53",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Sauté de boeuf au gingembre et pousses de bambou",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Rumsteck",
+        "qty": "150 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Pousses de bambou",
+        "qty": "50 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Citron, jus de citron",
+        "qty": "1/2",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Sauce de soja",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Gingembre",
+        "qty": "2 pincées",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Couper le rumsteck en fines lamelles. Presser la gousse d'ail. 2. Faire revenir les lamelles de rumsteck à sec dans une poêle à revêtement antiadhésif avec le gingembre râpé, les sortir et réserver. Les remplacer par la gousse d'ail pressée, et la faire revenir jusqu'à ce qu'elle soit translucide. 3. Rajouter à nouveau les lamelles de rumsteck, les pousses de bambou, la sauce soja et le jus de citron. Cuire pendant 5 minutes supplémentaires et servir immédiatement. Bon appétit !",
+    "id": "sm54",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Poêlée de poivrons jaunes et concombres chauds au curcuma",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Poivron jaune",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Concombre",
+        "qty": "100 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Lait de coco",
+        "qty": "2 cs",
+        "cat": "Frais"
+      },
+      {
+        "name": "Gingembre en poudre",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Curcuma",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Couper le poivron et le concombre en dés de même calibre. 2. Faire cuire les dés de poivron à sec dans une poêle antiadhésive, avec le curcuma et le gingembre en poudre, pendant 10 minutes. Au bout de 5 minutes, rajouter les dés de concombre. 3. En fin de cuisson, arrêter le feu, ajouter le lait de coco, saler, poivrer et laisser sur la plaque éteinte pendant 2 minutes. 4. Remuer puis servir. Bon appétit !",
+    "id": "sm55",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Brochette de boeuf épicé",
+    "time": 69,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Rumsteck",
+        "qty": "150 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sauce de soja",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Thym déshydraté",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Pics à brochettes",
+        "qty": "1",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Piment de Cayenne",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Couper le rumsteck en gros dés. 2. Dans un saladier, verser la sauce soja, le thym, l'ail écrasé, le piment et le poivre. Ajouter les dés de rumsteck, bien enrober et laisser mariner 30 minutes au frais. 3. Préchauffer le four à 180ºC (th. 6). 4. Piquer les dés de rumsteck sur le pic à brochettes et enfourner 15 à 20 minutes. 5. Servir immédiatement. 6. Bon appétit !",
+    "id": "sm56",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Pommes de terre au four façon « potatoes »",
+    "time": 54,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Pomme de terre",
+        "qty": "125 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Thym",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Paprika",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Huile de tournesol",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Citron, jus de citron",
+        "qty": "1/2",
+        "cat": "Fruits"
+      }
+    ],
+    "steps": "1. [*Note pour les autres kcal : pommes de terre = 185 g à 1600 kcal et 250 g à 1800 kcal] 2. Laver et brosser les pommes de terre, les couper en quartier tout en gardant la peau. 3. Les mettre dans un saladier avec le reste des ingrédients, saler et poivrer. Laisser mariner 30 minutes. 4. Préchauffer le four à 200°C (Th. 6-7). 5. Mettre les quartiers de pommes de terre et la marinade sur une plaque antiadhésive adaptée au four, en les étalant au maximum. 6. Enfourner 15 minutes, les retourner, et poursuivre la cuisson encore 15 minutes. 7. Servir de suite. Bon appétit !",
+    "id": "sm57",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Saltimbocca de veau à la sauge",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Escalope de veau",
+        "qty": "100 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Jambon de Parme dégraissé",
+        "qty": "1/2 tranche",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Sauge",
+        "qty": "3 feuilles",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Fond de volaille dégraissé",
+        "qty": "1 cc",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Cure-dents",
+        "qty": "3",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : escalope de veau très fine 2. Aplatir l'escalope de veau au maximum, la séparer en 3 morceaux de même calibre. 3. Couper la 1/2 tranche de jambon de Parme en 3, déposer sur chaque portion de veau, surmonter d'une tranche de sauge. Rouler chaque portion, piquer à l'aide d'un cure-dent. 4. Faire revenir ces saltimbocca dans une poêle à revêtement antiadhésif, sur tous les côtés, pendant 10 minutes. Ajouter un peu de sel, de poivre, le fond de veau et un fond d'eau pour déglacer la poêle. Laisser mijoter 2 à 3 minutes jusqu'à évaporation du liquide. 5. Servir immédiatement et retirer la feuille de sauge avant consommation. Bon appétit !",
+    "id": "sm58",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Poulet yassa diététique",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Blanc de poulet",
+        "qty": "150 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Citron, jus de citron",
+        "qty": "1",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Moutarde",
+        "qty": "1 cc forte",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Bouillon de volaille dégraissé",
+        "qty": "10 cl",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Harissa",
+        "qty": "1 pointe",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Émincer le poulet en morceaux réguliers. Émincer finement l'oignon et presser la gousse d'ail. 2. Faire revenir les morceaux de poulet à sec dans une poêle antiadhésive, réserver. Les remplacer par l'oignon et l'ail, cuire jusqu'à ce qu'ils soient translucides. 3. Rajouter à nouveau les morceaux de poulet, le jus de citron, le bouillon de volaille, la moutarde, un peu de harissa. 4. Baisser le feu, remuer constamment pour homogénéiser la sauce. Laisser réduire pour épaissir la sauce. Saler, poivrer. 5. Servir bien chaud. Bon appétit !",
+    "id": "sm59",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Blaff de poisson à l'oignon",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filet de colin",
+        "qty": "180 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Cube de court-bouillon pour poisson",
+        "qty": "1/2",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Citron vert",
+        "qty": "1/2",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Lait de coco",
+        "qty": "2 cs",
+        "cat": "Frais"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Émincer l'oignon finement, presser la gousse d'ail. 2. Préparer le court-bouillon et y pocher le poisson pendant 10 minutes. Bien l'égoutter. 3. Faire revenir l'oignon et l'ail dans une poêle à revêtement antiadhésif à sec, jusqu'à ce qu'ils soient translucides. 4. Ajouter le poisson, un peu de bouillon et le jus de citron vert. Laisser mijoter pendant 5 minutes. 5. Hors du feu, ajouter le lait de coco. Bien mélanger. 6. Ajuster l'assaisonnement et servir aussitôt. 7. Bon appétit !",
+    "id": "sm60",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Colombo de poulet",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Blanc de poulet",
+        "qty": "150 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Aubergine",
+        "qty": "200 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Tomates pelées au jus",
+        "qty": "100 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Citron vert",
+        "qty": "1/2",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Épices à colombo",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Couper le blanc de poulet en morceaux de calibre régulier. Éplucher l'oignon et l'émincer finement. 2. Couper les légumes en petits dés de même taille. 3. Faire revenir les morceaux de poulet à sec saupoudré d'épices à colombo, dans une poêle à revêtement antiadhésif à bords hauts. Les sortir et réserver. 4. Dans la même poêle, faire revenir l'oignon émincé jusqu' à ce qu'il soit translucide. 5. Ajouter à nouveau les morceaux de poulet, les dés de tomates et aubergines, le jus des tomates. Baisser le feu et couvrir. 6. Laisser mijoter 30 minutes. 7. En fin de cuisson, ajouter le jus de citron vert, saler et poivrer. 8. Servir de suite. Bon appétit !",
+    "id": "sm61",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Chili con carne diététique",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Viande hachée de boeuf à 5% de MG",
+        "qty": "125 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Haricots rouges en conserve",
+        "qty": "100 g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Tomates pelées au jus",
+        "qty": "200 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Bouillon de boeuf dégraissé",
+        "qty": "50 ml",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Sauce pimentée",
+        "qty": "3 gouttes",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Cumin en poudre",
+        "qty": "1/2 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Origan déshydraté",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Éplucher et émincer l'oignon et l'ail. Les faire revenir à sec dans une cocotte à revêtement antiadhésif. Ajouter la viande hachée, le cumin, l'origan, la sauce pimentée et faire revenir en remuant constamment. 2. Baisser le feu, ajouter le bouillon, les tomates coupées en dés et leur jus. Terminer par les haricots rouges (150 g à 1600 kcal et 200 g à 1800 kcal). 3. Couvrir et laisser mijoter 30 minutes à feux doux. 4. Bon Appétit !",
+    "id": "sm62",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Taco garni",
+    "time": 60,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Taco",
+        "qty": "1",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Coulis de tomates nature",
+        "qty": "4 cs",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Céleri-branche",
+        "qty": "3 cm",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Viande hachée de boeuf à 5% de MG",
+        "qty": "125 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Tomate",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Laitue",
+        "qty": "4 feuilles",
+        "cat": "Frais"
+      },
+      {
+        "name": "Sauce pimentée",
+        "qty": "4 gouttes",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Épices",
+        "qty": "1 mexicaines",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Fromage pour burger",
+        "qty": "1 tranche",
+        "cat": "Frais"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Émincer l'oignon et tous les légumes, le plus finement possible. 2. Préchauffer le grill du four. 3. Faire revenir l'oignon émincé dans une poêle à revêtement antiadhésif, ajouter la viande de boeuf hachée, les épices mexicaines. Lorsque la préparation commence à dorer, ajouter un peu de coulis de tomate, le céleri-branche émincé et la sauce pimentée. Saler, poivrer. 4. Garnir le tacos de laitue émincée, de tomate, de céleri-branche, de préparation à base de boeuf et terminer par la tranche de fromage. 5. Passer le taco quelques minutes sous le grill, le temps que le fromage puisse fondre. 6. Servir immédiatement avec un accompagnement de légumes !",
+    "id": "sm63",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Mole poblano (poulet au cacao)",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Escalope de poulet",
+        "qty": "150 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Bouillon de volaille dégraissé",
+        "qty": "1/2 cube",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Tomates pelées au jus",
+        "qty": "200 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Raisins secs",
+        "qty": "15 g",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Poudre d'amandes",
+        "qty": "8 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Poudre de cacao maigre non sucré",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Graines de sésame",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Coriandre en poudre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Clou de girofle",
+        "qty": "1",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Cannelle",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Émincer le blanc de poulet en morceaux de même calibre. Émincer finement l'oignon et presser la gousse d'ail. 2. Dans une cocotte à revêtement antiadhésif, faire revenir les morceaux de poulet à sec avec les épices. Les sortir et réserver. Les remplacer par l'ail et l'oignon émincé, les faire cuire jusqu'à' à ce qu'ils soient translucides. 3. Rajouter les morceaux de poulet, les raisins secs, les tomates et leur jus, le cube de bouillon de volaille dégraissé. Baisser le feu, couvrir et laisser mijoter 20 minutes. 4. En fin de cuisson, enlever le couvercle, laisser réduire la sauce pour évaporer un peu de jus, ajouter la poudre d'amandes, les graines de sésame, et le cacao. 5. Bien mélanger, homogénéiser la sauce. Saler, poivrer. 6. Servir. Bon appétit !",
+    "id": "sm64",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Filet de merlan au coulis de tomate et herbes",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filet de merlan",
+        "qty": "180 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Tomates",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Persil haché",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Thym",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Laver les tomates puis les monder pour les éplucher. Les couper en 2 et les épépiner. Faire cuire la chair des tomates 3 min au micro-ondes avec l'ail écrasé et les oignons émincés. 2. Verser les tomates cuites dans le bol du mixeur avec le thym, le persil, le sel et le poivre. Mixer. 3. Faire cuire le filet de merlan 2 min 30 sec au micro-ondes sur un plat couvert. Servir immédiatement avec le coulis dessus.",
+    "id": "sm65",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Tian de légumes du soleil",
+    "time": 60,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Tomate",
+        "qty": "1 bien mûre",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Aubergine",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Courgette",
+        "qty": "1 petite",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Thym",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Préchauffer le four à 150°C (th. 5). 2. Éplucher la gousse d'ail et la fendre en deux. Frotter un plat à gratin avec cette gousse d'ail. 3. Couper la tomate, la courgette et l'aubergine en lamelles fines. 4. Disposer les rondelles de légumes en alternance dans un plat. 5. Couper la gousse d'ail en fines lamelles et les intercaler entre les rondelles de légumes. 6. Saler, poivrer, parsemer de thym et enfourner 30 minutes. 7. Bon appétit !",
+    "id": "sm66",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Lapin aux pruneaux",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Carotte",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Cuisse de lapin",
+        "qty": "1",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Champignons de Paris",
+        "qty": "200 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Vin rouge",
+        "qty": "40 ml",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Bouillon de volaille dégraissé",
+        "qty": "1/4 cube",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Pruneaux dénoyautés",
+        "qty": "20 g",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Thym",
+        "qty": "1 branche",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Laurier",
+        "qty": "1 feuille",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Éplucher la carotte et la couper en fines rondelles, émincer l'oignon et les faire revenir ensemble, à sec, dans l'autocuiseur. 2. Ajouter la cuisse de lapin et la retourner pour la faire dorer de chaque côté. 3. Ajouter les champignons et verser le vin. Émietter le cube de bouillon. 4. Ajouter les pruneaux entiers, le poivre, le thym et le laurier. 5. Fermer l'autocuiseur et laisser cuire doucement pendant 15 minutes.",
+    "id": "sm67",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Galette de sarrasin jambon-fromage-tomates",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Galette de sarrasin",
+        "qty": "1",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Jambon blanc découenné dégraissé",
+        "qty": "130 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Emmental râpé",
+        "qty": "20 g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Tomates",
+        "qty": "2",
+        "cat": "Legumes"
+      }
+    ],
+    "steps": "1. 1 galette de sarrasin 2. 130 g de jambon blanc découenné dégraissé 3. 20 g d'emmental râpé 4. 2 tomates",
+    "id": "sm68",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Taboulé",
+    "time": 54,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Eau",
+        "qty": "5 cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Citron, jus de citron",
+        "qty": "3 cl",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Tomate",
+        "qty": "1 pelée",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Basilic haché",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Menthe",
+        "qty": "1 cc hachée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Semoule de couscous type moyen (50 g poids cru à 1600 kcal et 65 g poids cru à 1800 kcal)",
+        "qty": "30 g crus",
+        "cat": "Poissons"
+      }
+    ],
+    "steps": "1. Dans un grand saladier cuire la semoule comme indiquée que le paquet en rajoutant le jus de citron et la moitié de la menthe. Laisser reposer pendant 35 minutes. 2. Pendant ce temps, couper la tomate dans une casserole, ajouter l'oignon émincé et le reste des herbes. 3. Laisser réduire à feu doux durant environ 15 minutes jusqu'à ce qu'il n'y ait plus de morceaux de tomates. Saler et poivrer. 4. Ajouter la sauce tomate à la semoule et bien mélanger. 5. Servir bien frais !",
+    "id": "sm69",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Tomates à la provençale",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Tomates",
+        "qty": "3",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Herbes de Provence",
+        "qty": "6 pincées",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Fleur de sel",
+        "qty": "1",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : tomates fraîches ou 240 g de tomates pelées au jus selon la saison 2. Laver et couper en deux les tomates. 3. Les placer dans une poêle à revêtement antiadhésif à sec, côté chair pour les saisir rapidement puis côté peau. Faire chauffer à feu très doux. Pour celles en conserve, réchauffer les tomates avec 2 CàS de jus, celles-ci étant déjà cuites. 4. Vers la fin de la cuisson, saupoudrer d'herbes de Provence et de fleur de sel. 5. Servir immédiatement avec votre accompagnement !",
+    "id": "sm70",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Poêlée forestière aux châtaignes",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Mélange de champignons forestiers",
+        "qty": "300 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Châtaignes",
+        "qty": "75 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Échalote",
+        "qty": "1",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Persil ciselé",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Noix de muscade râpée",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : 2. - mélange de champignons forestiers sans matières grasses (surgelés) 3. - pour les autres kcal : châtaignes cuites sous vide ou en conserve = 110 g à 1600 kcal, 150 g à 1800 kcal 4. Faire décongeler les champignons dans un plat adapté au micro-ondes, 1 minute avant la fin de décongélation, rajouter les châtaignes si elles sont sous-vide. 5. Pendant ce temps, faire revenir l'échalote ciselée finement dans une poêle antiadhésive. 6. Lorsqu'elle est translucide, rajouter les champignons et les châtaignes, remuer constamment. 7. Saler, poivrer, ajouter de la muscade râpée et une bonne poignée de persil. 8. Servir bien chaud. Bon appétit !",
+    "id": "sm71",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Oeufs mimosa diététiques",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Oeufs",
+        "qty": "2",
+        "cat": "Frais"
+      },
+      {
+        "name": "Petit-suisse nature 0% de MG (20% de MG à partir de 1600 kcal)",
+        "qty": "1",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Citron, jus de citron",
+        "qty": "2 gouttes",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Ciboulette ciselée",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Faites cuire les oeufs dans de l'eau frémissante pendant 10 à 12 minutes environ (départ en eau froide pour éviter l'éclatement de la coquille), afin d'obtenir des oeufs durs. 2. Emincez finement l'oignon. 3. Mélangez avec le petit-suisse et la ciboulette. Salez poivrez, ajoutez le jus de citron. 4. Refroidissez les oeufs durs sous un jet d'eau froide, puis écalez-les. 5. Coupez-les en deux dans le sens de la longueur, enlevez les jaunes, écrasezles à la fourchette dans le mélange au petit-suisse. 6. Farcissez chaque demi-blanc d'oeuf dur avec cette préparation. Servez bien frais !",
+    "id": "sm72",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Pierrade marine",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filet de merlan",
+        "qty": "50 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Noix de Saint-Jacques",
+        "qty": "50 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Filet de saumon",
+        "qty": "50 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Champignons de Paris",
+        "qty": "100 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Poivron vert",
+        "qty": "100 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Citron",
+        "qty": "1",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Découper les poissons en fines lamelles (à demander au poissonnier), couper les noix de saint-jacques transversalement, en 2 ou 3. Émincer finement les champignons de Paris, couper les poivrons en fines rondelles. 2. Faire chauffer la pierrade au centre de la table, saupoudrer de sel. Y mettre à griller les lamelles des poissons et les noix de St Jacques, en faire de même avec les légumes tranchés. 3. A déguster saupoudrés de poivre et arrosés de jus de citron.",
+    "id": "sm73",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Tagliatelles aux fruits de mer et aux courgettes",
+    "time": 60,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Tagliatelle",
+        "qty": "30 g cru",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Cocktail de fruits de mer",
+        "qty": "160 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Courgette",
+        "qty": "250 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Huile d'olive",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Persil haché",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : tagliatelles = 50 g poids cru à 1600 kcal et 65 g poids cru à 1800 kcal 2. Faire cuire les tagliatelle à l'eau bouillante salée le temps indiqué sur le paquet. 3. Pendant ce temps, faire décongeler les fruits de mer à sec dans une poêle à revêtement antiadhésif. 4. Laver les courgettes puis couper les extrémités. Prendre l'économe pour ensuite faire des lamelles de courgettes. 5. Lorsque les fruits de mer sont décongelés, rajouter dans la poêle les lamelles de courgettes, l'huile d'olive et l'ail écrasé. 6. Laisser mijoter quelques minutes puis assaisonner. 7. Disposer les tagliatelles dans l'assiette et répartir le mélange courgettes-fruits de mer sur le dessus. Servir bien chaud.",
+    "id": "sm74",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Salade de poivrons",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Poivron vert",
+        "qty": "1/2 petit",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Poivron rouge",
+        "qty": "1/2 petit",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Persil haché",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Laver les poivrons, les couper en deux, ôter la tige et les membranes blanches, puis ciseler l'oignon le plus finement possible. 2. Émincer les poivrons en fines lanières, rajouter l'oignon, le persil, assaisonner et enrober de la vinaigrette allégée maison si elle est prévue à votre repas (c.f. recettes Savoir Maigrir). 3. Servir immédiatement. 4. Bon appétit !",
+    "id": "sm75",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Cassolette de moules au curcuma",
+    "time": 60,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Moules décoquillées",
+        "qty": "130 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Céleri-branche",
+        "qty": "5 cm",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Curcuma",
+        "qty": "1/2 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Fécule de maïs",
+        "qty": "10 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Échalote",
+        "qty": "1/2",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Persil ciselé",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Lait écrémé (demi-écrémé à 1600 et 1800 kcal)",
+        "qty": "150 ml",
+        "cat": "Frais"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Préchauffer le four à 210ºC (th. 7). 2. Éplucher l'échalote et la ciseler finement. La faire revenir à sec dans une poêle à revêtement antiadhésif jusqu'à ce qu'elle soit translucide. Couper le céleri-branche en petits tronçons. 3. Décongeler les moules au four à micro-ondes en ajoutant les petits tronçons de céleri-branche à « mi-cuisson ». 4. Délayer la fécule de maïs dans le lait froid. Porter sur le feu sans cesser de remuer jusqu'à épaississement. Assaisonner et ajouter le curcuma. 5. Mélanger l'échalote précuite, les moules décongelées et les tronçons de céleri-branche, puis les disposer dans une cassolette. 6. Napper de sauce et saupoudrer de persil haché. Enfourner pendant 15 minutes. 7. Servir à la sortie du four ! 8. Bon appétit !",
+    "id": "sm76",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Tartiflette diététique aux courgettes",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Jambon blanc découenné dégraissé",
+        "qty": "130 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Courgettes",
+        "qty": "200 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Cancoillotte",
+        "qty": "60 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      }
+    ],
+    "steps": "1. 130 g de jambon blanc découenné dégraissé 2. 200 g de courgettes 3. 60 g de cancoillotte 4. 1/2 oignon 5. Sel, poivre",
+    "id": "sm77",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Oeufs cocotte au bacon",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Oeufs",
+        "qty": "2",
+        "cat": "Frais"
+      },
+      {
+        "name": "Crème à 15% de MG",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Filets de bacon",
+        "qty": "20 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Ciboulette ciselée",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Préchauffer le four à 180ºC (th. 6). 2. Émincer le bacon en petits dés. Mélanger la crème, le bacon, la ciboulette et assaisonner. 3. Prendre 2 petits ramequins individuels. Répartir l'appareil à base de bacon et crème dans chaque ramequin, puis disposer par-dessus l'oeuf cassé délicatement. 4. Enfourner pendant 8 à 10 minutes. 5. Servir immédiatement.",
+    "id": "sm78",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Potage orangé",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Potiron",
+        "qty": "100 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Carotte",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Orange",
+        "qty": "1",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Curcuma",
+        "qty": "1/2 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Persil ciselé",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Laver les légumes, les éplucher et les couper en gros morceaux. Les faire cuire à la marmite à cuisson sous pression (cocotte minute) pendant 10 minutes à partir de la rotation de la soupape. 2. Pendant ce temps, émincer l'oignon finement et presser l'orange. 3. Porter à ébullition 200 ml d'eau, rajouter les légumes cuits, l'oignon émincé et le jus d'orange puis mixer jusqu'à obtenir la consistance d'un potage. 4. Assaisonner de sel, poivre et curcuma. 5. Décorer de persil et servir bien chaud !",
+    "id": "sm79",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Boulettes de boeuf au four",
+    "time": 60,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Viande hachée de boeuf à 5% de MG",
+        "qty": "125 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oeuf",
+        "qty": "1 battu",
+        "cat": "Frais"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Coulis de tomates nature",
+        "qty": "100 ml",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Persil ciselé",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Noix de muscade râpée",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Gingembre en poudre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Clou de girofle moulu",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Préchauffer le four à 175°C (th.6). 2. Émincer finement l'oignon. Mélanger de façon homogène avec l'oeuf battu, la viande de boeuf, les épices, le sel et le poivre en grains. 3. Former des petites boulettes et les faire cuire à feu vif dans une poêle à revêtement antiadhésif à sec en les faisant rouler afin qu'elles soient bien dorées de tous les côtés. 4. Les déposer dans un plat allant au four recouvert de papier sulfurisé. Napper de coulis de tomates et enfourner 15 minutes environ. 5. Servir bien chaud décoré de persil ciselé.",
+    "id": "sm80",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Croustillant au thon, à l'oeuf et aux câpres",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Feuilles de brick",
+        "qty": "2",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Thon en conserve au naturel",
+        "qty": "65 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Oeuf",
+        "qty": "1",
+        "cat": "Frais"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Câpres",
+        "qty": "5",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Persil ciselé",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Curry",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Huile d'olive",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Papier sulfurisé",
+        "qty": "1",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Préchauffer le four à 180 °C (th. 6). 2. Égoutter et émietter le thon. 3. Éplucher l'oignon et l'émincer finement. Le mélanger avec le thon égoutté, l'oeuf battu, les câpres et le persil. Assaisonner. 4. Superposer les feuilles de brick, les badigeonner d'huile d'olive à l'aide d'un pinceau. 5. Disposer la garniture au centre des feuilles de brick, badigeonner les bords d'un peu d'eau tiède et les plier en triangle. 6. Disposer le croustillant sur la plaque du four recouverte de papier sulfurisé et enfourner 10 à 15 minutes jusqu'à ce qu'elle soit bien dorée. 7. Bon appétit !",
+    "id": "sm81",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Pâté de foie de volaille",
+    "time": 54,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Foies de volaille",
+        "qty": "90 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Petit-suisse nature 0% de MG",
+        "qty": "2",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Échalote",
+        "qty": "1/2",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Persil ciselé",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Cognac",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Noix de muscade",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note: autres kcals - petits-suisses nature 0 % de MG = 20% de MG à 1600 kcal et à 1800 kcal, cognac = facultatif 2. Faire revenir les foies de volaille dénervés et nettoyés et l'échalote ciselée dans une poêle antiadhésive. 3. Flamber éventuellement avec le cognac (opération facultative). 4. Mixer ensemble les foies de volaille, l'échalote, le persil, les petits suisses et l'assaisonnement. 5. Mettre dans un ramequin et disposer au réfrigérateur toute une nuit. 6. Servir bien frais.",
+    "id": "sm82",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Terrine de cabillaud au curry",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filet de cabillaud",
+        "qty": "100 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Oeuf",
+        "qty": "1",
+        "cat": "Frais"
+      },
+      {
+        "name": "Fromage blanc nature 0% de MG",
+        "qty": "100",
+        "cat": "Frais"
+      },
+      {
+        "name": "Échalote",
+        "qty": "1/2",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Curry",
+        "qty": "2 pincées",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Ciboulette ciselée",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Note : fromage blanc nature 0% de MG = 20% de MG à 1600 et 1800 kcal) 2. Préchauffer le four à 190ºC (th. 6-7). 3. Éplucher et couper grossièrement l'échalote. 4. Mixer par petites impulsions le cabillaud, l'échalote, la ciboulette, le fromage blanc, l'oeuf, le sel, le poivre et le curry. 5. Recouvrir un ramequin de papier sulfurisé. 6. Verser l'appareil dans le ramequin, le disposer dans un bain-marie et enfourner 30 minutes (la surface ne doit pas se dessécher). 7. Sortir le ramequin du bain-marie, démouler la terrine de poisson et la servir immédiatement, accompagnée selon vos goûts d'un coulis de tomate froid. 8. Bon appétit !",
+    "id": "sm83",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Lasagnes vertes au poisson",
+    "time": 60,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Feuilles de blettes",
+        "qty": "3 grandes",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Filet de lieu noir",
+        "qty": "180 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Champignons de Paris",
+        "qty": "150 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Lait écrémé (demi-écrémé à 1600 et 1800 kcal)",
+        "qty": "150 ml",
+        "cat": "Frais"
+      },
+      {
+        "name": "Fécule de maïs",
+        "qty": "10 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Câpres",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Noix de muscade râpée",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Laver les feuilles de blettes, couper les nervures centrales. Les blanchir environ 1 minute à l'eau bouillante salée, les plonger aussitôt dans de l'eau glacée. Bien égoutter. 2. Essuyer les champignons à l'aide de papier absorbant après avoir coupé leur pied. Les émincer finement. Ciseler l'oignon finement, puis le faire revenir dans une poêle à revêtement antiadhésif jusqu'à ce qu'il soit translucide. Ajouter les champignons émincés. 3. Dès que l'eau de constitution des légumes s'est évaporée, ajouter le filet de lieu noir et les câpres. 4. L'émietter grossièrement dans la poêle à l'aide d'une cuillère en bois. Laisser cuire 5 minutes et assaisonner. 5. Pendant ce temps, réaliser une sauce béchamel diététique : délayer la fécule de maïs dans un peu de lait froid. Puis, porter à ébullition le restant de lait. Le verser sur le mélange fécule-lait, bien mélanger, remettre sur le feu pour épaissir, en remuant constamment. Saler, poivrer et ajouter la muscade. 6. Préchauffer le four à 200°C (th. 6-7). Dans un plat à gratin, superposer deux feuilles de blettes bien sèches. Étaler une fine couche de béchamel diététique, ajouter la garniture de poisson, un peu de béchamel diététique, fermer par la feuille de blette restante, en rabattant les bords en-dessous. 7. Étaler le restant de béchamel sur le dessus, enfourner pendant 15 minutes. 8. Faire gratiner sous le gril les 5 dernières minutes.",
+    "id": "sm84",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Salade chaude de surimi à l'armoricaine",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Bâtonnets de surimi",
+        "qty": "8",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Concentré de tomate",
+        "qty": "1 cc",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Échalote",
+        "qty": "1/2",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Lait écrémé",
+        "qty": "150 ml",
+        "cat": "Frais"
+      },
+      {
+        "name": "Sauce pimentée",
+        "qty": "1",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Persil haché",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : lait écrémé = demi-écrémé pour le 1600 kcal et 1800 kcal 2. Émietter le surimi dans le sens de la longueur. 3. Peler et ciseler l'échalote, la faire revenir à sec dans une poêle à revêtement antiadhésif. Ajouter le surimi émietté. 4. Diluer le concentré de tomate dans le lait, ajouter la sauce pimentée et verser ce mélange dans la poêle. Couvrir, baisser le feu et laisser mijoter 5 minutes. 5. Assaisonner et parsemer de persil. Servir tiède.",
+    "id": "sm85",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Sandwich nordique",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Concombre",
+        "qty": "200 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Saumon fumé",
+        "qty": "80 g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Fromage allégé au chèvre",
+        "qty": "2 portions",
+        "cat": "Frais"
+      },
+      {
+        "name": "Citron, jus de citron",
+        "qty": "1/4",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Graines de sésame",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : portions individuelles de fromage allégé au chèvre 2. Laver le concombre et l'éplucher. Le couper en deux dans la longueur, creuser le centre pour enlever les graines. 3. Mélanger le jus de citron au fromage. Assaisonner. 4. Étaler cette garniture à l'intérieur de chaque moitié de concombre, disposer les tranches de saumon dessus. Rassembler les deux moitiés pour former un «sandwich». Le rouler dans les graines de sésame. 5. Réserver au frais jusqu'au service. Bon appétit !",
+    "id": "sm86",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Brochettes de tofu à la provençale",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Tofu",
+        "qty": "120 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Tomates cerises",
+        "qty": "100 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Courgettes",
+        "qty": "150 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "2 petits",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1 pressée",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Sauce de soja",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Vinaigre au choix",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Herbes de Provence",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Pics à brochettes",
+        "qty": "3",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Préchauffer le four à 180°C (th. 6). 2. Couper le tofu en gros cubes réguliers. 3. Dans un saladier, mélanger la sauce soja, le vinaigre de cidre, le herbes de Provence et l'ail. Ajouter les dés de tofu et bien mélanger afin de les enrober. 4. Laver les tomates et les oignons. Brosser la courgette et la couper en cubes de la même taille que ceux de tofu. 5. Sur les pics à brochettes, alterner les dés de tofu et les légumes. 6. Disposer sur la plaque du four recouverte de papier sulfurisé et enfourner 20 minutes. 7. Bon appétit !",
+    "id": "sm87",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Sarrasin forestier au tamari",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Sarrasin",
+        "qty": "30 g cru",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Gousse d'ail",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Champignons de Paris",
+        "qty": "100 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Carotte",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Persil haché",
+        "qty": "2 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Tamari",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Thym",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : sarrasin = 50 g à 1600 kcal, 65 g à 1800 kcal 2. - tamari ou sauce soja 3. Dans un faitout à revêtement antiadhésif, faites revenir l'oignon et l'ail émincés. Ajoutez le sarrasin, la carotte coupée en rondelles, les champignons et la pincée de thym. Couvrez avec 600 ml d'eau. Faire cuire environ 20 min à feu doux et à couvert. Hors du feu, ajoutez le tamari et parsemez le persil haché. 4. Servez avec un peu de tempeh sauté et des crudités.",
+    "id": "sm88",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Sauté de veau",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Blanquette de veau dégraissée",
+        "qty": "125 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Concentré de tomate",
+        "qty": "1 cs",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Huile de tournesol",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Eau",
+        "qty": "10 cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sel et poivre en grains",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Peler et émincer l'oignon. Découper des cubes dans la blanquette de veau ou demander au boucher de les préparer. 2. Faire revenir les cubes de veau dans une poêle à revêtement antiadhésif avec un peu d'huile. Ajouter l'oignon. 3. Continuer la cuisson pendant 3 minutes. 4. Verser le concentré de tomate et l'eau. Saler et poivrer. 5. Laisser mijoter pendant 15 minutes. Servir aussitôt.",
+    "id": "sm89",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Salade de champignons",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Champignons de Paris",
+        "qty": "150 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Ciboulette ciselée",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Moutarde",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Citron, jus de citron",
+        "qty": "1",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Yaourt nature à 0% de MG",
+        "qty": "1/2",
+        "cat": "Frais"
+      },
+      {
+        "name": "Sel et poivre",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note: yaourt nature 0% de MG = à base de lait demi-écrémé à 1600 et 1800 kcal 2. Laver et couper les champignons en fines lamelles, arroser les du jus de citron. 3. Mélanger le yaourt, la moutarde, la ciboulette, le sel, le poivre, bien mélanger. 4. Assaisonner les champignons et servir bien frais.",
+    "id": "sm90",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Salade d'épis de maïs",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Épis de maïs miniatures",
+        "qty": "1 pt bocal",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Poivron rouge",
+        "qty": "1/4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Vinaigre de vin",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Persil ciselé",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. *Note : pt bocal = petit bocal 2. Egoutter et rincer les épis de maïs miniatures. 3. Couper les épis de maïs en deux. 4. Les déposer dans un saladier avec le poivrons épépiné et coupé en lanières . 5. Ajouter le vinaigre, le persil, saler et poivrer. 6. Servir bien frais !",
+    "id": "sm91",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Carottes façon grand-mère",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Carottes",
+        "qty": "300 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Allumettes de jambon blanc fumé",
+        "qty": "65 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Persil ciselé",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Laver et couper les carottes en rondelles. 2. Peler et émincer l'oignon, puis le faire revenir dans le fond d'une casserole à revêtement antiadhésif à sec. 3. Ajouter les carottes et un fond d'eau, puis poursuivre la cuisson à l'étouffée environ 20 minutes. 4. A mi-cuisson, ajouter le persil et les allumettes. Ajuster l'assaisonnement. 5. Servir bien chaud. Bon appétit !",
+    "id": "sm92",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Clafoutis de brocoli et jambon fumé",
+    "time": 45,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Oeufs",
+        "qty": "2",
+        "cat": "Frais"
+      },
+      {
+        "name": "Allumettes de jambon blanc fumé",
+        "qty": "50 g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Brocoli en fleurettes",
+        "qty": "200 g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Fécule de maïs",
+        "qty": "10 g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Lait écrémé (demi-écrémé à 1600 et 1800 kcal)",
+        "qty": "75 ml",
+        "cat": "Frais"
+      },
+      {
+        "name": "Crème à 3% de MG",
+        "qty": "3 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Estragon ciselé",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Préchauffer le four à 180ºC (th. 6). 2. Battre les oeufs en omelette en ajoutant lentement la fécule de maïs, le lait et la crème fraîche. Ajouter les allumettes. Mélanger, poivrer et saler. 3. Dans une poêle à revêtement antiadhésif, faire revenir l'oignon, puis ajouter les fleurettes de brocoli. Ajouter un fond d'eau, laisser cuire 10 minutes en remuant de temps en temps. 4. Verser la préparation aux oeufs dans un ramequin ou une cassolette allant au four, puis répartir les fleurettes de brocoli. 5. Enfourner 20 minutes et déguster tiède ou bien refroidi selon votre préférence. 6. Bon appétit !",
+    "id": "sm93",
+    "source": "savoir-maigrir"
+  },
+  {
+    "name": "Céleri rémoulade diététique",
+    "time": 30,
+    "servings": 1,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Céleri-rave",
+        "qty": "125 g râpé",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Fromage blanc nature 0% de MG (20% de MG à 1600 et 1800 kcal)",
+        "qty": "100 g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Citron, jus de citron",
+        "qty": "1/2",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Moutarde",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Noix de muscade râpée",
+        "qty": "1 pincée",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Arroser le céleri-rave râpé de jus de citron. 2. Mélanger le fromage blanc avec la moutarde et la noix de muscade râpée. 3. Ajuster l'assaisonnement. 4. Enrober le céleri de cette sauce. 5. Réserver au frais jusqu'au service. 6. Bon appétit !",
+    "id": "sm94",
+    "source": "savoir-maigrir"
+  }
+]
