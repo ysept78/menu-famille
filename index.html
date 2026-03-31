@@ -395,9 +395,12 @@ nav button.active {
       <div class="week-selector" id="weekSelector"></div>
     </div>
     <div class="print-actions">
-      <button class="btn btn-primary btn-sm" onclick="printList()">Imprimer la liste</button>
+      <button class="btn btn-sm" id="viewByCat" onclick="setShoppingView('category')" style="background:var(--primary);color:white">Par categorie</button>
+      <button class="btn btn-outline btn-sm" id="viewByRecipe" onclick="setShoppingView('recipe')">Par recette</button>
+      <span style="flex:1"></span>
+      <button class="btn btn-primary btn-sm" onclick="printList()">Imprimer</button>
       <button class="btn btn-outline btn-sm" onclick="uncheckAll()">Tout decocher</button>
-      <button class="btn btn-danger btn-sm" onclick="clearChecked()">Supprimer les coches</button>
+      <button class="btn btn-danger btn-sm" onclick="clearChecked()">Supprimer coches</button>
     </div>
     <div id="shoppingContent"></div>
     <div class="card">
@@ -458,123 +461,123 @@ const DEFAULT_RECIPES = [
   // Poulet / Dinde
   {id:'e1',name:'Poulet grille, patate douce et brocolis',category:'Plat',type:'equilibre',difficulty:'facile',time:30,
     ingredients:[{name:'Blancs de poulet',qty:'4',cat:'Viandes'},{name:'Patates douces',qty:'600g',cat:'Legumes'},{name:'Brocolis',qty:'1 tete',cat:'Legumes'},{name:'Huile olive',qty:'2 cs',cat:'Epicerie'},{name:'Paprika',qty:'',cat:'Epicerie'}],
-    steps:'Couper patates douces en cubes, enfourner 200C 20min avec huile et paprika. Griller les blancs de poulet a la poele 6min/face. Cuire brocolis vapeur 8min. Servir ensemble.'},
+    steps:'1. Prechauffer le four a 200°C. 2. Eplucher les patates douces et les couper en cubes de 2cm. Les disposer sur une plaque avec huile d\'olive et paprika, melanger. Enfourner 20-25min en retournant a mi-cuisson. 3. Pendant ce temps, assaisonner les blancs de poulet (sel, poivre, paprika). Les griller a la poele bien chaude avec un filet d\'huile, 6min par face. Laisser reposer 2min avant de trancher. 4. Cuire les brocolis a la vapeur 8-10min (ils doivent rester legèrement croquants). 5. Dresser l\'assiette : patates douces, poulet tranche, brocolis. Arroser d\'un filet d\'huile d\'olive.'},
   {id:'e2',name:'Emince de dinde aux legumes et riz complet',category:'Plat',type:'equilibre',difficulty:'facile',time:25,
     ingredients:[{name:'Emince de dinde',qty:'500g',cat:'Viandes'},{name:'Riz complet',qty:'300g',cat:'Feculents'},{name:'Courgettes',qty:'2',cat:'Legumes'},{name:'Poivrons',qty:'2',cat:'Legumes'},{name:'Sauce soja',qty:'3 cs',cat:'Epicerie'},{name:'Ail',qty:'2 gousses',cat:'Legumes'},{name:'Huile olive',qty:'',cat:'Epicerie'}],
-    steps:'Cuire le riz complet (25min). Faire sauter la dinde emincee a feu vif. Ajouter legumes coupes en laniere, ail, sauce soja. Cuire 8min en remuant. Servir sur le riz.'},
+    steps:'1. Rincer le riz complet et le cuire dans 2 volumes d\'eau salee pendant 25min. Egoutter. 2. Couper les courgettes et poivrons en fines lanieres. Emincer l\'ail. 3. Dans un wok ou grande poele tres chaude, faire sauter la dinde emincee avec un filet d\'huile 3-4min. Reserver. 4. Dans la meme poele, faire sauter les legumes 5min a feu vif (ils doivent rester croquants). Ajouter l\'ail, cuire 1min. 5. Remettre la dinde, ajouter la sauce soja, melanger 2min. 6. Servir les legumes et dinde sur le riz complet.'},
   {id:'e3',name:'Poulet curry, lentilles corail et epinards',category:'Plat',type:'equilibre',difficulty:'facile',time:25,
     ingredients:[{name:'Blancs de poulet',qty:'4',cat:'Viandes'},{name:'Lentilles corail',qty:'250g',cat:'Feculents'},{name:'Epinards frais',qty:'200g',cat:'Legumes'},{name:'Lait de coco',qty:'20cl',cat:'Epicerie'},{name:'Curry',qty:'2 cc',cat:'Epicerie'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Tomates concassees',qty:'400g',cat:'Conserves'}],
-    steps:'Faire revenir oignon et poulet coupe en morceaux avec le curry. Ajouter tomates et lentilles. Couvrir d eau, cuire 15min. Ajouter lait de coco et epinards en fin. Servir tel quel ou avec un peu de riz.'},
+    steps:'1. Couper les blancs de poulet en cubes de 3cm. Emincer l\'oignon. 2. Faire chauffer l\'huile dans une cocotte. Faire revenir l\'oignon 3min, puis ajouter le poulet. Faire dorer 4-5min. 3. Ajouter le curry, melanger 1min pour liberer les aromes. 4. Verser les tomates concassees, les lentilles corail et 30cl d\'eau. Porter a ebullition puis baisser le feu. 5. Couvrir et laisser mijoter 15min en remuant de temps en temps (les lentilles doivent etre fondantes). 6. Ajouter le lait de coco et les epinards frais. Melanger 2-3min jusqu\'a ce que les epinards soient tombes. 7. Rectifier l\'assaisonnement. Servir tel quel ou avec du riz basmati.'},
   {id:'e4',name:'Wok de poulet, nouilles et legumes croquants',category:'Plat',type:'equilibre',difficulty:'facile',time:20,
     ingredients:[{name:'Blancs de poulet',qty:'400g',cat:'Viandes'},{name:'Nouilles chinoises',qty:'300g',cat:'Feculents'},{name:'Carottes',qty:'2',cat:'Legumes'},{name:'Chou chinois',qty:'1/2',cat:'Legumes'},{name:'Sauce soja',qty:'4 cs',cat:'Epicerie'},{name:'Huile sesame',qty:'1 cs',cat:'Epicerie'},{name:'Gingembre frais',qty:'1 morceau',cat:'Legumes'}],
-    steps:'Cuire les nouilles. Emincer poulet et legumes. Saisir le poulet a feu vif, reserver. Faire sauter les legumes 3min. Ajouter nouilles, poulet, soja, sesame, gingembre rape. Melanger 2min.'},
+    steps:'1. Cuire les nouilles chinoises selon les indications du paquet. Egoutter et reserver. 2. Couper le poulet en fines lanieres. Emincer les carottes en julienne et le chou chinois en lanieres. Raper le gingembre. 3. Chauffer le wok a feu tres vif avec un peu d\'huile. Saisir le poulet 3-4min. Reserver sur une assiette. 4. Dans le meme wok, faire sauter les carottes 2min, puis le chou chinois 1min. 5. Remettre le poulet, ajouter les nouilles, la sauce soja, l\'huile de sesame et le gingembre. Melanger vivement 2min a feu vif. 6. Servir immediatement bien chaud.'},
 
   // Boeuf
   {id:'e5',name:'Boeuf aux oignons, riz basmati et haricots verts',category:'Plat',type:'equilibre',difficulty:'facile',time:25,
     ingredients:[{name:'Boeuf a emincer',qty:'500g',cat:'Viandes'},{name:'Riz basmati',qty:'300g',cat:'Feculents'},{name:'Haricots verts',qty:'400g',cat:'Legumes'},{name:'Oignons',qty:'3',cat:'Legumes'},{name:'Sauce soja',qty:'3 cs',cat:'Epicerie'},{name:'Huile olive',qty:'',cat:'Epicerie'}],
-    steps:'Cuire le riz. Cuire haricots verts 10min vapeur. Saisir le boeuf emince a feu tres vif 2min. Reserver. Faire carameliser les oignons 10min. Reunir avec sauce soja. Servir avec riz et haricots.'},
+    steps:'1. Cuire le riz basmati dans 2 volumes d\'eau salee pendant 12min. Egoutter. 2. Cuire les haricots verts a la vapeur ou a l\'eau bouillante salee 10min. Ils doivent rester fermes. 3. Emincer les oignons en fines rondelles. Les faire carameliser a la poele avec un peu d\'huile a feu moyen pendant 10min, en remuant regulierement. 4. Dans une autre poele tres chaude, saisir le boeuf emince 2min a feu vif (ne pas surcharger la poele pour qu\'il grille bien). 5. Reunir le boeuf et les oignons, ajouter la sauce soja, melanger 1min. 6. Dresser : riz, boeuf aux oignons, haricots verts a cote.'},
   {id:'e6',name:'Chili con carne maison',category:'Plat',type:'equilibre',difficulty:'facile',time:35,
     ingredients:[{name:'Viande hachee 5%',qty:'500g',cat:'Viandes'},{name:'Haricots rouges',qty:'2 boites',cat:'Conserves'},{name:'Tomates concassees',qty:'400g',cat:'Conserves'},{name:'Mais',qty:'1 boite',cat:'Conserves'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Poivron',qty:'1',cat:'Legumes'},{name:'Cumin',qty:'2 cc',cat:'Epicerie'},{name:'Riz basmati',qty:'250g',cat:'Feculents'}],
-    steps:'Faire revenir oignon et poivron. Ajouter viande hachee, faire dorer. Ajouter tomates, haricots rouges, mais, cumin. Mijoter 20min. Servir avec riz basmati.'},
+    steps:'1. Emincer l\'oignon et couper le poivron en des. 2. Faire revenir l\'oignon dans une grande cocotte avec un filet d\'huile pendant 3min. Ajouter le poivron, cuire 2min. 3. Ajouter la viande hachee, l\'emietter a la spatule et la faire dorer 5min. 4. Ajouter les tomates concassees, les haricots rouges egouttes, le mais egoutte et le cumin. Saler, poivrer. 5. Porter a ebullition puis baisser le feu. Laisser mijoter a decouvert 20min en remuant de temps en temps. 6. Pendant ce temps, cuire le riz basmati. 7. Servir le chili bien chaud sur le riz. Accompagner eventuellement de creme fraiche ou cheddar rape.'},
   {id:'e7',name:'Steak, lentilles vertes et carottes',category:'Plat',type:'equilibre',difficulty:'facile',time:35,
     ingredients:[{name:'Steaks haches 5%',qty:'4',cat:'Viandes'},{name:'Lentilles vertes',qty:'300g',cat:'Feculents'},{name:'Carottes',qty:'4',cat:'Legumes'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Bouillon de legumes',qty:'1 cube',cat:'Epicerie'},{name:'Moutarde',qty:'',cat:'Epicerie'}],
-    steps:'Cuire lentilles 25min avec carottes coupees, oignon et bouillon. Griller les steaks a la poele 3min/face. Servir steaks sur lit de lentilles-carottes, moutarde a cote.'},
+    steps:'1. Rincer les lentilles vertes. Eplucher et couper les carottes en rondelles. Emincer l\'oignon. 2. Mettre les lentilles, carottes, oignon et le cube de bouillon dans une casserole. Couvrir d\'eau (2cm au-dessus). 3. Porter a ebullition, puis cuire a feu doux 25min a couvert. Les lentilles doivent etre tendres mais pas en puree. 4. Pendant les 10 dernières minutes, griller les steaks haches dans une poele chaude : 3min par face pour une cuisson a point. 5. Egoutter les lentilles si necessaire. Assaisonner avec sel, poivre et un filet d\'huile d\'olive. 6. Servir les steaks sur un lit de lentilles-carottes, avec de la moutarde a cote.'},
 
   // Poisson
   {id:'e8',name:'Saumon, riz complet et courgettes grillees',category:'Plat',type:'equilibre',difficulty:'facile',time:25,
     ingredients:[{name:'Paves de saumon',qty:'4',cat:'Poissons'},{name:'Riz complet',qty:'300g',cat:'Feculents'},{name:'Courgettes',qty:'3',cat:'Legumes'},{name:'Citron',qty:'1',cat:'Fruits'},{name:'Huile olive',qty:'2 cs',cat:'Epicerie'},{name:'Aneth',qty:'',cat:'Epicerie'}],
-    steps:'Cuire riz complet. Couper courgettes en rondelles, griller a la poele avec huile. Cuire saumon 4min/face a la poele. Servir avec citron et aneth.'},
+    steps:'1. Rincer le riz complet et le cuire dans 2,5 volumes d\'eau salee pendant 25min. Egoutter. 2. Couper les courgettes en rondelles de 5mm d\'epaisseur. 3. Griller les courgettes a la poele avec un filet d\'huile d\'olive, 3min par face. Saler legerement. Reserver au chaud. 4. Dans la meme poele, cuire les paves de saumon cote peau d\'abord : 4min, puis retourner et cuire 3min. La chair doit etre rosee au centre. 5. Dresser : riz, courgettes grillees, saumon. Arroser d\'un filet de jus de citron et parsemer d\'aneth.'},
   {id:'e9',name:'Dos de cabillaud, puree de pois casses et poireaux',category:'Plat',type:'equilibre',difficulty:'facile',time:30,
     ingredients:[{name:'Dos de cabillaud',qty:'4 filets',cat:'Poissons'},{name:'Pois casses',qty:'250g',cat:'Feculents'},{name:'Poireaux',qty:'3',cat:'Legumes'},{name:'Beurre',qty:'20g',cat:'Frais'},{name:'Citron',qty:'1',cat:'Fruits'},{name:'Bouillon',qty:'1 cube',cat:'Epicerie'}],
-    steps:'Cuire pois casses 25min dans le bouillon, ecraser en puree avec beurre. Emincer et faire fondre les poireaux 10min. Cuire cabillaud a la poele 4min/face. Servir ensemble.'},
+    steps:'1. Rincer les pois casses. Les cuire dans le bouillon (1 cube + eau) pendant 25-30min a feu doux, jusqu\'a ce qu\'ils soient tres tendres. 2. Ecraser les pois casses a la fourchette ou au mixeur avec le beurre. Saler, poivrer. La texture doit etre onctueuse. 3. Laver et emincer les poireaux (le blanc et le vert clair). Les faire fondre a la poele avec un filet d\'huile a feu doux pendant 10min, couverts. 4. Secher les filets de cabillaud avec du papier absorbant. Les cuire a la poele avec un filet d\'huile : 4min par face a feu moyen. La chair doit s\'effeuiller facilement. 5. Dresser : puree de pois casses, poireaux fondus, cabillaud dessus. Un trait de citron.'},
   {id:'e10',name:'Papillote de poisson, pommes de terre et legumes',category:'Plat',type:'equilibre',difficulty:'facile',time:30,
     ingredients:[{name:'Filets de poisson blanc',qty:'4',cat:'Poissons'},{name:'Pommes de terre',qty:'600g',cat:'Legumes'},{name:'Tomates cerises',qty:'250g',cat:'Legumes'},{name:'Courgette',qty:'1',cat:'Legumes'},{name:'Citron',qty:'1',cat:'Fruits'},{name:'Herbes de Provence',qty:'',cat:'Epicerie'},{name:'Huile olive',qty:'',cat:'Epicerie'}],
-    steps:'Couper PDT en rondelles fines, precuire 10min a l eau. Dans du papier alu : PDT, poisson, legumes coupes, filet de citron, herbes, huile. Fermer. Four 200C 20min.'},
+    steps:'1. Prechauffer le four a 200°C. Eplucher les pommes de terre et les couper en rondelles fines (3mm). Les precuire 10min a l\'eau bouillante salee, puis egoutter. 2. Couper la courgette en rondelles, les tomates cerises en deux. 3. Preparer 4 grandes feuilles de papier aluminium (ou papier sulfurise). 4. Sur chaque feuille : disposer des rondelles de PDT, poser un filet de poisson dessus, entourer de legumes. 5. Arroser d\'un filet de citron et d\'huile d\'olive. Saupoudrer d\'herbes de Provence, saler, poivrer. 6. Fermer les papillotes hermetiquement. Enfourner 20min. 7. Servir dans la papillote ouverte pour garder le jus.'},
 
   // Oeufs / Vegetarien
   {id:'e11',name:'Omelette aux legumes et pain complet',category:'Plat',type:'equilibre',difficulty:'facile',time:15,
     ingredients:[{name:'Oeufs',qty:'8',cat:'Frais'},{name:'Champignons',qty:'200g',cat:'Legumes'},{name:'Poivrons',qty:'1',cat:'Legumes'},{name:'Tomates',qty:'2',cat:'Legumes'},{name:'Gruyere rape',qty:'80g',cat:'Frais'},{name:'Pain complet',qty:'4 tranches',cat:'Boulangerie'},{name:'Beurre',qty:'20g',cat:'Frais'}],
-    steps:'Faire revenir champignons et poivrons 5min. Battre les oeufs, verser dans la poele avec legumes. Fromage au centre. Plier. Servir avec pain complet grille et tomate.'},
+    steps:'1. Laver et emincer les champignons. Couper le poivron en petits des. 2. Faire revenir les champignons et poivrons dans une poele avec le beurre pendant 5min a feu moyen. Saler legerement. 3. Battre les 8 oeufs dans un saladier, saler, poivrer. 4. Verser les oeufs battus sur les legumes dans la poele. Cuire a feu doux. 5. Quand l\'omelette commence a prendre, ajouter le gruyere rape au centre. 6. Plier l\'omelette en deux quand le dessus est encore baveux. Cuire 1min de plus. 7. Faire griller les tranches de pain complet. Couper les tomates en quartiers. 8. Servir l\'omelette avec le pain grille et les tomates fraiches.'},
   {id:'e12',name:'Dahl de lentilles corail, riz et yaourt',category:'Plat',type:'equilibre',difficulty:'facile',time:25,
     ingredients:[{name:'Lentilles corail',qty:'300g',cat:'Feculents'},{name:'Riz basmati',qty:'250g',cat:'Feculents'},{name:'Tomates concassees',qty:'400g',cat:'Conserves'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Ail',qty:'2 gousses',cat:'Legumes'},{name:'Curcuma',qty:'1 cc',cat:'Epicerie'},{name:'Cumin',qty:'1 cc',cat:'Epicerie'},{name:'Lait de coco',qty:'20cl',cat:'Epicerie'},{name:'Yaourt nature',qty:'4',cat:'Frais'}],
-    steps:'Revenir oignon et ail. Ajouter epices, tomates, lentilles et eau. Cuire 15min. Ajouter lait de coco. Cuire riz a part. Servir avec yaourt.'},
+    steps:'1. Emincer l\'oignon et hacher l\'ail. 2. Faire chauffer l\'huile dans une casserole. Faire revenir l\'oignon 3min, ajouter l\'ail, cuire 1min. 3. Ajouter le curcuma et le cumin, melanger 30 secondes pour liberer les aromes. 4. Verser les tomates concassees et les lentilles corail rincees. Ajouter 40cl d\'eau. 5. Porter a ebullition, puis cuire a feu doux 15min en remuant de temps en temps. Les lentilles doivent etre fondantes. 6. Ajouter le lait de coco, melanger. Rectifier l\'assaisonnement. 7. Pendant ce temps, cuire le riz basmati a part. 8. Servir le dahl sur le riz, avec un yaourt nature a cote.'},
   {id:'e13',name:'Shakshuka (oeufs en sauce tomate) et semoule',category:'Plat',type:'equilibre',difficulty:'facile',time:20,
     ingredients:[{name:'Oeufs',qty:'6',cat:'Frais'},{name:'Tomates concassees',qty:'800g',cat:'Conserves'},{name:'Poivrons',qty:'2',cat:'Legumes'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Ail',qty:'2 gousses',cat:'Legumes'},{name:'Cumin',qty:'1 cc',cat:'Epicerie'},{name:'Semoule complete',qty:'300g',cat:'Feculents'},{name:'Feta',qty:'100g',cat:'Frais'}],
-    steps:'Faire revenir oignon, poivrons et ail. Ajouter tomates et cumin, mijoter 10min. Creuser des puits, casser les oeufs dedans. Couvrir 5min. Feta emietee dessus. Servir avec semoule.'},
+    steps:'1. Emincer l\'oignon, couper les poivrons en lanieres, hacher l\'ail. 2. Dans une grande poele (ou plat allant au four), faire revenir l\'oignon 3min avec un filet d\'huile. Ajouter les poivrons et l\'ail, cuire 4min. 3. Verser les tomates concassees, ajouter le cumin. Saler, poivrer. Laisser mijoter 10min a feu doux. 4. Avec une cuillere, creuser 6 puits dans la sauce. Casser un oeuf dans chaque puit. 5. Couvrir et cuire a feu doux 5-7min : le blanc doit etre pris, le jaune encore coulant. 6. Emietter la feta par-dessus. 7. Preparer la semoule : verser le meme volume d\'eau bouillante salee, couvrir 5min, egrener a la fourchette. 8. Servir la shakshuka directement dans le plat avec la semoule a cote.'},
 
   // Porc / Saucisse equilibre
   {id:'e14',name:'Saucisses de volaille, lentilles et carottes',category:'Plat',type:'equilibre',difficulty:'facile',time:35,
     ingredients:[{name:'Saucisses de volaille',qty:'6',cat:'Viandes'},{name:'Lentilles vertes',qty:'350g',cat:'Feculents'},{name:'Carottes',qty:'4',cat:'Legumes'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Bouillon',qty:'1 cube',cat:'Epicerie'},{name:'Laurier',qty:'1 feuille',cat:'Epicerie'}],
-    steps:'Cuire lentilles 25min avec carottes, oignon, bouillon et laurier. Griller les saucisses a la poele. Servir ensemble.'},
+    steps:'1. Rincer les lentilles vertes. Eplucher les carottes et les couper en rondelles. Emincer l\'oignon. 2. Mettre le tout dans une cocotte avec le bouillon et la feuille de laurier. Couvrir d\'eau generement. 3. Porter a ebullition, puis cuire a feu doux 25min a couvert. 4. Pendant ce temps, piquer les saucisses de volaille a la fourchette. Les griller a la poele a feu moyen 12-15min en les retournant regulierement. 5. Egoutter les lentilles si necessaire, retirer le laurier. Assaisonner. 6. Servir les saucisses sur les lentilles aux carottes.'},
   {id:'e15',name:'Filet mignon, puree de brocolis et quinoa',category:'Plat',type:'equilibre',difficulty:'facile',time:35,
     ingredients:[{name:'Filet mignon de porc',qty:'600g',cat:'Viandes'},{name:'Brocolis',qty:'500g',cat:'Legumes'},{name:'Quinoa',qty:'250g',cat:'Feculents'},{name:'Creme legere 15%',qty:'10cl',cat:'Frais'},{name:'Moutarde',qty:'1 cs',cat:'Epicerie'},{name:'Huile olive',qty:'',cat:'Epicerie'}],
-    steps:'Saisir filet mignon, enfourner 200C 20min. Cuire brocolis, mixer avec creme. Cuire quinoa 12min. Trancher le filet mignon, servir avec puree de brocolis et quinoa.'},
+    steps:'1. Prechauffer le four a 200°C. 2. Badigeonner le filet mignon de moutarde, saler, poivrer. Le saisir a la poele dans un filet d\'huile, 2min de chaque cote (il doit etre bien dore). 3. Transferer dans un plat et enfourner 20min. Laisser reposer 5min sous aluminium avant de trancher. 4. Cuire les brocolis a la vapeur ou a l\'eau 10min. Les egoutter et les mixer avec la creme legere. Saler, poivrer. 5. Rincer le quinoa et le cuire dans 2 volumes d\'eau salee pendant 12min. Egoutter et egrener a la fourchette. 6. Trancher le filet mignon en medaillons. Dresser avec la puree de brocolis et le quinoa.'},
 
   // Salades completes (soir semaine)
   {id:'e16',name:'Salade complete poulet, quinoa et avocat',category:'Plat',type:'equilibre',difficulty:'facile',time:15,
     ingredients:[{name:'Blancs de poulet',qty:'2',cat:'Viandes'},{name:'Quinoa',qty:'200g',cat:'Feculents'},{name:'Avocat',qty:'2',cat:'Legumes'},{name:'Tomates cerises',qty:'200g',cat:'Legumes'},{name:'Concombre',qty:'1',cat:'Legumes'},{name:'Huile olive',qty:'2 cs',cat:'Epicerie'},{name:'Citron',qty:'1',cat:'Fruits'}],
-    steps:'Cuire quinoa et poulet (ou utiliser restes). Couper tous les legumes. Assembler dans un grand saladier. Assaisonner huile olive + citron.'},
+    steps:'1. Rincer le quinoa et le cuire 12min dans 2 volumes d\'eau salee. Egoutter et laisser refroidir. 2. Griller les blancs de poulet a la poele 6min par face (ou utiliser des restes de poulet). Les laisser tiedir puis les couper en tranches. 3. Couper les avocats en deux, retirer le noyau, trancher la chair. Couper les tomates cerises en deux. Detailler le concombre en rondelles. 4. Dans un grand saladier, assembler le quinoa refroidi, le poulet, l\'avocat, les tomates et le concombre. 5. Preparer la vinaigrette : 2 cs d\'huile d\'olive, le jus d\'un citron, sel, poivre. Verser et melanger delicatement. 6. Servir frais.'},
   {id:'e17',name:'Soupe epaisse de legumes et tartines de chevre',category:'Plat',type:'equilibre',difficulty:'facile',time:30,
     ingredients:[{name:'Carottes',qty:'3',cat:'Legumes'},{name:'Poireaux',qty:'2',cat:'Legumes'},{name:'Pommes de terre',qty:'2',cat:'Legumes'},{name:'Courgettes',qty:'1',cat:'Legumes'},{name:'Bouillon',qty:'1 cube',cat:'Epicerie'},{name:'Pain complet',qty:'8 tranches',cat:'Boulangerie'},{name:'Buche de chevre',qty:'1',cat:'Frais'},{name:'Oeufs',qty:'4',cat:'Frais'}],
-    steps:'Cuire legumes dans bouillon 20min, mixer epais. Oeufs durs a cote. Tartiner pain complet de chevre, gratiner au four. Servir soupe avec tartines et oeufs.'},
+    steps:'1. Eplucher et couper en morceaux : carottes, poireaux, pommes de terre et courgettes. 2. Faire revenir les legumes 3min dans une cocotte avec un filet d\'huile. Ajouter le bouillon dilue dans 1L d\'eau. 3. Porter a ebullition et cuire 20min a couvert. 4. Pendant ce temps, cuire les oeufs durs : 10min dans l\'eau bouillante, puis refroidir sous l\'eau froide. 5. Mixer la soupe de facon epaisse (pas trop liquide). Rectifier l\'assaisonnement. 6. Tartiner les tranches de pain complet de chevre. Passer sous le grill du four 3-4min. 7. Servir la soupe bien chaude avec les tartines gratinees et les oeufs durs coupes en deux.'},
   {id:'e18',name:'Salade nicoise proteinee',category:'Plat',type:'equilibre',difficulty:'facile',time:15,
     ingredients:[{name:'Thon en boite',qty:'3 boites',cat:'Conserves'},{name:'Oeufs',qty:'4',cat:'Frais'},{name:'Haricots verts',qty:'300g',cat:'Legumes'},{name:'Pommes de terre',qty:'400g',cat:'Legumes'},{name:'Tomates',qty:'3',cat:'Legumes'},{name:'Olives noires',qty:'100g',cat:'Epicerie'},{name:'Salade verte',qty:'1',cat:'Legumes'},{name:'Huile olive',qty:'',cat:'Epicerie'}],
-    steps:'Cuire PDT et haricots verts. Oeufs durs 10min. Assembler tout dans saladier avec tomates, thon, olives, salade. Assaisonner.'},
+    steps:'1. Cuire les pommes de terre a l\'eau salee 15-20min (elles doivent etre tendres mais pas en puree). Egoutter et laisser tiedir, puis couper en rondelles. 2. Cuire les haricots verts a l\'eau bouillante salee 10min. Egoutter et rafraichir sous l\'eau froide. 3. Cuire les oeufs durs : 10min dans l\'eau bouillante. Refroidir, ecaler et couper en quartiers. 4. Laver et essorer la salade. Couper les tomates en quartiers. 5. Dans un grand saladier, disposer la salade, les pommes de terre, les haricots verts, les tomates, le thon emitte, les oeufs et les olives. 6. Assaisonner d\'huile d\'olive, vinaigre de vin, sel et poivre. Melanger delicatement.'},
 
   // Plats complets equilibres
   {id:'e19',name:'Couscous poulet et legumes',category:'Plat',type:'equilibre',difficulty:'facile',time:40,
     ingredients:[{name:'Cuisses de poulet',qty:'4',cat:'Viandes'},{name:'Semoule complete',qty:'400g',cat:'Feculents'},{name:'Carottes',qty:'3',cat:'Legumes'},{name:'Courgettes',qty:'2',cat:'Legumes'},{name:'Navets',qty:'2',cat:'Legumes'},{name:'Pois chiches',qty:'1 boite',cat:'Conserves'},{name:'Tomates concassees',qty:'400g',cat:'Conserves'},{name:'Ras el hanout',qty:'2 cc',cat:'Epicerie'}],
-    steps:'Faire revenir poulet. Ajouter legumes coupes, tomates, pois chiches, epices. Couvrir d eau, cuire 30min. Semoule : verser eau bouillante, couvrir 5min. Servir.'},
+    steps:'1. Faire dorer les cuisses de poulet dans une grande cocotte avec un filet d\'huile, 5min de chaque cote. Reserver. 2. Eplucher et couper les carottes, courgettes et navets en gros morceaux. 3. Dans la meme cocotte, faire revenir les legumes 3min. Ajouter les tomates concassees, les pois chiches egouttes et le ras el hanout. 4. Remettre le poulet, couvrir d\'eau (le liquide doit arriver a mi-hauteur). 5. Porter a ebullition, puis mijoter a couvert 30min. Le poulet doit se detacher facilement de l\'os. 6. Preparer la semoule : verser le meme volume d\'eau bouillante salee, couvrir 5min, egrener a la fourchette avec un peu de beurre. 7. Servir le bouillon et les legumes dans un plat creux, le poulet dessus, la semoule a cote.'},
   {id:'e20',name:'Bolognaise a la dinde, pates completes et salade',category:'Plat',type:'equilibre',difficulty:'facile',time:25,
     ingredients:[{name:'Hache de dinde',qty:'500g',cat:'Viandes'},{name:'Pates completes',qty:'400g',cat:'Feculents'},{name:'Sauce tomate',qty:'500ml',cat:'Conserves'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Carottes',qty:'2',cat:'Legumes'},{name:'Ail',qty:'2 gousses',cat:'Legumes'},{name:'Salade verte',qty:'1',cat:'Legumes'},{name:'Huile olive',qty:'',cat:'Epicerie'}],
     steps:'Faire revenir oignon, ail, carottes rapees. Ajouter dinde hachee, dorer. Ajouter sauce tomate, mijoter 15min. Cuire pates completes. Servir avec salade a cote.'},
   {id:'e21',name:'Tomates farcies et riz',category:'Plat',type:'equilibre',difficulty:'facile',time:50,
     ingredients:[{name:'Tomates',qty:'8 grosses',cat:'Legumes'},{name:'Chair a saucisse',qty:'500g',cat:'Viandes'},{name:'Riz complet',qty:'250g',cat:'Feculents'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Persil',qty:'',cat:'Epicerie'},{name:'Ail',qty:'1 gousse',cat:'Legumes'}],
-    steps:'Evider les tomates. Melanger chair a saucisse, oignon hache, ail, persil, un peu de riz precuit. Farcir les tomates. Four 180C 40min. Servir avec le reste du riz.'},
+    steps:'1. Prechauffer le four a 180°C. Cuire une partie du riz complet (100g) 15min pour la farce. 2. Decouper le chapeau des tomates et les evider delicatement a la cuillere. Garder la pulpe. 3. Hacher l\'oignon et l\'ail. Ciseler le persil. 4. Dans un saladier, melanger la chair a saucisse, l\'oignon, l\'ail, le persil et le riz precuit. Saler, poivrer. 5. Farcir genereusement chaque tomate. Remettre les chapeaux. 6. Disposer dans un plat allant au four. Ajouter la pulpe des tomates dans le fond du plat avec un filet d\'huile. 7. Enfourner 40min. Arroser de jus a mi-cuisson. 8. Cuire le reste du riz complet (150g). Servir les tomates farcies avec le riz et le jus du plat.'},
 
   // ===== WEEK-END : PLAISIR =====
   {id:'p1',name:'Poulet roti et gratin dauphinois',category:'Plat',type:'plaisir',difficulty:'facile',time:70,
     ingredients:[{name:'Poulet entier',qty:'1.5kg',cat:'Viandes'},{name:'Pommes de terre',qty:'1kg',cat:'Legumes'},{name:'Creme fraiche',qty:'30cl',cat:'Frais'},{name:'Lait',qty:'30cl',cat:'Frais'},{name:'Ail',qty:'4 gousses',cat:'Legumes'},{name:'Noix de muscade',qty:'',cat:'Epicerie'},{name:'Herbes de Provence',qty:'',cat:'Epicerie'}],
-    steps:'Poulet : huiler, herbes, ail, four 200C 1h. Gratin : PDT en rondelles fines, alterner avec creme+lait+muscade dans plat frotte a l ail. Four 180C 1h.'},
+    steps:'1. Prechauffer le four a 200°C. Frotter le poulet d\'huile d\'olive, d\'herbes de Provence et de 2 gousses d\'ail ecrasees. Saler, poivrer. 2. Enfourner le poulet dans un plat, cuire 1h en l\'arrosant de jus toutes les 20min. Il est cuit quand le jus qui coule de la cuisse est clair. 3. Pour le gratin : eplucher les PDT et les couper en rondelles tres fines (2mm). 4. Frotter un plat a gratin avec les 2 gousses d\'ail restantes. 5. Melanger la creme, le lait, la muscade, sel et poivre. 6. Alterner couches de PDT et de melange creme/lait. Finir par le liquide. 7. Enfourner le gratin a 180°C pendant 1h (a cote du poulet si possible). Il doit etre dore dessus. 8. Laisser reposer le poulet 10min avant de decouper. Servir avec le gratin.'},
   {id:'p2',name:'Tartiflette',category:'Plat',type:'plaisir',difficulty:'facile',time:45,
     ingredients:[{name:'Pommes de terre',qty:'1kg',cat:'Legumes'},{name:'Reblochon',qty:'1',cat:'Frais'},{name:'Lardons',qty:'200g',cat:'Viandes'},{name:'Oignons',qty:'2',cat:'Legumes'},{name:'Creme fraiche',qty:'15cl',cat:'Frais'}],
-    steps:'Cuire PDT a l eau, couper en rondelles. Revenir lardons et oignons. Alterner dans plat. Reblochon coupe en deux dessus. Four 200C 20min.'},
+    steps:'1. Cuire les pommes de terre a l\'eau salee 20min (elles doivent etre cuites mais fermes). Egoutter, laisser tiedir puis couper en rondelles. 2. Faire revenir les lardons a sec dans une poele 5min. Ajouter les oignons eminces, cuire 5min de plus. 3. Prechauffer le four a 200°C. 4. Dans un plat a gratin, alterner couches de PDT et de lardons-oignons. Ajouter la creme fraiche. 5. Couper le reblochon en deux dans l\'epaisseur. Le poser sur le dessus du plat, croute vers le haut. 6. Enfourner 20min jusqu\'a ce que le fromage soit bien fondu et dore. 7. Servir immediatement avec une salade verte.'},
   {id:'p3',name:'Pizza maison',category:'Plat',type:'plaisir',difficulty:'facile',time:30,
     ingredients:[{name:'Pate a pizza',qty:'2',cat:'Frais'},{name:'Sauce tomate',qty:'200ml',cat:'Conserves'},{name:'Mozzarella',qty:'2 boules',cat:'Frais'},{name:'Jambon',qty:'4 tranches',cat:'Viandes'},{name:'Champignons',qty:'200g',cat:'Legumes'},{name:'Olives',qty:'',cat:'Epicerie'}],
-    steps:'Etaler pate. Sauce tomate, garniture au choix, mozzarella. Four 220C 12-15min.'},
+    steps:'1. Prechauffer le four a 220°C (ou le plus chaud possible). Si possible, placer une plaque dans le four pour qu\'elle chauffe. 2. Etaler les pates a pizza sur du papier sulfurise. 3. Etaler une fine couche de sauce tomate en laissant 1cm de bord. 4. Repartir la garniture : jambon decoupe, champignons eminces, olives. 5. Dechirer la mozzarella en morceaux et la repartir sur les pizzas. 6. Enfourner sur la plaque chaude, 12-15min. La pate doit etre doree et croustillante, le fromage bulle. 7. Sortir du four, laisser reposer 2min avant de couper.'},
   {id:'p4',name:'Burger maison avec frites au four',category:'Plat',type:'plaisir',difficulty:'facile',time:30,
     ingredients:[{name:'Pains burger',qty:'4',cat:'Boulangerie'},{name:'Steaks haches',qty:'4',cat:'Viandes'},{name:'Cheddar',qty:'4 tranches',cat:'Frais'},{name:'Salade',qty:'',cat:'Legumes'},{name:'Tomates',qty:'1',cat:'Legumes'},{name:'Pommes de terre',qty:'800g',cat:'Legumes'},{name:'Huile olive',qty:'',cat:'Epicerie'},{name:'Ketchup',qty:'',cat:'Epicerie'}],
-    steps:'Frites : couper PDT en frites, huiler, four 220C 25min. Griller steaks. Toaster pains. Assembler : salade, steak, cheddar, tomate, sauce.'},
+    steps:'1. Prechauffer le four a 220°C. 2. Eplucher les PDT et les couper en frites regulieres. Les secher avec un torchon. 3. Les melanger avec l\'huile d\'olive, sel et poivre. Etaler sur une plaque en une seule couche. 4. Enfourner 25-30min en retournant a mi-cuisson, jusqu\'a ce qu\'elles soient dorees et croustillantes. 5. Pendant ce temps, former les steaks haches si besoin. Les cuire a la poele bien chaude 3-4min par face. 6. Poser une tranche de cheddar sur chaque steak 1min avant la fin pour qu\'elle fonde. 7. Couper les pains en deux et les toaster au grille-pain ou sous le grill. 8. Assembler les burgers : pain, salade, steak-cheddar, rondelle de tomate, ketchup. 9. Servir avec les frites bien chaudes.'},
   {id:'p5',name:'Pates carbonara',category:'Plat',type:'plaisir',difficulty:'facile',time:20,
     ingredients:[{name:'Spaghetti',qty:'500g',cat:'Feculents'},{name:'Lardons',qty:'200g',cat:'Viandes'},{name:'Oeufs',qty:'3',cat:'Frais'},{name:'Parmesan',qty:'80g',cat:'Frais'},{name:'Poivre',qty:'',cat:'Epicerie'}],
-    steps:'Cuire les pates. Griller lardons. Melanger oeufs + parmesan. Hors du feu : pates + lardons + sauce oeufs. Bien melanger, poivrer.'},
+    steps:'1. Cuire les spaghetti dans un grand volume d\'eau salee selon les indications du paquet (al dente). Garder un verre d\'eau de cuisson avant d\'egoutter. 2. Pendant ce temps, faire griller les lardons a sec dans une grande poele 5-6min jusqu\'a ce qu\'ils soient bien dores. 3. Dans un bol, battre les oeufs entiers avec le parmesan rape. Poivrer genereusement. 4. Egoutter les pates et les verser dans la poele avec les lardons HORS DU FEU. 5. Verser immediatement le melange oeufs-parmesan et remuer vivement. La chaleur des pates cuira les oeufs en sauce cremeuse. 6. Si trop epais, ajouter un peu d\'eau de cuisson. 7. Servir sans attendre avec du parmesan rape en plus.'},
   {id:'p6',name:'Quiche lorraine et salade',category:'Plat',type:'plaisir',difficulty:'facile',time:40,
     ingredients:[{name:'Pate brisee',qty:'1',cat:'Frais'},{name:'Lardons',qty:'200g',cat:'Viandes'},{name:'Oeufs',qty:'3',cat:'Frais'},{name:'Creme fraiche',qty:'20cl',cat:'Frais'},{name:'Gruyere rape',qty:'100g',cat:'Frais'},{name:'Salade verte',qty:'1',cat:'Legumes'}],
-    steps:'Etaler pate. Revenir lardons. Melanger oeufs + creme. Verser lardons puis appareil. Fromage dessus. Four 180C 30min. Servir avec salade.'},
+    steps:'1. Prechauffer le four a 180°C. 2. Etaler la pate brisee dans un moule a tarte, piquer le fond a la fourchette. 3. Faire revenir les lardons a sec 5min dans une poele. Egoutter le gras si necessaire. 4. Dans un bol, battre les oeufs, ajouter la creme fraiche, saler legerement (les lardons sont deja sales), poivrer et muscader si souhaite. 5. Repartir les lardons sur le fond de tarte. Verser l\'appareil oeufs-creme par-dessus. 6. Parsemer de gruyere rape. 7. Enfourner 30min jusqu\'a ce que la quiche soit bien doree et gonflée. 8. Laisser tiedir 5min. Servir avec une salade verte assaisonnee.'},
   {id:'p7',name:'Gratin de pates au jambon',category:'Plat',type:'plaisir',difficulty:'facile',time:30,
     ingredients:[{name:'Pates',qty:'400g',cat:'Feculents'},{name:'Jambon',qty:'4 tranches',cat:'Viandes'},{name:'Bechamel',qty:'50cl',cat:'Epicerie'},{name:'Gruyere rape',qty:'150g',cat:'Frais'}],
-    steps:'Cuire pates. Melanger avec jambon coupe et bechamel. Fromage dessus. Four 200C 15min.'},
+    steps:'1. Prechauffer le four a 200°C. 2. Cuire les pates al dente dans un grand volume d\'eau salee. Egoutter. 3. Couper le jambon en lanieres ou en des. 4. Dans un grand saladier, melanger les pates, le jambon et la bechamel. Bien enrober. 5. Verser dans un plat a gratin. 6. Recouvrir genereusement de gruyere rape. 7. Enfourner 15min jusqu\'a ce que le dessus soit bien gratiné et dore. 8. Servir bien chaud directement dans le plat.'},
   {id:'p8',name:'Hachis parmentier',category:'Plat',type:'plaisir',difficulty:'facile',time:45,
     ingredients:[{name:'Viande hachee',qty:'500g',cat:'Viandes'},{name:'Pommes de terre',qty:'1kg',cat:'Legumes'},{name:'Oignon',qty:'1',cat:'Legumes'},{name:'Lait',qty:'15cl',cat:'Frais'},{name:'Beurre',qty:'30g',cat:'Frais'},{name:'Gruyere rape',qty:'100g',cat:'Frais'}],
-    steps:'Puree : cuire PDT, ecraser avec lait et beurre. Viande : revenir avec oignon. Viande dans plat, puree dessus, fromage. Four 200C 20min.'},
+    steps:'1. Eplucher les PDT et les cuire a l\'eau salee 20min. 2. Ecraser les PDT au presse-puree avec le lait chaud et le beurre. Saler, poivrer, muscader. La puree doit etre lisse et onctueuse. 3. Emincer l\'oignon. Le faire revenir dans une poele 3min. Ajouter la viande hachee, emietter a la spatule, cuire 8min. Saler, poivrer. 4. Prechauffer le four a 200°C. 5. Etaler la viande dans le fond d\'un plat a gratin. 6. Recouvrir d\'une couche epaisse de puree. Lisser avec une fourchette (faire des sillons pour le croustillant). 7. Parsemer de gruyere rape. 8. Enfourner 20min jusqu\'a ce que le dessus soit bien dore. Laisser reposer 5min avant de servir.'},
   {id:'p9',name:'Croque-monsieur et soupe',category:'Plat',type:'plaisir',difficulty:'facile',time:20,
     ingredients:[{name:'Pain de mie',qty:'8 tranches',cat:'Boulangerie'},{name:'Jambon',qty:'4 tranches',cat:'Viandes'},{name:'Gruyere rape',qty:'150g',cat:'Frais'},{name:'Bechamel',qty:'20cl',cat:'Epicerie'},{name:'Soupe en brique',qty:'1L',cat:'Epicerie'}],
-    steps:'Tartiner bechamel sur pain. Jambon + fromage. Refermer. Fromage dessus. Four 200C 10min. Rechauffer la soupe. Servir ensemble.'},
+    steps:'1. Prechauffer le four a 200°C. 2. Tartiner une face de chaque tranche de pain de mie avec la bechamel. 3. Sur 4 tranches : poser une tranche de jambon, du gruyere rape. Recouvrir avec les 4 autres tranches (bechamel vers l\'interieur). 4. Tartiner un peu de bechamel sur le dessus de chaque croque. Parsemer de gruyere rape. 5. Enfourner sur une plaque 10min jusqu\'a ce qu\'ils soient bien dores et croustillants. 6. Pendant ce temps, rechauffer la soupe en brique a feu doux dans une casserole. 7. Servir les croque-monsieur brulants avec un bol de soupe chaude.'},
   {id:'p10',name:'Galettes completes (jambon-fromage-oeuf)',category:'Plat',type:'plaisir',difficulty:'facile',time:20,
     ingredients:[{name:'Galettes de ble noir',qty:'4',cat:'Frais'},{name:'Jambon',qty:'4 tranches',cat:'Viandes'},{name:'Gruyere rape',qty:'150g',cat:'Frais'},{name:'Oeufs',qty:'4',cat:'Frais'},{name:'Beurre',qty:'20g',cat:'Frais'}],
-    steps:'Rechauffer galette a la poele avec beurre. Garnir jambon et fromage. Casser oeuf dessus. Plier les bords. Cuire jusqu a l oeuf pris.'},
+    steps:'1. Faire fondre une noisette de beurre dans une poele (idealement une crepiere). 2. Poser une galette de ble noir et la rechauffer 30 secondes de chaque cote. 3. Deposer une tranche de jambon au centre. Parsemer de gruyere rape. 4. Casser un oeuf par-dessus. 5. Replier les 4 bords de la galette vers le centre pour former un carre, en laissant l\'oeuf visible. 6. Couvrir la poele et cuire a feu moyen 3-4min : le blanc doit etre pris, le jaune encore coulant. 7. Glisser sur l\'assiette. Poivrer. 8. Repeter pour chaque galette. Servir immediatement.'},
   {id:'p11',name:'Blanquette de veau et riz',category:'Plat',type:'plaisir',difficulty:'moyen',time:90,
     ingredients:[{name:'Veau (epaule)',qty:'800g',cat:'Viandes'},{name:'Carottes',qty:'4',cat:'Legumes'},{name:'Champignons',qty:'200g',cat:'Legumes'},{name:'Creme fraiche',qty:'20cl',cat:'Frais'},{name:'Riz',qty:'300g',cat:'Feculents'},{name:'Bouillon',qty:'1 cube',cat:'Epicerie'}],
-    steps:'Blanchir la viande. Cuire 1h dans bouillon avec carottes. Ajouter champignons. Lier avec creme + jaune d oeuf. Servir avec riz.'},
+    steps:'1. Couper le veau en morceaux de 4cm. Les mettre dans une casserole, couvrir d\'eau froide, porter a ebullition 2min puis egoutter (blanchiment). 2. Rincer la casserole. Remettre le veau avec le bouillon et 1L d\'eau. Porter a ebullition. 3. Eplucher les carottes et les couper en rondelles. Les ajouter. 4. Cuire a feu doux 1h a couvert (la viande doit etre tres tendre). Ecumer si necessaire. 5. 15min avant la fin, ajouter les champignons eminces. 6. Preparer la liaison : dans un bol, melanger la creme fraiche avec un jaune d\'oeuf. 7. Prelever un peu de bouillon chaud, le verser dans le bol en remuant, puis reverser dans la cocotte. Ne plus faire bouillir. 8. Cuire le riz a part. Servir la blanquette avec le riz.'},
   {id:'p12',name:'Lasagnes maison',category:'Plat',type:'plaisir',difficulty:'facile',time:50,
     ingredients:[{name:'Feuilles de lasagne',qty:'1 paquet',cat:'Feculents'},{name:'Viande hachee',qty:'500g',cat:'Viandes'},{name:'Sauce tomate',qty:'500ml',cat:'Conserves'},{name:'Bechamel',qty:'50cl',cat:'Epicerie'},{name:'Gruyere rape',qty:'150g',cat:'Frais'},{name:'Oignon',qty:'1',cat:'Legumes'}],
-    steps:'Bolognaise : revenir oignon, viande, ajouter sauce tomate 15min. Alterner dans un plat : lasagnes, bolo, bechamel. Finir par bechamel + fromage. Four 180C 30min.'},
+    steps:'1. Emincer l\'oignon. Le faire revenir 3min dans une casserole. Ajouter la viande hachee, emietter et faire dorer 5min. 2. Verser la sauce tomate, saler, poivrer. Mijoter 15min a feu doux. 3. Prechauffer le four a 180°C. 4. Dans un plat a gratin, alterner les couches : feuilles de lasagne, bolognaise, bechamel. Commencer par un peu de bechamel au fond. 5. Faire 3 couches de chaque. Finir par une couche de bechamel. 6. Recouvrir genereusement de gruyere rape. 7. Enfourner 30min. Le dessus doit etre bien dore et bouillonnant. 8. Laisser reposer 10min avant de servir (les lasagnes se tiendront mieux a la decoupe).'},
   {id:'p13',name:'Raclette',category:'Plat',type:'plaisir',difficulty:'facile',time:10,
     ingredients:[{name:'Fromage a raclette',qty:'800g',cat:'Frais'},{name:'Pommes de terre',qty:'1.5kg',cat:'Legumes'},{name:'Charcuterie',qty:'400g',cat:'Viandes'},{name:'Cornichons',qty:'1 pot',cat:'Epicerie'},{name:'Salade verte',qty:'1',cat:'Legumes'}],
-    steps:'Cuire PDT a l eau ou vapeur. Preparer la charcuterie en assiette. Faire fondre le fromage dans l appareil. Servir avec cornichons et salade.'},
+    steps:'1. Laver les pommes de terre sans les eplucher. Les cuire a l\'eau salee ou a la vapeur 20-25min (elles doivent etre tendres quand on les pique). 2. Preparer la table : installer l\'appareil a raclette, brancher et allumer. 3. Disposer la charcuterie variee (jambon cru, rosette, coppa, viande des Grisons...) dans une grande assiette. 4. Couper le fromage a raclette en tranches fines pour les poelons. 5. Ouvrir les cornichons, laver et essorer la salade verte. 6. Chacun fait fondre son fromage dans son poelon et le verse sur les pommes de terre chaudes. 7. Accompagner de charcuterie, cornichons et salade.'},
   {id:'p14',name:'Poulet basquaise et riz',category:'Plat',type:'plaisir',difficulty:'facile',time:45,
     ingredients:[{name:'Cuisses de poulet',qty:'4',cat:'Viandes'},{name:'Poivrons',qty:'3',cat:'Legumes'},{name:'Tomates concassees',qty:'400g',cat:'Conserves'},{name:'Oignon',qty:'2',cat:'Legumes'},{name:'Riz',qty:'300g',cat:'Feculents'},{name:'Huile olive',qty:'',cat:'Epicerie'},{name:'Piment d Espelette',qty:'',cat:'Epicerie'}],
-    steps:'Faire dorer le poulet. Reserver. Revenir oignons et poivrons. Ajouter tomates, piment, poulet. Mijoter 30min. Servir avec riz.'},
+    steps:'1. Saler et poivrer les cuisses de poulet. Les faire dorer dans une cocotte avec un filet d\'huile, 5min de chaque cote. Reserver sur une assiette. 2. Emincer les oignons et couper les poivrons en lanieres. 3. Dans la meme cocotte, faire revenir oignons et poivrons 5min a feu moyen. 4. Ajouter les tomates concassees et le piment d\'Espelette. Melanger. 5. Remettre le poulet dans la cocotte, enfoncer les morceaux dans la sauce. 6. Couvrir et laisser mijoter a feu doux 30min. La viande doit se detacher facilement. 7. Cuire le riz a part. 8. Rectifier l\'assaisonnement de la sauce. Servir le poulet basquaise avec le riz.'},
 ];
 
 // 13 weeks : Lun-Ven = equilibre, Sam-Dim = plaisir
@@ -611,6 +614,7 @@ function generateDefaultMenus() {
 let state = loadState();
 let currentWeek = getCurrentWeekIndex();
 let shoppingWeek = currentWeek;
+let shoppingView = 'category'; // 'category' or 'recipe'
 
 function loadState() {
   const saved = localStorage.getItem('menuFamille_v2');
@@ -698,7 +702,7 @@ function renderPlanning() {
       mealsHtml += `
         <div class="meal-row">
           <span class="meal-label">${meal === 'midi' ? 'Midi' : 'Soir'}</span>
-          <span class="meal-name">${recipe ? recipe.name + typeTag : '<i style="color:#aaa">Aucun</i>'}</span>
+          <span class="meal-name">${recipe ? `<a href="#" onclick="event.preventDefault();viewRecipe('${recipe.id}')" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--primary)">${recipe.name}</a>${typeTag}` : '<i style="color:#aaa">Aucun</i>'}</span>
           <button onclick="chooseMeal(${currentWeek},${di},'${meal}')" title="Changer">&#9998;</button>
           ${recipe ? `<button onclick="removeMeal(${currentWeek},${di},'${meal}')" title="Supprimer">&times;</button>` : ''}
         </div>`;
@@ -765,6 +769,15 @@ function generateShoppingList() {
   document.querySelectorAll('nav button')[1].classList.add('active');
 }
 
+function setShoppingView(view) {
+  shoppingView = view;
+  document.getElementById('viewByCat').className = view === 'category' ? 'btn btn-sm' : 'btn btn-outline btn-sm';
+  document.getElementById('viewByCat').style = view === 'category' ? 'background:var(--primary);color:white' : '';
+  document.getElementById('viewByRecipe').className = view === 'recipe' ? 'btn btn-sm' : 'btn btn-outline btn-sm';
+  document.getElementById('viewByRecipe').style = view === 'recipe' ? 'background:var(--primary);color:white' : '';
+  renderShopping();
+}
+
 function renderShopping() {
   const sel = document.getElementById('weekSelector');
   sel.innerHTML = '';
@@ -776,13 +789,16 @@ function renderShopping() {
     sel.appendChild(chip);
   }
 
+  // Collect all ingredients and recipe info
   const ingredients = {};
+  const recipesByMeal = []; // {recipe, day, meal}
   for (let d = 0; d < 7; d++) {
     MEALS.forEach(meal => {
       const recipeId = state.menus[`${shoppingWeek}-${d}-${meal}`];
       if (!recipeId) return;
       const recipe = getRecipe(recipeId);
       if (!recipe) return;
+      recipesByMeal.push({recipe, day: d, meal});
       recipe.ingredients.forEach(ing => {
         const key = ing.name.toLowerCase();
         if (!ingredients[key]) ingredients[key] = {name: ing.name, cat: ing.cat, qtys: []};
@@ -791,26 +807,14 @@ function renderShopping() {
     });
   }
 
-  const categories = {};
-  Object.values(ingredients).forEach(ing => {
-    if (!categories[ing.cat]) categories[ing.cat] = [];
-    categories[ing.cat].push(ing);
-  });
-
   const customItems = (state.customItems || []).filter(i => i.week === shoppingWeek);
-  if (customItems.length > 0) {
-    if (!categories['Divers']) categories['Divers'] = [];
-    customItems.forEach(ci => {
-      categories['Divers'].push({name: ci.name, cat: 'Divers', qtys: [], custom: true, customId: ci.id});
-    });
-  }
 
   const shopKey = `shop-${shoppingWeek}`;
   if (!state.shopping[shopKey]) state.shopping[shopKey] = {};
 
   const content = document.getElementById('shoppingContent');
 
-  if (Object.keys(categories).length === 0) {
+  if (Object.keys(ingredients).length === 0 && customItems.length === 0) {
     content.innerHTML = '<div class="card"><p style="color:var(--text-light)">Aucun menu prevu cette semaine.</p></div>';
     return;
   }
@@ -823,28 +827,99 @@ function renderShopping() {
     <div class="progress-bar"><div class="progress-fill" style="width:${total ? (checked/total*100) : 0}%"></div></div>
   </div>`;
 
-  const catOrder = ['Legumes','Fruits','Viandes','Poissons','Frais','Feculents','Boulangerie','Conserves','Surgeles','Epicerie','Divers'];
-  const sortedCats = Object.keys(categories).sort((a, b) => {
-    const ia = catOrder.indexOf(a), ib = catOrder.indexOf(b);
-    return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
-  });
+  if (shoppingView === 'recipe') {
+    // === VIEW BY RECIPE ===
+    // Deduplicate recipes (same recipe can appear multiple times in the week)
+    const seen = new Set();
+    recipesByMeal.forEach(({recipe, day, meal}) => {
+      const dayLabel = DAYS[day];
+      const mealLabel = meal === 'midi' ? 'Midi' : 'Soir';
+      const uniqueKey = recipe.id + '-' + day + '-' + meal;
+      if (seen.has(recipe.id)) {
+        // Already shown, skip but we could note it
+        return;
+      }
+      // Check if this recipe appears multiple times
+      const occurrences = recipesByMeal.filter(rm => rm.recipe.id === recipe.id);
+      const occLabels = occurrences.map(o => `${DAYS[o.day]} ${o.meal === 'midi' ? 'Midi' : 'Soir'}`).join(', ');
+      seen.add(recipe.id);
 
-  sortedCats.forEach(cat => {
-    html += `<div class="shopping-section"><h4>${cat}</h4>`;
-    categories[cat].forEach(item => {
-      const itemKey = item.custom ? `custom-${item.customId}` : item.name.toLowerCase();
-      const isChecked = state.shopping[shopKey][itemKey];
-      const escapedKey = itemKey.replace(/'/g, "\\'");
-      html += `
-        <div class="shopping-item ${isChecked ? 'checked' : ''}" onclick="toggleShopItem('${shopKey}','${escapedKey}')">
-          <input type="checkbox" ${isChecked ? 'checked' : ''} onclick="event.stopPropagation();toggleShopItem('${shopKey}','${escapedKey}')">
-          <span class="item-text">${item.name}</span>
-          <span class="item-qty">${item.qtys.join(' + ') || ''}</span>
-          ${item.custom ? `<button onclick="event.stopPropagation();removeCustomItem('${item.customId}')" style="background:none;border:none;color:var(--danger);cursor:pointer;font-size:1rem">&times;</button>` : ''}
-        </div>`;
+      const typeTag = recipe.type === 'plaisir' ? '<span class="tag tag-plaisir" style="font-size:0.7rem">plaisir</span>' : '<span class="tag tag-balance" style="font-size:0.7rem">equilibre</span>';
+
+      html += `<div class="shopping-section">
+        <h4 style="display:flex;align-items:center;gap:0.5rem;cursor:pointer" onclick="viewRecipe('${recipe.id}')">
+          ${recipe.name} ${typeTag}
+          <span style="font-size:0.75rem;color:var(--text-light);font-weight:400">${occLabels}</span>
+        </h4>`;
+      recipe.ingredients.forEach(ing => {
+        const itemKey = ing.name.toLowerCase();
+        const isChecked = state.shopping[shopKey][itemKey];
+        const escapedKey = itemKey.replace(/'/g, "\\'");
+        html += `
+          <div class="shopping-item ${isChecked ? 'checked' : ''}" onclick="toggleShopItem('${shopKey}','${escapedKey}')">
+            <input type="checkbox" ${isChecked ? 'checked' : ''} onclick="event.stopPropagation();toggleShopItem('${shopKey}','${escapedKey}')">
+            <span class="item-text">${ing.name}</span>
+            <span class="item-qty">${ing.qty || ''}</span>
+          </div>`;
+      });
+      html += '</div>';
     });
-    html += '</div>';
-  });
+
+    // Custom items
+    if (customItems.length > 0) {
+      html += '<div class="shopping-section"><h4>Articles personnels</h4>';
+      customItems.forEach(ci => {
+        const itemKey = `custom-${ci.id}`;
+        const isChecked = state.shopping[shopKey][itemKey];
+        const escapedKey = itemKey.replace(/'/g, "\\'");
+        html += `
+          <div class="shopping-item ${isChecked ? 'checked' : ''}" onclick="toggleShopItem('${shopKey}','${escapedKey}')">
+            <input type="checkbox" ${isChecked ? 'checked' : ''} onclick="event.stopPropagation();toggleShopItem('${shopKey}','${escapedKey}')">
+            <span class="item-text">${ci.name}</span>
+            <span class="item-qty"></span>
+            <button onclick="event.stopPropagation();removeCustomItem('${ci.id}')" style="background:none;border:none;color:var(--danger);cursor:pointer;font-size:1rem">&times;</button>
+          </div>`;
+      });
+      html += '</div>';
+    }
+  } else {
+    // === VIEW BY CATEGORY (original) ===
+    const categories = {};
+    Object.values(ingredients).forEach(ing => {
+      if (!categories[ing.cat]) categories[ing.cat] = [];
+      categories[ing.cat].push(ing);
+    });
+
+    if (customItems.length > 0) {
+      if (!categories['Divers']) categories['Divers'] = [];
+      customItems.forEach(ci => {
+        categories['Divers'].push({name: ci.name, cat: 'Divers', qtys: [], custom: true, customId: ci.id});
+      });
+    }
+
+    const catOrder = ['Legumes','Fruits','Viandes','Poissons','Frais','Feculents','Boulangerie','Conserves','Surgeles','Epicerie','Divers'];
+    const sortedCats = Object.keys(categories).sort((a, b) => {
+      const ia = catOrder.indexOf(a), ib = catOrder.indexOf(b);
+      return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+    });
+
+    sortedCats.forEach(cat => {
+      html += `<div class="shopping-section"><h4>${cat}</h4>`;
+      categories[cat].forEach(item => {
+        const itemKey = item.custom ? `custom-${item.customId}` : item.name.toLowerCase();
+        const isChecked = state.shopping[shopKey][itemKey];
+        const escapedKey = itemKey.replace(/'/g, "\\'");
+        html += `
+          <div class="shopping-item ${isChecked ? 'checked' : ''}" onclick="toggleShopItem('${shopKey}','${escapedKey}')">
+            <input type="checkbox" ${isChecked ? 'checked' : ''} onclick="event.stopPropagation();toggleShopItem('${shopKey}','${escapedKey}')">
+            <span class="item-text">${item.name}</span>
+            <span class="item-qty">${item.qtys.join(' + ') || ''}</span>
+            ${item.custom ? `<button onclick="event.stopPropagation();removeCustomItem('${item.customId}')" style="background:none;border:none;color:var(--danger);cursor:pointer;font-size:1rem">&times;</button>` : ''}
+          </div>`;
+      });
+      html += '</div>';
+    });
+  }
 
   content.innerHTML = html;
 }
@@ -916,13 +991,39 @@ function viewRecipe(id) {
   if (!r) return;
   const typeTag = r.type === 'plaisir' ? '<span class="tag tag-plaisir">plaisir</span>' : '<span class="tag tag-balance">equilibre</span>';
   const modal = document.getElementById('modalContent');
+  // Format steps: split on numbered patterns or periods for structured display
+  let stepsHtml = '';
+  const stepsText = r.steps || '';
+  const numberedSteps = stepsText.match(/\d+\.\s[^]*?(?=\d+\.|$)/g);
+  if (numberedSteps && numberedSteps.length > 1) {
+    stepsHtml = '<ol style="padding-left:1.2rem;font-size:0.9rem;line-height:1.6">' + numberedSteps.map(s => `<li style="margin-bottom:0.4rem">${s.replace(/^\d+\.\s*/, '').trim()}</li>`).join('') + '</ol>';
+  } else {
+    // Split on ". " followed by uppercase letter to create steps
+    const sentences = stepsText.split(/\.\s+/).filter(s => s.trim());
+    if (sentences.length > 1) {
+      stepsHtml = '<ol style="padding-left:1.2rem;font-size:0.9rem;line-height:1.6">' + sentences.map(s => `<li style="margin-bottom:0.4rem">${s.trim().replace(/\.$/,'')}</li>`).join('') + '</ol>';
+    } else {
+      stepsHtml = `<p style="font-size:0.9rem;line-height:1.5">${stepsText}</p>`;
+    }
+  }
+  // Group ingredients by category
+  const ingByCat = {};
+  r.ingredients.forEach(i => {
+    if (!ingByCat[i.cat]) ingByCat[i.cat] = [];
+    ingByCat[i.cat].push(i);
+  });
+  let ingHtml = '';
+  Object.keys(ingByCat).forEach(cat => {
+    ingHtml += `<div style="margin-bottom:0.3rem"><strong style="font-size:0.8rem;color:var(--text-light)">${cat}</strong>`;
+    ingHtml += '<ul style="padding-left:1.2rem;margin:0.2rem 0">' + ingByCat[cat].map(i => `<li>${i.name}${i.qty ? ' — <em>' + i.qty + '</em>' : ''}</li>`).join('') + '</ul></div>';
+  });
   modal.innerHTML = `
     <h3>${r.name}</h3>
     <p>${typeTag} <span class="tag ${r.difficulty === 'facile' ? 'tag-easy' : 'tag-medium'}">${r.difficulty}</span> &bull; ${r.time}min &bull; ${r.category}</p>
     <h4 style="margin-top:1rem;margin-bottom:0.5rem">Ingredients</h4>
-    <ul style="padding-left:1.2rem">${r.ingredients.map(i => `<li>${i.name}${i.qty ? ' — ' + i.qty : ''}</li>`).join('')}</ul>
+    ${ingHtml}
     <h4 style="margin-top:1rem;margin-bottom:0.5rem">Preparation</h4>
-    <p style="font-size:0.9rem;line-height:1.5">${r.steps}</p>
+    ${stepsHtml}
     <div class="modal-actions"><button class="btn btn-primary" onclick="closeModal()">Fermer</button></div>`;
   document.getElementById('modalOverlay').classList.remove('hidden');
 }
