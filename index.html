@@ -104,6 +104,24 @@ nav button.active {
   color: white;
   border-color: var(--primary);
 }
+/* Second nav bar for favorites */
+nav.nav-favs {
+  background: #fffbf0;
+  border-bottom: 2px solid #f0e6cc;
+  top: 112px;
+  gap: 0.3rem;
+  padding: 0.4rem 1rem;
+}
+nav.nav-favs button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  border-color: #e8d5a3;
+  background: #fffdf5;
+}
+nav.nav-favs button:hover { border-color: #d4a017; color: #d4a017; }
+nav.nav-favs button.active { background: #d4a017; color: white; border-color: #d4a017; }
+nav.nav-favs button.fav-btn { border-left: 3px solid #f1c40f; }
+nav.nav-favs button.hist-btn { border-left: 3px solid #8e44ad; }
 .container { max-width: 1100px; margin: 0 auto; padding: 1rem; }
 .card {
   background: var(--card);
@@ -390,6 +408,14 @@ nav button.active {
   <button onclick="showTab('bbqrecipes')">BBQ</button>
   <button onclick="showTab('extrecipes')">Recettes+</button>
 </nav>
+<nav class="nav-favs">
+  <button class="fav-btn" onclick="showTab('fav-yannick')">&#11088; Yannick</button>
+  <button class="fav-btn" onclick="showTab('fav-sandra')">&#11088; Sandra</button>
+  <button class="fav-btn" onclick="showTab('fav-clementine')">&#11088; Clementine</button>
+  <button class="fav-btn" onclick="showTab('fav-calie')">&#11088; Calie</button>
+  <button class="fav-btn" onclick="showTab('fav-valentin')">&#11088; Valentin</button>
+  <button class="hist-btn" onclick="showTab('history')">&#9989; Deja realise</button>
+</nav>
 
 <div class="container">
   <!-- PLANNING TAB -->
@@ -470,6 +496,16 @@ nav button.active {
     <div class="ext-cats" id="lightCats"></div>
     <div class="ext-grid" id="lightResults"></div>
   </div>
+
+  <!-- FAVORIS TABS -->
+  <div id="tab-fav-yannick" class="hidden"></div>
+  <div id="tab-fav-sandra" class="hidden"></div>
+  <div id="tab-fav-clementine" class="hidden"></div>
+  <div id="tab-fav-calie" class="hidden"></div>
+  <div id="tab-fav-valentin" class="hidden"></div>
+
+  <!-- HISTORY TAB -->
+  <div id="tab-history" class="hidden"></div>
 
   <!-- BBQ TAB -->
   <div id="tab-bbqrecipes" class="hidden">
@@ -686,7 +722,7 @@ function generateDefaultMenus() {
 
 // ============ STATE ============
 // Force reset to get new recipes
-let state = loadState();
+let state = ensureStateFields(loadState());
 let currentWeek = getCurrentWeekIndex();
 let shoppingWeek = currentWeek;
 let shoppingView = 'category'; // 'category' or 'recipe'
@@ -703,8 +739,18 @@ function freshState() {
     menus: generateDefaultMenus(),
     shopping: {},
     customItems: [],
-    startDate: getMonday(new Date()).toISOString().split('T')[0]
+    startDate: getMonday(new Date()).toISOString().split('T')[0],
+    favorites: { yannick: [], sandra: [], clementine: [], calie: [], valentin: [] },
+    history: []
   };
+}
+
+// Ensure favorites and history exist in loaded state
+function ensureStateFields(s) {
+  if (!s.favorites) s.favorites = { yannick: [], sandra: [], clementine: [], calie: [], valentin: [] };
+  ['yannick','sandra','clementine','calie','valentin'].forEach(n => { if (!s.favorites[n]) s.favorites[n] = []; });
+  if (!s.history) s.history = [];
+  return s;
 }
 
 function saveState() {
@@ -759,6 +805,8 @@ function showTab(tab) {
   if (tab === 'lightrecipes') { loadLightRecipes().then(() => renderLightRecipes()); }
   if (tab === 'bbqrecipes') { loadBbqRecipes().then(() => renderBbqRecipes()); }
   if (tab === 'extrecipes') renderExtSaved();
+  if (tab.startsWith('fav-')) renderFavorites(tab.replace('fav-', ''));
+  if (tab === 'history') renderHistory();
 }
 
 // ============ PLANNING ============
@@ -1105,7 +1153,11 @@ function viewRecipe(id) {
     ${ingHtml}
     <h4 style="margin-top:1rem;margin-bottom:0.5rem">Preparation</h4>
     ${stepsHtml}
-    <div class="modal-actions"><button class="btn btn-primary" onclick="closeModal()">Fermer</button></div>`;
+    <div class="modal-actions">
+      <button class="btn btn-sm" style="background:#f1c40f;color:#333" onclick="showFavMenu('${r.id}','${r.name.replace(/'/g,"\\'")}')">&#11088; Favori</button>
+      <button class="btn btn-sm" style="background:#8e44ad;color:white" onclick="markAsDone('${r.id}','${r.name.replace(/'/g,"\\'")}');closeModal()">&#9989; Fait !</button>
+      <button class="btn btn-primary" onclick="closeModal()">Fermer</button>
+    </div>`;
   document.getElementById('modalOverlay').classList.remove('hidden');
 }
 
@@ -1861,6 +1913,8 @@ function showExtRecipeModal(parsed, meal) {
     <div class="modal-actions">
       ${!isSaved ? `<button class="btn btn-primary" onclick="importExtRecipe(${meal.idMeal});closeModal()">Importer dans mes recettes</button>` : ''}
       ${meal.strYoutube ? `<a href="${meal.strYoutube}" target="_blank" class="btn btn-accent" style="text-decoration:none">Voir la video</a>` : ''}
+      <button class="btn btn-sm" style="background:#f1c40f;color:#333" onclick="showFavMenu('ext-${meal.idMeal}','${parsed.name.replace(/'/g,"\\\\'")}')">&#11088; Favori</button>
+      <button class="btn btn-sm" style="background:#8e44ad;color:white" onclick="markAsDone('ext-${meal.idMeal}','${parsed.name.replace(/'/g,"\\\\'")}');closeModal()">&#9989; Fait !</button>
       <button class="btn btn-outline" onclick="closeModal()">Fermer</button>
     </div>`;
   document.getElementById('modalOverlay').classList.remove('hidden');
@@ -2041,6 +2095,8 @@ function viewFrRecipe(id) {
     ${stepsHtml}
     <div class="modal-actions">
       ${!isSaved ? `<button class="btn btn-primary" onclick="importFrRecipe('${r.id}');closeModal()">Ajouter au planning</button>` : ''}
+      <button class="btn btn-sm" style="background:#f1c40f;color:#333" onclick="showFavMenu('${r.id}','${r.name.replace(/'/g,"\\\\'")}')">&#11088; Favori</button>
+      <button class="btn btn-sm" style="background:#8e44ad;color:white" onclick="markAsDone('${r.id}','${r.name.replace(/'/g,"\\\\'")}');closeModal()">&#9989; Fait !</button>
       <button class="btn btn-outline" onclick="closeModal()">Fermer</button>
     </div>`;
   document.getElementById('modalOverlay').classList.remove('hidden');
@@ -2160,6 +2216,8 @@ function viewLightRecipe(id) {
     ${stepsHtml}
     <div class="modal-actions">
       ${!isSaved ? `<button class="btn btn-primary" onclick="importLightRecipe('${r.id}');closeModal()">Ajouter au planning</button>` : ''}
+      <button class="btn btn-sm" style="background:#f1c40f;color:#333" onclick="showFavMenu('${r.id}','${r.name.replace(/'/g,"\\\\'")}')">&#11088; Favori</button>
+      <button class="btn btn-sm" style="background:#8e44ad;color:white" onclick="markAsDone('${r.id}','${r.name.replace(/'/g,"\\\\'")}');closeModal()">&#9989; Fait !</button>
       <button class="btn btn-outline" onclick="closeModal()">Fermer</button>
     </div>`;
   document.getElementById('modalOverlay').classList.remove('hidden');
@@ -2274,6 +2332,8 @@ function viewBbqRecipe(id) {
     ${stepsHtml}
     <div class="modal-actions">
       ${!isSaved ? `<button class="btn" style="background:#c0392b;color:white" onclick="importBbqRecipe('${r.id}');closeModal()">Ajouter au planning</button>` : ''}
+      <button class="btn btn-sm" style="background:#f1c40f;color:#333" onclick="showFavMenu('${r.id}','${r.name.replace(/'/g,"\\\\'")}')">&#11088; Favori</button>
+      <button class="btn btn-sm" style="background:#8e44ad;color:white" onclick="markAsDone('${r.id}','${r.name.replace(/'/g,"\\\\'")}');closeModal()">&#9989; Fait !</button>
       <button class="btn btn-outline" onclick="closeModal()">Fermer</button>
     </div>`;
   document.getElementById('modalOverlay').classList.remove('hidden');
@@ -2301,6 +2361,181 @@ function initBbqCategories() {
     {id:'Legumes',label:'Legumes/Pizza'}
   ];
   document.getElementById('bbqCats').innerHTML = cats.map(c => `<button data-cat="${c.id}" onclick="filterBbqRecipes('${c.id}')">${c.label}</button>`).join('');
+}
+
+// ============ FAVORITES & HISTORY ============
+const FAMILY = ['yannick','sandra','clementine','calie','valentin'];
+const FAMILY_LABELS = {yannick:'Yannick',sandra:'Sandra',clementine:'Clementine',calie:'Calie',valentin:'Valentin'};
+const FAMILY_COLORS = {yannick:'#3498db',sandra:'#e91e63',clementine:'#9b59b6',calie:'#e67e22',valentin:'#27ae60'};
+
+// Get any recipe by ID from all sources
+function getAnyRecipe(id) {
+  // Check internal recipes
+  let r = state.recipes.find(x => x.id === id);
+  if (r) return r;
+  // Check external JSON sources
+  for (const src of [frRecipesData, lightRecipesData, bbqRecipesData]) {
+    r = src.find(x => x.id === id);
+    if (r) return r;
+  }
+  return null;
+}
+
+// Add recipe to a family member's favorites
+function addToFavorites(recipeId, recipeName, member) {
+  if (!state.favorites[member]) state.favorites[member] = [];
+  if (state.favorites[member].some(f => f.id === recipeId)) return; // already exists
+  state.favorites[member].push({ id: recipeId, name: recipeName, addedAt: new Date().toISOString().split('T')[0] });
+  saveState();
+}
+
+function removeFromFavorites(recipeId, member) {
+  if (!state.favorites[member]) return;
+  state.favorites[member] = state.favorites[member].filter(f => f.id !== recipeId);
+  saveState();
+  renderFavorites(member);
+}
+
+function isFavorite(recipeId, member) {
+  return state.favorites[member] && state.favorites[member].some(f => f.id === recipeId);
+}
+
+// Show the star menu to pick a family member
+function showFavMenu(recipeId, recipeName) {
+  const modal = document.getElementById('modalContent');
+  const current = modal.innerHTML;
+  let html = '<div style="background:#fffbf0;border-radius:10px;padding:1rem;margin-top:1rem;border:2px solid #f1c40f">';
+  html += '<h4 style="margin-bottom:0.5rem">&#11088; Ajouter aux favoris de :</h4>';
+  html += '<div style="display:flex;flex-wrap:wrap;gap:0.5rem">';
+  FAMILY.forEach(m => {
+    const isFav = isFavorite(recipeId, m);
+    const color = FAMILY_COLORS[m];
+    html += `<button class="btn btn-sm" style="background:${isFav ? color : 'white'};color:${isFav ? 'white' : color};border:2px solid ${color}" onclick="toggleFav('${recipeId}','${recipeName.replace(/'/g,"\\'")}','${m}')">`;
+    html += `${isFav ? '&#11088; ' : ''}${FAMILY_LABELS[m]}</button>`;
+  });
+  html += '</div></div>';
+  // Append to current modal
+  const actionsDiv = modal.querySelector('.modal-actions');
+  if (actionsDiv) {
+    const favDiv = document.createElement('div');
+    favDiv.id = 'favMenuInModal';
+    favDiv.innerHTML = html;
+    actionsDiv.parentNode.insertBefore(favDiv, actionsDiv);
+  }
+}
+
+function toggleFav(recipeId, recipeName, member) {
+  if (isFavorite(recipeId, member)) {
+    removeFromFavorites(recipeId, member);
+  } else {
+    addToFavorites(recipeId, recipeName, member);
+  }
+  // Refresh the fav buttons in modal
+  const favDiv = document.getElementById('favMenuInModal');
+  if (favDiv) favDiv.remove();
+  showFavMenu(recipeId, recipeName);
+}
+
+// Render a favorites tab
+function renderFavorites(member) {
+  const container = document.getElementById('tab-fav-' + member);
+  const favs = state.favorites[member] || [];
+  const color = FAMILY_COLORS[member];
+  let html = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem">
+    <h2 style="color:${color}">&#11088; Favoris de ${FAMILY_LABELS[member]}</h2>
+    <span style="font-size:0.85rem;color:var(--text-light)">${favs.length} recette${favs.length > 1 ? 's' : ''}</span>
+  </div>`;
+  if (favs.length === 0) {
+    html += '<div class="card"><p style="color:var(--text-light)">Aucun favori pour l\'instant. Ouvrez une recette et cliquez sur &#11088; pour l\'ajouter ici.</p></div>';
+  } else {
+    html += '<div class="ext-grid">';
+    favs.forEach(f => {
+      html += `<div class="ext-card" style="border-left:3px solid ${color}">
+        <div class="ext-body">
+          <h4>${f.name}</h4>
+          <p style="font-size:0.8rem;color:var(--text-light)">Ajoute le ${f.addedAt || ''}</p>
+          <div class="ext-actions">
+            <button class="btn btn-outline btn-sm" onclick="viewAnyRecipe('${f.id}')">Voir</button>
+            <button class="btn btn-danger btn-sm" onclick="removeFromFavorites('${f.id}','${member}')">Retirer</button>
+          </div>
+        </div>
+      </div>`;
+    });
+    html += '</div>';
+  }
+  container.innerHTML = html;
+}
+
+// View any recipe from any source
+async function viewAnyRecipe(id) {
+  // Try internal first
+  let r = state.recipes.find(x => x.id === id);
+  if (r) { viewRecipe(id); return; }
+  // Try loaded JSON sources
+  if (frRecipesData.length === 0) await loadFrRecipes();
+  r = frRecipesData.find(x => x.id === id);
+  if (r) { viewFrRecipe(id); return; }
+  if (lightRecipesData.length === 0) await loadLightRecipes();
+  r = lightRecipesData.find(x => x.id === id);
+  if (r) { viewLightRecipe(id); return; }
+  if (bbqRecipesData.length === 0) await loadBbqRecipes();
+  r = bbqRecipesData.find(x => x.id === id);
+  if (r) { viewBbqRecipe(id); return; }
+  alert('Recette introuvable');
+}
+
+// History: mark a recipe as done
+function markAsDone(recipeId, recipeName) {
+  if (!state.history) state.history = [];
+  state.history.unshift({ id: recipeId, name: recipeName, date: new Date().toISOString().split('T')[0] });
+  saveState();
+}
+
+function isInHistory(recipeId) {
+  return state.history && state.history.some(h => h.id === recipeId);
+}
+
+function renderHistory() {
+  const container = document.getElementById('tab-history');
+  const hist = state.history || [];
+  let html = `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem">
+    <h2 style="color:#8e44ad">&#9989; Deja realise</h2>
+    <span style="font-size:0.85rem;color:var(--text-light)">${hist.length} recette${hist.length > 1 ? 's' : ''} realisee${hist.length > 1 ? 's' : ''}</span>
+  </div>`;
+  if (hist.length === 0) {
+    html += '<div class="card"><p style="color:var(--text-light)">Aucune recette realisee pour l\'instant. Cliquez sur &#9989; dans une fiche recette pour la marquer comme faite.</p></div>';
+  } else {
+    // Group by date
+    const byDate = {};
+    hist.forEach(h => {
+      if (!byDate[h.date]) byDate[h.date] = [];
+      byDate[h.date].push(h);
+    });
+    Object.keys(byDate).sort().reverse().forEach(date => {
+      const d = new Date(date);
+      const label = d.toLocaleDateString('fr-FR', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+      html += `<div class="card" style="border-left:3px solid #8e44ad">
+        <h3 style="color:#8e44ad;font-size:0.95rem;margin-bottom:0.5rem">${label}</h3>`;
+      byDate[date].forEach(h => {
+        html += `<div style="display:flex;justify-content:space-between;align-items:center;padding:0.4rem 0;border-bottom:1px solid #f0f0f0">
+          <span style="font-size:0.9rem">${h.name}</span>
+          <div style="display:flex;gap:0.3rem">
+            <button class="btn btn-outline btn-sm" onclick="viewAnyRecipe('${h.id}')">Voir</button>
+            <button class="btn btn-sm" style="background:#eee;font-size:0.75rem" onclick="removeFromHistory('${h.id}','${h.date}')">Retirer</button>
+          </div>
+        </div>`;
+      });
+      html += '</div>';
+    });
+  }
+  container.innerHTML = html;
+}
+
+function removeFromHistory(recipeId, date) {
+  const idx = state.history.findIndex(h => h.id === recipeId && h.date === date);
+  if (idx >= 0) state.history.splice(idx, 1);
+  saveState();
+  renderHistory();
 }
 
 // ============ INIT ============
