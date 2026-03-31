@@ -488,7 +488,7 @@ nav.nav-favs button.hist-btn { border-left: 3px solid #8e44ad; }
   <div id="tab-lightrecipes" class="hidden">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;flex-wrap:wrap;gap:0.5rem">
       <h2>Recettes Light</h2>
-      <span style="font-size:0.8rem;color:var(--text-light)">94 recettes dietetiques &bull; Dr Jean-Michel Cohen</span>
+      <span style="font-size:0.8rem;color:var(--text-light)">1231 recettes dietetiques &bull; Dr Jean-Michel Cohen</span>
     </div>
     <div class="ext-search-bar">
       <input type="text" id="lightSearch" placeholder="Rechercher une recette light..." oninput="renderLightRecipes()">
@@ -2152,7 +2152,8 @@ function renderLightRecipes() {
     if (lightFilter === 'Poissons') return r.ingredients.some(i => i.cat === 'Poissons');
     if (lightFilter === 'Vegetarien') return !r.ingredients.some(i => i.cat === 'Viandes' || i.cat === 'Poissons');
     if (lightFilter === 'Rapide') return r.time <= 30;
-    if (lightFilter === 'Salade') return r.name.toLowerCase().includes('salade');
+    // Category filters from Savoir-Maigrir
+    if (['Plat','Entree','Dessert','Soupe','Salade','Sauce','Aperitif','Boisson'].includes(lightFilter)) return r.category === lightFilter;
     return true;
   });
   const grid = document.getElementById('lightResults');
@@ -2237,11 +2238,18 @@ function importLightRecipe(id) {
 
 function initLightCategories() {
   const cats = [
+    {id:'Plat',label:'Plats'},
+    {id:'Entree',label:'Entrees'},
+    {id:'Dessert',label:'Desserts'},
+    {id:'Soupe',label:'Soupes'},
+    {id:'Salade',label:'Salades'},
+    {id:'Sauce',label:'Sauces'},
+    {id:'Aperitif',label:'Aperitifs'},
+    {id:'Boisson',label:'Boissons'},
     {id:'Viandes',label:'Viandes'},
     {id:'Poissons',label:'Poissons'},
     {id:'Vegetarien',label:'Vegetarien'},
-    {id:'Rapide',label:'Rapide (< 30 min)'},
-    {id:'Salade',label:'Salades'}
+    {id:'Rapide',label:'Rapide'}
   ];
   document.getElementById('lightCats').innerHTML = cats.map(c => `<button data-cat="${c.id}" onclick="filterLightRecipes('${c.id}')">${c.label}</button>`).join('');
 }
