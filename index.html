@@ -387,6 +387,7 @@ nav button.active {
   <button onclick="showTab('recettes')">Mes recettes</button>
   <button onclick="showTab('frrecipes')">Recettes FR</button>
   <button onclick="showTab('lightrecipes')">Recettes Light</button>
+  <button onclick="showTab('bbqrecipes')">BBQ</button>
   <button onclick="showTab('extrecipes')">Recettes+</button>
 </nav>
 
@@ -468,6 +469,19 @@ nav button.active {
     </div>
     <div class="ext-cats" id="lightCats"></div>
     <div class="ext-grid" id="lightResults"></div>
+  </div>
+
+  <!-- BBQ TAB -->
+  <div id="tab-bbqrecipes" class="hidden">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;flex-wrap:wrap;gap:0.5rem">
+      <h2 style="color:#c0392b">BBQ</h2>
+      <span style="font-size:0.8rem;color:var(--text-light)">114 recettes barbecue &bull; Source : Weber</span>
+    </div>
+    <div class="ext-search-bar">
+      <input type="text" id="bbqSearch" placeholder="Rechercher une recette BBQ..." oninput="renderBbqRecipes()">
+    </div>
+    <div class="ext-cats" id="bbqCats"></div>
+    <div class="ext-grid" id="bbqResults"></div>
   </div>
 
   <!-- RECETTES+ TAB -->
@@ -743,6 +757,7 @@ function showTab(tab) {
   if (tab === 'recettes') renderRecipes();
   if (tab === 'frrecipes') { loadFrRecipes().then(() => renderFrRecipes()); }
   if (tab === 'lightrecipes') { loadLightRecipes().then(() => renderLightRecipes()); }
+  if (tab === 'bbqrecipes') { loadBbqRecipes().then(() => renderBbqRecipes()); }
   if (tab === 'extrecipes') renderExtSaved();
 }
 
@@ -2173,11 +2188,127 @@ function initLightCategories() {
   document.getElementById('lightCats').innerHTML = cats.map(c => `<button data-cat="${c.id}" onclick="filterLightRecipes('${c.id}')">${c.label}</button>`).join('');
 }
 
+// ============ RECETTES BBQ (Weber) ============
+let bbqRecipesData = [];
+let bbqFilter = '';
+
+async function loadBbqRecipes() {
+  if (bbqRecipesData.length > 0) return;
+  try {
+    const resp = await fetch('recettes-bbq.json');
+    bbqRecipesData = await resp.json();
+  } catch(e) { console.error('Erreur chargement recettes BBQ:', e); }
+}
+
+function renderBbqRecipes() {
+  const q = (document.getElementById('bbqSearch')?.value || '').toLowerCase();
+  let recipes = bbqRecipesData;
+  if (q) recipes = recipes.filter(r => r.name.toLowerCase().includes(q) || r.ingredients.some(i => i.name.toLowerCase().includes(q)));
+  if (bbqFilter) recipes = recipes.filter(r => {
+    if (bbqFilter === 'Boeuf') return r.name.toLowerCase().match(/boeuf|bœuf|steak|burger|côte de|entrecôte|bavette|onglet/);
+    if (bbqFilter === 'Poulet') return r.name.toLowerCase().match(/poulet|wings|ailes|volaille/);
+    if (bbqFilter === 'Porc') return r.name.toLowerCase().match(/porc|travers|ribs|saucisse|merguez|chorizo|bacon/);
+    if (bbqFilter === 'Agneau') return r.name.toLowerCase().match(/agneau|gigot|côtelette|carré/);
+    if (bbqFilter === 'Poisson') return r.ingredients.some(i => i.cat === 'Poissons');
+    if (bbqFilter === 'Legumes') return r.name.toLowerCase().match(/légume|salade|pizza|pain|dessert|ananas|végé/i) || !r.ingredients.some(i => i.cat === 'Viandes' || i.cat === 'Poissons');
+    return true;
+  });
+  const grid = document.getElementById('bbqResults');
+  if (recipes.length === 0) { grid.innerHTML = '<div class="ext-loading">Aucune recette trouvee.</div>'; return; }
+  grid.innerHTML = recipes.map(r => {
+    const isSaved = state.recipes.some(sr => sr.id === r.id);
+    const ingPreview = r.ingredients.slice(0, 4).map(i => i.name).join(', ');
+    return `<div class="ext-card" style="cursor:default;border-left:3px solid #c0392b">
+      <div class="ext-body">
+        <h4>${r.name} ${isSaved ? '<span class="ext-saved-badge">Importe</span>' : ''}</h4>
+        <p>${r.time} min &bull; ${r.servings} pers. &bull; <span style="color:#c0392b;font-weight:600">${r.fuel}</span>${r.method ? ' &bull; ' + r.method : ''}</p>
+        <p style="margin-top:0.3rem;font-size:0.8rem;color:var(--text-light)">${ingPreview}...</p>
+        <div class="ext-actions">
+          <button class="btn btn-outline btn-sm" onclick="viewBbqRecipe('${r.id}')">Voir</button>
+          ${!isSaved ? `<button class="btn btn-sm" style="background:#c0392b;color:white" onclick="importBbqRecipe('${r.id}')">Ajouter au planning</button>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function filterBbqRecipes(cat) {
+  bbqFilter = bbqFilter === cat ? '' : cat;
+  document.querySelectorAll('#bbqCats button').forEach(b => b.classList.toggle('active', b.dataset.cat === bbqFilter));
+  renderBbqRecipes();
+}
+
+function viewBbqRecipe(id) {
+  const r = bbqRecipesData.find(x => x.id === id);
+  if (!r) return;
+  const modal = document.getElementById('modalContent');
+  const isSaved = state.recipes.some(sr => sr.id === r.id);
+  const ingByCat = {};
+  r.ingredients.forEach(i => { if (!ingByCat[i.cat]) ingByCat[i.cat] = []; ingByCat[i.cat].push(i); });
+  let ingHtml = '';
+  Object.keys(ingByCat).forEach(cat => {
+    ingHtml += `<div style="margin-bottom:0.3rem"><strong style="font-size:0.8rem;color:var(--text-light)">${cat}</strong>`;
+    ingHtml += '<ul style="padding-left:1.2rem;margin:0.2rem 0">' + ingByCat[cat].map(i => `<li>${i.name}${i.qty ? ' — <em>' + i.qty + '</em>' : ''}</li>`).join('') + '</ul></div>';
+  });
+  const stepsText = r.steps || '';
+  const numberedSteps = stepsText.match(/\d+\.\s[^]*?(?=\d+\.|$)/g);
+  let stepsHtml;
+  if (numberedSteps && numberedSteps.length > 1) {
+    stepsHtml = '<ol style="padding-left:1.2rem;font-size:0.9rem;line-height:1.6">' + numberedSteps.map(s => `<li style="margin-bottom:0.4rem">${s.replace(/^\d+\.\s*/, '').trim()}</li>`).join('') + '</ol>';
+  } else {
+    stepsHtml = `<p style="font-size:0.9rem;line-height:1.5">${stepsText}</p>`;
+  }
+  const imgHtml = r.image ? `<img src="${r.image}?w=500&auto=compress,format" alt="" style="width:100%;border-radius:8px;margin-bottom:1rem;max-height:200px;object-fit:cover">` : '';
+  modal.innerHTML = `
+    ${imgHtml}
+    <h3>${r.name}</h3>
+    <p style="margin-bottom:0.5rem">
+      <span style="font-size:0.85rem;color:var(--text-light)">${r.time} min &bull; ${r.servings} pers.</span>
+      <span style="display:inline-block;background:#fde8e8;color:#c0392b;font-size:0.75rem;padding:0.15rem 0.5rem;border-radius:10px;font-weight:600;margin-left:0.3rem">${r.fuel}</span>
+      ${r.method ? `<span style="display:inline-block;background:#fef3cd;color:#856404;font-size:0.75rem;padding:0.15rem 0.5rem;border-radius:10px;font-weight:600;margin-left:0.3rem">${r.method}</span>` : ''}
+      ${isSaved ? ' <span class="ext-saved-badge">Dans le planning</span>' : ''}
+    </p>
+    <h4 style="margin-top:0.8rem;margin-bottom:0.5rem">Ingredients</h4>
+    ${ingHtml}
+    <h4 style="margin-top:1rem;margin-bottom:0.5rem">Preparation</h4>
+    ${stepsHtml}
+    <div class="modal-actions">
+      ${!isSaved ? `<button class="btn" style="background:#c0392b;color:white" onclick="importBbqRecipe('${r.id}');closeModal()">Ajouter au planning</button>` : ''}
+      <button class="btn btn-outline" onclick="closeModal()">Fermer</button>
+    </div>`;
+  document.getElementById('modalOverlay').classList.remove('hidden');
+}
+
+function importBbqRecipe(id) {
+  const r = bbqRecipesData.find(x => x.id === id);
+  if (!r || state.recipes.some(sr => sr.id === r.id)) return;
+  state.recipes.push({
+    id: r.id, name: r.name, category: 'Plat', type: 'plaisir',
+    difficulty: r.difficulty, time: r.time, ingredients: r.ingredients,
+    steps: r.steps, source: 'bbq'
+  });
+  saveState();
+  renderBbqRecipes();
+}
+
+function initBbqCategories() {
+  const cats = [
+    {id:'Boeuf',label:'Boeuf'},
+    {id:'Poulet',label:'Poulet'},
+    {id:'Porc',label:'Porc'},
+    {id:'Agneau',label:'Agneau'},
+    {id:'Poisson',label:'Poisson'},
+    {id:'Legumes',label:'Legumes/Pizza'}
+  ];
+  document.getElementById('bbqCats').innerHTML = cats.map(c => `<button data-cat="${c.id}" onclick="filterBbqRecipes('${c.id}')">${c.label}</button>`).join('');
+}
+
 // ============ INIT ============
 document.getElementById('headerDate').textContent = new Date().toLocaleDateString('fr-FR', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
 initExtCategories();
 initFrCategories();
 initLightCategories();
+initBbqCategories();
 renderPlanning();
 </script>
 </body>
