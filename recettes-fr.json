@@ -1,0 +1,3415 @@
+[
+  {
+    "name": "Cassoulet traditionnel",
+    "time": 195,
+    "servings": 6,
+    "difficulty": "moyen",
+    "ingredients": [
+      {
+        "name": "Haricots lingot",
+        "qty": "350g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Cuisses de canard confites",
+        "qty": "2",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Poitrine de porc",
+        "qty": "250g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Saucisses de Toulouse",
+        "qty": "250g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Carotte",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Ail",
+        "qty": "6 gousses",
+        "cat": "Legumes"
+      }
+    ],
+    "steps": "1. Tremper les haricots toute une nuit. 2. Les cuire 10 min a feu doux. 3. Remettre avec carotte, oignon, ail. Cuire 1h. 4. Faire dorer les viandes. 5. Alterner couenne, haricots et viandes. 6. Enfourner 1h30 a 150°C.",
+    "id": "fr1",
+    "source": "750g.com"
+  },
+  {
+    "name": "Filet mignon de porc au four",
+    "time": 40,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filets mignon",
+        "qty": "2",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Beurre",
+        "qty": "40g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Thym",
+        "qty": "2 brins",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Romarin",
+        "qty": "2 brins",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Prechauffer a 200°C. 2. Saisir le filet a la poele. 3. Placer dans un plat avec thym, romarin et beurre. 4. Enfourner 20 min. 5. Reposer 10 min sous alu.",
+    "id": "fr2",
+    "source": "750g.com"
+  },
+  {
+    "name": "Cuisses de poulet et PDT au four",
+    "time": 55,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Cuisses de poulet",
+        "qty": "4",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Pommes de terre",
+        "qty": "800g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignons",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Herbes de Provence",
+        "qty": "",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Huile olive",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Deposer oignons et poulet assaisonne dans un plat. 2. Ajouter PDT en des. 3. Enfourner 40 min a 190°C.",
+    "id": "fr3",
+    "source": "750g.com"
+  },
+  {
+    "name": "Rosbif au four",
+    "time": 45,
+    "servings": 6,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Rosbif",
+        "qty": "1.2kg",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oignons",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Beurre",
+        "qty": "50g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Ail",
+        "qty": "2 gousses",
+        "cat": "Legumes"
+      }
+    ],
+    "steps": "1. Prechauffer a 210°C. 2. Piquer d'ail, badigeonner de beurre. 3. Enfourner 30 min avec oignons. 4. Arroser regulierement. Reposer 5 min.",
+    "id": "fr4",
+    "source": "750g.com"
+  },
+  {
+    "name": "Poulet facon KFC",
+    "time": 20,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filets de poulet",
+        "qty": "4",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Cornflakes",
+        "qty": "200g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Oeuf",
+        "qty": "1",
+        "cat": "Frais"
+      },
+      {
+        "name": "Farine",
+        "qty": "100g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Paprika",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Couper le poulet en des, assaisonner. 2. Paner : farine, oeuf, cornflakes. 3. Frire jusqu'a coloration doree.",
+    "id": "fr5",
+    "source": "750g.com"
+  },
+  {
+    "name": "Le vrai croque-monsieur",
+    "time": 22,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Pain de mie",
+        "qty": "8 tranches",
+        "cat": "Boulangerie"
+      },
+      {
+        "name": "Jambon",
+        "qty": "200g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Comte rape",
+        "qty": "100g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Beurre",
+        "qty": "30g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Farine",
+        "qty": "30g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Lait",
+        "qty": "30cl",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Preparer la bechamel. 2. Garnir de jambon et fromage. 3. Bechamel et fromage dessus. 4. Enfourner 12 min.",
+    "id": "fr6",
+    "source": "750g.com"
+  },
+  {
+    "name": "Tartiflette au reblochon",
+    "time": 75,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Pommes de terre",
+        "qty": "1kg",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Reblochon",
+        "qty": "1",
+        "cat": "Frais"
+      },
+      {
+        "name": "Lardons",
+        "qty": "200g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Creme fraiche",
+        "qty": "2 cs",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Cuire les PDT, couper en lamelles. 2. Faire revenir oignon et lardons. 3. Alterner dans un plat. 4. Creme et reblochon dessus. 5. Enfourner a 200°C.",
+    "id": "fr7",
+    "source": "750g.com"
+  },
+  {
+    "name": "Blanquette de poulet",
+    "time": 46,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filets de poulet",
+        "qty": "800g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Carottes",
+        "qty": "3",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Bouillon",
+        "qty": "40cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Beurre",
+        "qty": "30g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Farine",
+        "qty": "30g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Creme fraiche",
+        "qty": "2 cs",
+        "cat": "Frais"
+      },
+      {
+        "name": "Jaune d'oeuf",
+        "qty": "1",
+        "cat": "Frais"
+      },
+      {
+        "name": "Jus de citron",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Faire revenir poulet en cubes au beurre. 2. Ajouter farine, bouillon, carottes et oignon. 3. Cuire 20 min. 4. Lier avec creme, citron et jaune d'oeuf.",
+    "id": "fr8",
+    "source": "750g.com"
+  },
+  {
+    "name": "Saucisse aux lentilles",
+    "time": 35,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Lentilles",
+        "qty": "400g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Saucisses",
+        "qty": "4",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Lardons",
+        "qty": "125g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Carottes",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Laurier",
+        "qty": "1 feuille",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Bouillon",
+        "qty": "1L",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Faire dorer oignon, saucisses et lardons. 2. Ajouter carottes, laurier et lentilles. 3. Verser le bouillon, cuire 20 min.",
+    "id": "fr9",
+    "source": "750g.com"
+  },
+  {
+    "name": "Kebab maison au poulet",
+    "time": 150,
+    "servings": 4,
+    "difficulty": "moyen",
+    "ingredients": [
+      {
+        "name": "Filets de poulet",
+        "qty": "4",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Yaourt grec",
+        "qty": "120g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Paprika",
+        "qty": "2 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Cumin",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Courgettes",
+        "qty": "3",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Poivrons",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignons",
+        "qty": "3",
+        "cat": "Legumes"
+      }
+    ],
+    "steps": "1. Mariner le poulet dans yaourt et epices 1h. 2. Enfiler sur brochettes. 3. Enfourner a 150°C. 4. Servir en tranches dans du pain pita.",
+    "id": "fr10",
+    "source": "750g.com"
+  },
+  {
+    "name": "Quesadillas a la viande hachee",
+    "time": 40,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Tortillas",
+        "qty": "4",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Viande hachee",
+        "qty": "250g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oignon rouge",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Mais",
+        "qty": "130g",
+        "cat": "Conserves"
+      },
+      {
+        "name": "Coulis de tomate",
+        "qty": "10cl",
+        "cat": "Conserves"
+      },
+      {
+        "name": "Emmental rape",
+        "qty": "150g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Epices mexicaines",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Faire revenir oignon et viande. 2. Ajouter epices, coulis et mais. 3. Garnir tortilla, plier, dorer a la poele.",
+    "id": "fr11",
+    "source": "750g.com"
+  },
+  {
+    "name": "Wrap grille au poulet",
+    "time": 20,
+    "servings": 2,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Tortillas",
+        "qty": "4",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Filets de poulet",
+        "qty": "2",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Pulpe de tomate",
+        "qty": "100g",
+        "cat": "Conserves"
+      },
+      {
+        "name": "Mimolette",
+        "qty": "75g",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Cuire et effilocher le poulet. 2. Melanger avec tomate et epices. 3. Garnir la tortilla. 4. Plier et dorer a la poele.",
+    "id": "fr12",
+    "source": "750g.com"
+  },
+  {
+    "name": "La croziflette",
+    "time": 45,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Crozets",
+        "qty": "300g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Reblochon",
+        "qty": "1",
+        "cat": "Frais"
+      },
+      {
+        "name": "Lardons",
+        "qty": "200g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Creme liquide",
+        "qty": "20cl",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Cuire les crozets 15 min. 2. Revenir oignon et lardons avec creme. 3. Melanger avec crozets dans un plat. 4. Reblochon dessus. 5. Enfourner 20 min a 200°C.",
+    "id": "fr13",
+    "source": "750g.com"
+  },
+  {
+    "name": "Paves de saumon",
+    "time": 15,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Paves de saumon",
+        "qty": "4",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Huile d'olive",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Ciboulette",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Deposer les paves cote peau. 2. Huiler, saler, poivrer. 3. Cuire a 200°C pendant 10 min. 4. Parsemer de ciboulette.",
+    "id": "fr14",
+    "source": "750g.com"
+  },
+  {
+    "name": "Morue au four a la portugaise",
+    "time": 80,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Morue dessalee",
+        "qty": "1",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Pommes de terre",
+        "qty": "4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Tomates concassees",
+        "qty": "1 boite",
+        "cat": "Conserves"
+      },
+      {
+        "name": "Olives noires",
+        "qty": "100g",
+        "cat": "Conserves"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Ail",
+        "qty": "2 gousses",
+        "cat": "Legumes"
+      }
+    ],
+    "steps": "1. Dessaler la morue 24h. 2. Alterner PDT, tomates, oignon, ail dans un plat. 3. Poser la morue, ajouter olives. 4. Cuire 1h a 180°C.",
+    "id": "fr15",
+    "source": "750g.com"
+  },
+  {
+    "name": "Crevettes a l'ail et lait de coco",
+    "time": 60,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Crevettes",
+        "qty": "500g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Lait de coco",
+        "qty": "25cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Ail",
+        "qty": "2 gousses",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Citron",
+        "qty": "1",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Paprika",
+        "qty": "2 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Beurre",
+        "qty": "1 noix",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Mariner crevettes dans ail et citron 1h. 2. Revenir oignon au beurre. 3. Ajouter crevettes, piment, lait de coco. 4. Assaisonner et servir.",
+    "id": "fr16",
+    "source": "750g.com"
+  },
+  {
+    "name": "Tagliatelles au saumon fume",
+    "time": 20,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Saumon fume",
+        "qty": "320g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Creme liquide",
+        "qty": "40cl",
+        "cat": "Frais"
+      },
+      {
+        "name": "Tagliatelles",
+        "qty": "400g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Citron bio",
+        "qty": "1",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Parmesan",
+        "qty": "60g",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Mixer moitie du saumon avec la creme. Revenir oignon, ajouter le reste du saumon et la sauce. 2. Cuire les pates al dente. 3. Melanger et servir avec parmesan.",
+    "id": "fr17",
+    "source": "750g.com"
+  },
+  {
+    "name": "Feuillete au saumon",
+    "time": 55,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Dos de saumon",
+        "qty": "500g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Pate feuilletee",
+        "qty": "1",
+        "cat": "Frais"
+      },
+      {
+        "name": "Creme liquide",
+        "qty": "10cl",
+        "cat": "Frais"
+      },
+      {
+        "name": "Fromage ail et fines herbes",
+        "qty": "60g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Jaune d'oeuf",
+        "qty": "1",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Prechauffer a 180°C. 2. Melanger creme et fromage. 3. Badigeonner le saumon. 4. Enrouler dans la pate. 5. Enfourner 20 min, dorer au jaune d'oeuf, 20 min de plus.",
+    "id": "fr18",
+    "source": "750g.com"
+  },
+  {
+    "name": "Pave de truite sauce blanche",
+    "time": 35,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Paves de truite",
+        "qty": "4",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Creme",
+        "qty": "10cl",
+        "cat": "Frais"
+      },
+      {
+        "name": "Echalote",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Beurre",
+        "qty": "30g",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Cuire la truite 5 min par cote. 2. Sauce : fondre beurre, echalote, creme. 3. Napper et servir.",
+    "id": "fr19",
+    "source": "750g.com"
+  },
+  {
+    "name": "Filet de merlan au beurre citronne",
+    "time": 15,
+    "servings": 3,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filets de merlan",
+        "qty": "450g",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Beurre",
+        "qty": "125g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Citron",
+        "qty": "1/2",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Creme fraiche",
+        "qty": "24g",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Dorer les filets au beurre. 2. Fondre 100g beurre, ajouter citron et creme. 3. Napper les filets de sauce.",
+    "id": "fr20",
+    "source": "750g.com"
+  },
+  {
+    "name": "Dahl de lentilles corail",
+    "time": 45,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Lentilles corail",
+        "qty": "250g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Creme de coco",
+        "qty": "20cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Oignon rouge",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Curry",
+        "qty": "2 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Concentre de tomates",
+        "qty": "2 cc",
+        "cat": "Conserves"
+      },
+      {
+        "name": "Ail",
+        "qty": "1 gousse",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Gingembre",
+        "qty": "2cm",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Riz basmati",
+        "qty": "300g",
+        "cat": "Feculents"
+      }
+    ],
+    "steps": "1. Cuire lentilles 15 min et riz a part. 2. Revenir oignon, ail, gingembre. Ajouter curry, tomate, coco. 3. Ajouter les lentilles. Servir avec coriandre et riz.",
+    "id": "fr21",
+    "source": "750g.com"
+  },
+  {
+    "name": "Aubergines farcies",
+    "time": 80,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Boeuf hache",
+        "qty": "450g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Aubergines",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Tomates",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Ail",
+        "qty": "2 gousses",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Parmesan",
+        "qty": "75g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Gruyere rape",
+        "qty": "75g",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Evider les aubergines. 2. Revenir oignon, ail, chair et viande. 3. Farcir, parsemer de fromage. 4. Enfourner 40 min a 180°C.",
+    "id": "fr22",
+    "source": "750g.com"
+  },
+  {
+    "name": "Brocolis sautes a l'ail",
+    "time": 20,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Brocolis",
+        "qty": "500g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Ail",
+        "qty": "2 gousses",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Huile de sesame",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Blanchir les brocolis 1 min. 2. Rafraichir et egoutter. 3. Sauter au wok avec ail. 4. Finir a l'huile de sesame.",
+    "id": "fr23",
+    "source": "750g.com"
+  },
+  {
+    "name": "Risotto aux champignons",
+    "time": 40,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Riz a risotto",
+        "qty": "250g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Champignons",
+        "qty": "200g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Bouillon",
+        "qty": "75cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Vin blanc",
+        "qty": "10cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Creme",
+        "qty": "3 cs",
+        "cat": "Frais"
+      },
+      {
+        "name": "Parmesan",
+        "qty": "20g",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Fondre l'oignon. 2. Ajouter riz puis vin blanc. 3. Bouillon louche par louche. 4. Ajouter champignons. 5. Finir avec creme et parmesan.",
+    "id": "fr24",
+    "source": "750g.com"
+  },
+  {
+    "name": "Risotto aux asperges",
+    "time": 40,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Riz a risotto",
+        "qty": "400g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Asperges vertes",
+        "qty": "2 bottes",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Vin blanc",
+        "qty": "15cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Bouillon",
+        "qty": "1.5L",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Parmesan",
+        "qty": "90g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Beurre",
+        "qty": "25g",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Preparer asperges : pointes a part, troncons dans le risotto. 2. Revenir oignon et riz. 3. Vin blanc puis bouillon louche par louche. 4. Finir avec beurre et parmesan.",
+    "id": "fr25",
+    "source": "750g.com"
+  },
+  {
+    "name": "Galettes de PDT au four",
+    "time": 80,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Pommes de terre",
+        "qty": "650g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oeuf",
+        "qty": "1",
+        "cat": "Frais"
+      },
+      {
+        "name": "Persil",
+        "qty": "2 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Huile d'olive",
+        "qty": "2 cs",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Raper les PDT, presser. 2. Ajouter persil, oeuf. 3. Former galettes sur plaque huilee. 4. Enfourner 50 min a 200°C.",
+    "id": "fr26",
+    "source": "750g.com"
+  },
+  {
+    "name": "Spaghetti alle vongole",
+    "time": 35,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Spaghetti",
+        "qty": "400g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Palourdes",
+        "qty": "2kg",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Ail",
+        "qty": "4 gousses",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Vin blanc",
+        "qty": "1/2 verre",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Persil plat",
+        "qty": "",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Huile olive",
+        "qty": "5 cs",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Ouvrir les palourdes avec ail et vin blanc 10 min. 2. Filtrer et reduire le jus. 3. Cuire les spaghetti al dente. 4. Melanger pates, jus et palourdes.",
+    "id": "fr27",
+    "source": "750g.com"
+  },
+  {
+    "name": "Gnocchis au chorizo",
+    "time": 45,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Gnocchis",
+        "qty": "600g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Chorizo",
+        "qty": "1/2",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Tomates pelees",
+        "qty": "1 boite",
+        "cat": "Conserves"
+      },
+      {
+        "name": "Basilic",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Cuire les gnocchis. 2. Dorer chorizo et oignon. 3. Ajouter gnocchis, tomates et basilic. 4. Mijoter 15 min.",
+    "id": "fr28",
+    "source": "750g.com"
+  },
+  {
+    "name": "Pates aux quatre fromages",
+    "time": 18,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Fusilli",
+        "qty": "400g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Gorgonzola",
+        "qty": "100g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Reblochon",
+        "qty": "100g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Tomme de Savoie",
+        "qty": "100g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Parmesan",
+        "qty": "34g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Creme liquide",
+        "qty": "80g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Beurre sale",
+        "qty": "40g",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Fondre les fromages avec beurre et creme. 2. Cuire les pates al dente. 3. Melanger dans la sauce. 4. Servir avec persil.",
+    "id": "fr29",
+    "source": "750g.com"
+  },
+  {
+    "name": "Cannelloni au boeuf",
+    "time": 90,
+    "servings": 8,
+    "difficulty": "moyen",
+    "ingredients": [
+      {
+        "name": "Viande hachee",
+        "qty": "400g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Cannelloni",
+        "qty": "250g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Parmesan",
+        "qty": "150g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Oeufs",
+        "qty": "2",
+        "cat": "Frais"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Bechamel",
+        "qty": "1L",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Pulpe de tomate",
+        "qty": "800g",
+        "cat": "Conserves"
+      }
+    ],
+    "steps": "1. Revenir oignon et viande. 2. Melanger avec parmesan et oeufs. 3. Farcir les cannelloni. 4. Alterner tomate, bechamel et cannelloni. 5. Enfourner 50 min a 180°C.",
+    "id": "fr30",
+    "source": "750g.com"
+  },
+  {
+    "name": "Bo bun au boeuf",
+    "time": 23,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Steaks de boeuf",
+        "qty": "400g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Vermicelles de riz",
+        "qty": "200g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Salade",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Carottes",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Concombre",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Cacahuetes",
+        "qty": "50g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Menthe",
+        "qty": "",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Nuoc-mam",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Citron",
+        "qty": "1",
+        "cat": "Fruits"
+      }
+    ],
+    "steps": "1. Saisir le boeuf en lanieres. 2. Cuire vermicelles. 3. Sauce : nuoc-mam, eau, sucre, citron. 4. Assembler dans les bols avec legumes et herbes.",
+    "id": "fr31",
+    "source": "750g.com"
+  },
+  {
+    "name": "Risotto au poulet",
+    "time": 30,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Blancs de poulet",
+        "qty": "3",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Riz arborio",
+        "qty": "400g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Oignons",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Parmesan",
+        "qty": "50g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Vin blanc",
+        "qty": "10cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Bouillon",
+        "qty": "1L",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Beurre",
+        "qty": "20g",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Revenir oignons et riz, vin blanc. 2. Bouillon louche par louche. 3. Dorer le poulet, ajouter au risotto. 4. Finir avec beurre et parmesan.",
+    "id": "fr32",
+    "source": "750g.com"
+  },
+  {
+    "name": "Pizza maison",
+    "time": 45,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Farine",
+        "qty": "250g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Levure",
+        "qty": "1 sachet",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Mozzarella",
+        "qty": "125g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Tomates concassees",
+        "qty": "1 boite",
+        "cat": "Conserves"
+      },
+      {
+        "name": "Jambon",
+        "qty": "4 tranches",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Olives",
+        "qty": "10",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Huile olive",
+        "qty": "3 cs",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Pate : farine, levure, eau, huile. Reposer 30 min. 2. Sauce tomate avec oignon. 3. Etaler, garnir, enfourner 15 min a 210°C.",
+    "id": "fr33",
+    "source": "750g.com"
+  },
+  {
+    "name": "Quiche aux poireaux",
+    "time": 45,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Poireaux",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Lait",
+        "qty": "25cl",
+        "cat": "Frais"
+      },
+      {
+        "name": "Oeufs",
+        "qty": "3",
+        "cat": "Frais"
+      },
+      {
+        "name": "Gruyere rape",
+        "qty": "50g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Lardons",
+        "qty": "50g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Beurre",
+        "qty": "10g",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Revenir les poireaux au beurre. 2. Melanger oeufs et lait. 3. Lardons et poireaux dans moule, verser appareil. 4. Gruyere dessus. 5. Enfourner 30 min a 180°C.",
+    "id": "fr34",
+    "source": "750g.com"
+  },
+  {
+    "name": "Mont d'or au four",
+    "time": 30,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Mont d'or",
+        "qty": "500g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Vin blanc sec",
+        "qty": "10cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Ail",
+        "qty": "2 gousses",
+        "cat": "Legumes"
+      }
+    ],
+    "steps": "1. Piquer le fromage, planter l'ail. 2. Verser le vin blanc. 3. Enfourner 25 min a 200°C. 4. Servir avec pain et PDT.",
+    "id": "fr35",
+    "source": "750g.com"
+  },
+  {
+    "name": "Endives au jambon",
+    "time": 35,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Endives",
+        "qty": "4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Jambon",
+        "qty": "4 tranches",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Emmental rape",
+        "qty": "120g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Lait",
+        "qty": "40cl",
+        "cat": "Frais"
+      },
+      {
+        "name": "Beurre",
+        "qty": "20g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Farine",
+        "qty": "20g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Muscade",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Cuire les endives vapeur 10 min. 2. Preparer la bechamel. 3. Enrouler chaque endive dans le jambon. 4. Napper de bechamel, fromage. 5. Gratiner 20 min a 200°C.",
+    "id": "fr36",
+    "source": "750g.com"
+  },
+  {
+    "name": "Polenta au four",
+    "time": 40,
+    "servings": 6,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Polenta",
+        "qty": "250g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Sauce tomate",
+        "qty": "400g",
+        "cat": "Conserves"
+      },
+      {
+        "name": "Gruyere rape",
+        "qty": "100g",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Cuire la polenta. 2. Verser dans un plat, refroidir. 3. Couper en carres, napper de tomate et fromage. 4. Enfourner 25 min a 180°C.",
+    "id": "fr37",
+    "source": "750g.com"
+  },
+  {
+    "name": "Quinoa au poulet et legumes",
+    "time": 35,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Quinoa",
+        "qty": "250g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Blancs de poulet",
+        "qty": "4",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Aubergine",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Courgette",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Poivron rouge",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Tomates pelees",
+        "qty": "200g",
+        "cat": "Conserves"
+      },
+      {
+        "name": "Paprika",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Cuire le quinoa. 2. Saisir le poulet en lanieres. 3. Revenir les legumes. 4. Reunir le tout, mijoter 10 min.",
+    "id": "fr38",
+    "source": "750g.com"
+  },
+  {
+    "name": "Poulet roti",
+    "time": 70,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Poulet entier",
+        "qty": "1.6kg",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Ail",
+        "qty": "5 gousses",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Thym",
+        "qty": "",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Huile",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Assaisonner le poulet. 2. Colorer a la poele. 3. Enfourner 1h a 180°C en arrosant.",
+    "id": "fr39",
+    "source": "750g.com"
+  },
+  {
+    "name": "Poulet au curry",
+    "time": 30,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Blancs de poulet",
+        "qty": "6",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Curry",
+        "qty": "3 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Creme liquide",
+        "qty": "20cl",
+        "cat": "Frais"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      }
+    ],
+    "steps": "1. Couper le poulet en des, saisir avec oignon. 2. Ajouter curry et creme. 3. Mijoter 10 min.",
+    "id": "fr40",
+    "source": "750g.com"
+  },
+  {
+    "name": "Poulet moutarde herbes de Provence",
+    "time": 65,
+    "servings": 6,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Poulet entier",
+        "qty": "1",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Moutarde",
+        "qty": "3 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Herbes de Provence",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Badigeonner de moutarde et herbes. 2. Ajouter 2 verres d'eau. 3. Cuire 1h a 180°C.",
+    "id": "fr41",
+    "source": "750g.com"
+  },
+  {
+    "name": "Poulet au cidre",
+    "time": 80,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Poulet entier",
+        "qty": "1",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Echalote",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Creme epaisse",
+        "qty": "2 cs",
+        "cat": "Frais"
+      },
+      {
+        "name": "Beurre sale",
+        "qty": "30g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Cidre",
+        "qty": "4 verres",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Revenir le poulet au beurre. 2. Ajouter echalote et cidre. 3. Cuire 1h couvert. 4. Ajouter la creme au dernier moment.",
+    "id": "fr42",
+    "source": "750g.com"
+  },
+  {
+    "name": "Poulet tikka masala",
+    "time": 25,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Blancs de poulet",
+        "qty": "600g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Pate tikka masala",
+        "qty": "1 pot",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Tomates cerise",
+        "qty": "6",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon rouge",
+        "qty": "1/2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Coriandre",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Revenir oignon et poulet. 2. Ajouter tomates et sauce tikka masala. 3. Mijoter 15 min. Servir avec riz.",
+    "id": "fr43",
+    "source": "750g.com"
+  },
+  {
+    "name": "Poulet basquaise",
+    "time": 55,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Poulet entier",
+        "qty": "1",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Poivrons",
+        "qty": "3",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Echalotes",
+        "qty": "3",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Tomates pelees",
+        "qty": "1 boite",
+        "cat": "Conserves"
+      },
+      {
+        "name": "Vin blanc",
+        "qty": "5cl",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Couper le poulet, colorer. 2. Deglacer au vin blanc. 3. Ajouter echalotes, poivrons et tomates. 4. Mijoter 25-30 min.",
+    "id": "fr44",
+    "source": "750g.com"
+  },
+  {
+    "name": "Poulet curry et coco",
+    "time": 30,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filets de poulet",
+        "qty": "4",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Echalotes",
+        "qty": "4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Lait de coco",
+        "qty": "20cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Curry",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Farine",
+        "qty": "1 cs",
+        "cat": "Feculents"
+      }
+    ],
+    "steps": "1. Saisir le poulet 3 min. 2. Revenir echalotes, ajouter farine et curry. 3. Verser le lait de coco. 4. Cuire 15 min a feu doux.",
+    "id": "fr45",
+    "source": "750g.com"
+  },
+  {
+    "name": "Pilons miel et moutarde",
+    "time": 60,
+    "servings": 12,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Pilons de poulet",
+        "qty": "12",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Miel",
+        "qty": "80g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Moutarde",
+        "qty": "3 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sauce soja",
+        "qty": "3 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Citron",
+        "qty": "1/2",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Ail",
+        "qty": "3 gousses",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Sesame",
+        "qty": "20g",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Marinade : huile, miel, soja, moutarde, citron, ail. 2. Mariner les pilons 2h. 3. Enfourner 40 min a 210°C. 4. Parsemer de sesame.",
+    "id": "fr46",
+    "source": "750g.com"
+  },
+  {
+    "name": "Poulet Thai",
+    "time": 40,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Blancs de poulet",
+        "qty": "4",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Poivrons",
+        "qty": "3",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignons",
+        "qty": "4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Lait de coco",
+        "qty": "1 boite",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sauce soja",
+        "qty": "2 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Curry",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Gingembre",
+        "qty": "",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Citron vert",
+        "qty": "1",
+        "cat": "Fruits"
+      }
+    ],
+    "steps": "1. Mariner le poulet. 2. Dorer puis reserver. 3. Sauter oignons et poivrons. 4. Ajouter coco, curry et poulet. 5. Mijoter 15 min.",
+    "id": "fr47",
+    "source": "750g.com"
+  },
+  {
+    "name": "Brochettes de poulet",
+    "time": 20,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filets de poulet",
+        "qty": "500g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Poivrons",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Herbes de Provence",
+        "qty": "",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Huile d'olive",
+        "qty": "2 cs",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Couper poulet et poivrons en des. 2. Enfiler sur pics. 3. Badigeonner de marinade. 4. Cuire 15 min.",
+    "id": "fr48",
+    "source": "750g.com"
+  },
+  {
+    "name": "Cuisses de poulet au lait de coco",
+    "time": 40,
+    "servings": 6,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Cuisses de poulet",
+        "qty": "6",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Lait de coco",
+        "qty": "1 boite",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Tomates",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Ail",
+        "qty": "2 gousses",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Gingembre",
+        "qty": "",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Safran",
+        "qty": "3 pincees",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Revenir oignon et poulet. 2. Ajouter ail, safran, gingembre, tomates. 3. Verser lait de coco. 4. Mijoter.",
+    "id": "fr49",
+    "source": "750g.com"
+  },
+  {
+    "name": "Rougail saucisse",
+    "time": 50,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Saucisses",
+        "qty": "4",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Tomates",
+        "qty": "4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignons",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Piments",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Gingembre",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Blanchir et couper les saucisses. 2. Piler piments et gingembre. 3. Dorer les saucisses. 4. Ajouter oignons, epices et tomates. 5. Mijoter 20 min. Servir avec riz.",
+    "id": "fr50",
+    "source": "750g.com"
+  },
+  {
+    "name": "Boeuf carotte",
+    "time": 200,
+    "servings": 4,
+    "difficulty": "moyen",
+    "ingredients": [
+      {
+        "name": "Boeuf a braiser",
+        "qty": "1kg",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Carottes",
+        "qty": "6",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignons",
+        "qty": "4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Vin blanc",
+        "qty": "1 verre",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Beurre",
+        "qty": "50g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Thym",
+        "qty": "",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Laurier",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Dorer la viande en cubes. 2. Ajouter oignons, vin, thym, laurier. 3. Couvrir d'eau, ajouter carottes. 4. Mijoter 2 a 3h.",
+    "id": "fr51",
+    "source": "750g.com"
+  },
+  {
+    "name": "Boulettes de viande sauce tomate",
+    "time": 60,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Viande hachee",
+        "qty": "750g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Mie de pain",
+        "qty": "250g",
+        "cat": "Boulangerie"
+      },
+      {
+        "name": "Oignons",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Jaunes d'oeuf",
+        "qty": "3",
+        "cat": "Frais"
+      },
+      {
+        "name": "Champignons",
+        "qty": "250g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Puree de tomate",
+        "qty": "1 boite",
+        "cat": "Conserves"
+      },
+      {
+        "name": "Persil",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Former boulettes avec viande, pain, oeufs, epices. Les dorer. 2. Preparer sauce avec oignons, champignons et tomate. 3. Cuire les boulettes dans la sauce.",
+    "id": "fr52",
+    "source": "750g.com"
+  },
+  {
+    "name": "Boeuf stroganoff",
+    "time": 50,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Steaks de boeuf",
+        "qty": "450g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oignons",
+        "qty": "3",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Champignons",
+        "qty": "250g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Bouillon",
+        "qty": "25cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Creme fraiche",
+        "qty": "12cl",
+        "cat": "Frais"
+      },
+      {
+        "name": "Paprika",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Beurre",
+        "qty": "50g",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Couper le boeuf en lanieres, paner de farine et paprika, saisir. 2. Dorer oignons et champignons. 3. Reunir avec bouillon et creme.",
+    "id": "fr53",
+    "source": "750g.com"
+  },
+  {
+    "name": "Bavette a l'echalote",
+    "time": 50,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Bavettes de boeuf",
+        "qty": "4",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Echalotes",
+        "qty": "8",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Vin rouge",
+        "qty": "50cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Beurre",
+        "qty": "30g",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Confire les echalotes au beurre et vin rouge 40 min. 2. Saisir les bavettes. 3. Servir avec le confit.",
+    "id": "fr54",
+    "source": "750g.com"
+  },
+  {
+    "name": "Boeuf bourguignon",
+    "time": 75,
+    "servings": 6,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Boeuf",
+        "qty": "1kg",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Vin rouge",
+        "qty": "50cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Lardons",
+        "qty": "125g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oignons",
+        "qty": "8",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Carottes",
+        "qty": "3",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Champignons",
+        "qty": "400g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Bouquet garni",
+        "qty": "1",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Dorer viande, lardons et oignons. 2. Ajouter legumes et bouquet garni. 3. Verser le vin rouge. 4. Mijoter 2h ou cuire sous pression 50 min.",
+    "id": "fr55",
+    "source": "750g.com"
+  },
+  {
+    "name": "Teriyaki de boeuf",
+    "time": 35,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Steaks de boeuf",
+        "qty": "500g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Sauce soja",
+        "qty": "6 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Vinaigre de riz",
+        "qty": "3 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sucre de canne",
+        "qty": "40g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Huile de sesame",
+        "qty": "3 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Gingembre",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Ail",
+        "qty": "2 gousses",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Carottes",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Riz basmati",
+        "qty": "240g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Sesame",
+        "qty": "20g",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Mariner le boeuf 30 min. 2. Cuire riz et carottes. 3. Saisir le boeuf, ajouter marinade. 4. Servir avec sesame.",
+    "id": "fr56",
+    "source": "750g.com"
+  },
+  {
+    "name": "Cordon bleu maison",
+    "time": 31,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filets de poulet",
+        "qty": "4",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Jambon",
+        "qty": "4 tranches",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Emmental",
+        "qty": "8 tranches",
+        "cat": "Frais"
+      },
+      {
+        "name": "Oeuf",
+        "qty": "1",
+        "cat": "Frais"
+      },
+      {
+        "name": "Chapelure",
+        "qty": "",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Farine",
+        "qty": "",
+        "cat": "Feculents"
+      }
+    ],
+    "steps": "1. Fendre les filets, aplatir. 2. Garnir de jambon et fromage. 3. Paner. 4. Dorer a la poele 2 min/face. 5. Finir au four 12 min.",
+    "id": "fr57",
+    "source": "750g.com"
+  },
+  {
+    "name": "One pot pasta",
+    "time": 25,
+    "servings": 2,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Spaghetti",
+        "qty": "180g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Bouillon",
+        "qty": "45cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Tomates cerises",
+        "qty": "12",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Courgette",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Parmesan",
+        "qty": "75g",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Tout mettre dans une sauteuse avec le bouillon. 2. Cuire 10 min en remuant. 3. Servir avec parmesan.",
+    "id": "fr58",
+    "source": "750g.com"
+  },
+  {
+    "name": "Gratin de pates au jambon",
+    "time": 35,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Pates",
+        "qty": "300g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Creme fraiche",
+        "qty": "20cl",
+        "cat": "Frais"
+      },
+      {
+        "name": "Jambon",
+        "qty": "4 tranches",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Gruyere rape",
+        "qty": "100g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Oeuf",
+        "qty": "1",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Cuire les pates. Melanger avec creme, oeuf et jambon. 2. Verser dans plat, gruyere dessus. 3. Enfourner 10 min a 180°C.",
+    "id": "fr59",
+    "source": "750g.com"
+  },
+  {
+    "name": "Tortilla espagnole",
+    "time": 60,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Pommes de terre",
+        "qty": "4 grosses",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oeufs",
+        "qty": "6",
+        "cat": "Frais"
+      },
+      {
+        "name": "Huile olive",
+        "qty": "6 cs",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Cuire les PDT en rondelles dans l'huile 30 min. 2. Egoutter, saler, melanger avec oeufs battus. 3. Cuire dans la poele et retourner.",
+    "id": "fr60",
+    "source": "750g.com"
+  },
+  {
+    "name": "Roti de veau Orloff",
+    "time": 90,
+    "servings": 4,
+    "difficulty": "moyen",
+    "ingredients": [
+      {
+        "name": "Roti de veau",
+        "qty": "1kg",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Comte",
+        "qty": "100g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Poitrine fumee",
+        "qty": "10 tranches",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oignons",
+        "qty": "4",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Carottes",
+        "qty": "6",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Haricots verts",
+        "qty": "250g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Fond de veau",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Beurre",
+        "qty": "30g",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Saisir le roti. 2. Entailler, inserer poitrine et comte. 3. Enfourner 30 min sur lit d'oignons. 4. Preparer legumes sautes. 5. Reposer, trancher et servir.",
+    "id": "fr61",
+    "source": "750g.com"
+  },
+  {
+    "name": "Pates a la gricia",
+    "time": 20,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Rigatoni",
+        "qty": "320g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Guanciale",
+        "qty": "250g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Pecorino romano",
+        "qty": "80g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Poivre noir",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Dorer le guanciale a sec. 2. Cuire les pates. 3. Emulsionner graisse et eau de cuisson. 4. Ajouter pates et pecorino. 5. Poivrer et servir.",
+    "id": "fr62",
+    "source": "750g.com"
+  },
+  {
+    "name": "Encornets sautes a l'ail",
+    "time": 20,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Encornets",
+        "qty": "4",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Ail",
+        "qty": "2 gousses",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Persil",
+        "qty": "1 bouquet",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Vinaigre de vin",
+        "qty": "3 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Piment d'Espelette",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Couper en lanieres. 2. Sauter 5 min. 3. Ajouter ail, piment, vinaigre. 4. Parsemer de persil.",
+    "id": "fr63",
+    "source": "750g.com"
+  },
+  {
+    "name": "Filets de sardine grilles",
+    "time": 15,
+    "servings": 2,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Filets de sardine",
+        "qty": "12",
+        "cat": "Poissons"
+      },
+      {
+        "name": "Tomates",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Huile olive",
+        "qty": "2 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Herbes de Provence",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Disposer sardines et tomates dans un plat. 2. Huiler et assaisonner. 3. Enfourner 10 min.",
+    "id": "fr64",
+    "source": "750g.com"
+  },
+  {
+    "name": "Fondue de poireaux",
+    "time": 35,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Poireaux",
+        "qty": "1kg",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Beurre",
+        "qty": "60g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Creme fraiche",
+        "qty": "3 cs",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Emincer les poireaux. 2. Fondre au beurre 10 min a couvert. 3. Ajouter la creme.",
+    "id": "fr65",
+    "source": "750g.com"
+  },
+  {
+    "name": "Plat de cotes au vin rouge",
+    "time": 130,
+    "servings": 6,
+    "difficulty": "moyen",
+    "ingredients": [
+      {
+        "name": "Plat de cotes",
+        "qty": "2kg",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Celeri",
+        "qty": "200g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Ail",
+        "qty": "8 gousses",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignons",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Vin rouge",
+        "qty": "75cl",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Dorer la viande. 2. Ajouter legumes et vin rouge. 3. Reduire, mijoter 2h couvert.",
+    "id": "fr66",
+    "source": "750g.com"
+  },
+  {
+    "name": "Tournedos Rossini",
+    "time": 30,
+    "servings": 4,
+    "difficulty": "moyen",
+    "ingredients": [
+      {
+        "name": "Tournedos",
+        "qty": "4 x 150g",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Foie gras",
+        "qty": "4 tranches",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Vin de Madere",
+        "qty": "1/2 verre",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Beurre",
+        "qty": "2 cs",
+        "cat": "Frais"
+      },
+      {
+        "name": "Pain de mie",
+        "qty": "4 tranches",
+        "cat": "Boulangerie"
+      }
+    ],
+    "steps": "1. Saisir les tournedos 3-4 min/face. 2. Cuire foie gras 2 min, deglacer au Madere. 3. Assembler : pain, tournedos, foie gras. 4. Napper de sauce.",
+    "id": "fr67",
+    "source": "750g.com"
+  },
+  {
+    "name": "Poulet frit",
+    "time": 35,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Morceaux de poulet",
+        "qty": "8",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Lait ribot",
+        "qty": "250ml",
+        "cat": "Frais"
+      },
+      {
+        "name": "Farine",
+        "qty": "150g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Fecule",
+        "qty": "150g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Paprika fume",
+        "qty": "4 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Huile d'arachide",
+        "qty": "1L",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Mariner dans lait ribot et epices 1h min. 2. Paner dans farine-fecule-epices. 3. Frire a 170-180°C 12-15 min.",
+    "id": "fr68",
+    "source": "750g.com"
+  },
+  {
+    "name": "Gaufres de patate douce",
+    "time": 30,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Patates douces",
+        "qty": "400g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Farine",
+        "qty": "125g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Oeufs",
+        "qty": "2",
+        "cat": "Frais"
+      },
+      {
+        "name": "Lait",
+        "qty": "5cl",
+        "cat": "Frais"
+      },
+      {
+        "name": "Beurre fondu",
+        "qty": "40g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Levure",
+        "qty": "1 sachet",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Cuire et reduire en puree. 2. Melanger avec farine, oeufs, lait, beurre. 3. Reposer 30 min. 4. Cuire au gaufrier.",
+    "id": "fr69",
+    "source": "750g.com"
+  },
+  {
+    "name": "Galette PDT et carotte",
+    "time": 35,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Pommes de terre",
+        "qty": "300g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Carottes",
+        "qty": "150g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oeuf",
+        "qty": "1",
+        "cat": "Frais"
+      },
+      {
+        "name": "Gruyere rape",
+        "qty": "40g",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Raper PDT et carottes. 2. Ajouter oeuf et gruyere. 3. Former galettes. 4. Enfourner 25 min a 200°C.",
+    "id": "fr70",
+    "source": "750g.com"
+  },
+  {
+    "name": "Ebly au curry et coco",
+    "time": 27,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Blancs de poulet",
+        "qty": "3",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Ebly",
+        "qty": "240g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Courgette",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Lait de coco",
+        "qty": "1 brique",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Curry",
+        "qty": "2 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Bouillon",
+        "qty": "70cl",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Mariner poulet en brochettes dans curry et coco. 2. Cuire ebly avec bouillon et marinade. 3. Cuire brochettes. 4. Servir ensemble.",
+    "id": "fr71",
+    "source": "750g.com"
+  },
+  {
+    "name": "Cuisse de dinde au four",
+    "time": 90,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Cuisse de dinde",
+        "qty": "1.5kg",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Pommes de terre",
+        "qty": "400g",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Ail",
+        "qty": "4 gousses",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Romarin",
+        "qty": "",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Huile olive",
+        "qty": "3 cs",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Prechauffer a 200°C. 2. Assaisonner la dinde avec romarin et ail. 3. Enfourner 1h15. 4. Ajouter PDT apres 30 min.",
+    "id": "fr72",
+    "source": "750g.com"
+  },
+  {
+    "name": "Gratin de ravioles au comte",
+    "time": 30,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Ravioles du Dauphine",
+        "qty": "480g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Creme liquide",
+        "qty": "60cl",
+        "cat": "Frais"
+      },
+      {
+        "name": "Comte rape",
+        "qty": "140g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Muscade",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Beurrer un plat. 2. Alterner ravioles, creme, comte et muscade. 3. Enfourner 20-25 min a 200°C.",
+    "id": "fr73",
+    "source": "750g.com"
+  },
+  {
+    "name": "Paupiettes de porc sauce moutarde",
+    "time": 27,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Paupiettes de porc",
+        "qty": "4",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Moutarde",
+        "qty": "2 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Creme",
+        "qty": "10cl",
+        "cat": "Frais"
+      },
+      {
+        "name": "Fond de veau",
+        "qty": "10cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      }
+    ],
+    "steps": "1. Revenir oignon et paupiettes. 2. Ajouter moutarde, creme et fond de veau. 3. Cuire 10 min. 4. Servir avec puree.",
+    "id": "fr74",
+    "source": "750g.com"
+  },
+  {
+    "name": "Batonnets de feta en pate filo",
+    "time": 40,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Feta",
+        "qty": "500g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Pate filo",
+        "qty": "9 feuilles",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Miel",
+        "qty": "5 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Thym",
+        "qty": "",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Piment",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Couper feta en batonnets. 2. Rouler dans pate filo huilee. 3. Enfourner 15-20 min a 180°C. 4. Preparer sauce miel-piment. 5. Servir.",
+    "id": "fr75",
+    "source": "750g.com"
+  },
+  {
+    "name": "Galettes de chou-fleur",
+    "time": 30,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Chou-fleur",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Farine",
+        "qty": "60g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Oeufs",
+        "qty": "3",
+        "cat": "Frais"
+      },
+      {
+        "name": "Ail",
+        "qty": "3 gousses",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignons verts",
+        "qty": "",
+        "cat": "Legumes"
+      }
+    ],
+    "steps": "1. Cuire et ecraser le chou-fleur. 2. Ajouter oeufs, farine, oignons et ail. 3. Former galettes. 4. Cuire 5 min par face.",
+    "id": "fr76",
+    "source": "750g.com"
+  },
+  {
+    "name": "Tacos vegetariens",
+    "time": 50,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Tortillas",
+        "qty": "1 paquet",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Chou-fleur",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Avocats",
+        "qty": "2",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Oignon rouge",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Yaourt grec",
+        "qty": "1 pot",
+        "cat": "Frais"
+      },
+      {
+        "name": "Paprika",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Cumin",
+        "qty": "1/2 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Citron vert",
+        "qty": "1",
+        "cat": "Fruits"
+      },
+      {
+        "name": "Coriandre",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Rotir le chou-fleur avec epices 25 min. 2. Preparer sauce yaourt. 3. Garnir tortillas de chou-fleur, avocat, sauce et coriandre.",
+    "id": "fr77",
+    "source": "750g.com"
+  },
+  {
+    "name": "Gaufres salees aux fromages",
+    "time": 88,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Farine",
+        "qty": "300g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Oeufs",
+        "qty": "2",
+        "cat": "Frais"
+      },
+      {
+        "name": "Beurre sale",
+        "qty": "50g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Lait",
+        "qty": "40cl",
+        "cat": "Frais"
+      },
+      {
+        "name": "Levure",
+        "qty": "1 sachet",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Crottin de chevre",
+        "qty": "1",
+        "cat": "Frais"
+      },
+      {
+        "name": "Comte rape",
+        "qty": "",
+        "cat": "Frais"
+      },
+      {
+        "name": "Gruyere rape",
+        "qty": "",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Preparer pate, refrigerer 1h. 2. Cuire au gaufrier. 3. Ouvrir, tartiner fromage, repasser 30 sec.",
+    "id": "fr78",
+    "source": "750g.com"
+  },
+  {
+    "name": "Sandwich au poulet",
+    "time": 30,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Baguette",
+        "qty": "1",
+        "cat": "Boulangerie"
+      },
+      {
+        "name": "Escalopes de poulet",
+        "qty": "2",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Salade",
+        "qty": "",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Mayonnaise",
+        "qty": "",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Tomates sechees",
+        "qty": "",
+        "cat": "Conserves"
+      },
+      {
+        "name": "Citron",
+        "qty": "1/2",
+        "cat": "Fruits"
+      }
+    ],
+    "steps": "1. Mariner et griller le poulet. 2. Couper baguette, tartiner mayo. 3. Garnir de poulet, salade et tomates sechees.",
+    "id": "fr79",
+    "source": "750g.com"
+  },
+  {
+    "name": "Egg muffin",
+    "time": 20,
+    "servings": 3,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Oeufs",
+        "qty": "6",
+        "cat": "Frais"
+      },
+      {
+        "name": "Cheddar",
+        "qty": "6 tranches",
+        "cat": "Frais"
+      },
+      {
+        "name": "Bacon",
+        "qty": "6 tranches",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Muffins anglais",
+        "qty": "6",
+        "cat": "Boulangerie"
+      }
+    ],
+    "steps": "1. Toaster les muffins. 2. Cuire oeufs au plat. 3. Assembler : muffin, cheddar, bacon, oeuf.",
+    "id": "fr80",
+    "source": "750g.com"
+  },
+  {
+    "name": "Camembert roti au four",
+    "time": 20,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Camembert",
+        "qty": "1",
+        "cat": "Frais"
+      },
+      {
+        "name": "Miel",
+        "qty": "1/2 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Thym",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Entailler le dessus. 2. Verser miel et thym. 3. Enfourner 15 min a 180°C.",
+    "id": "fr81",
+    "source": "750g.com"
+  },
+  {
+    "name": "Pates aux oeufs brouilles",
+    "time": 25,
+    "servings": 6,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Tagliatelles",
+        "qty": "500g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Oeufs",
+        "qty": "8",
+        "cat": "Frais"
+      },
+      {
+        "name": "Parmesan",
+        "qty": "",
+        "cat": "Frais"
+      },
+      {
+        "name": "Persil",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Cuire pates al dente. 2. Faire oeufs brouilles. 3. Servir avec parmesan.",
+    "id": "fr82",
+    "source": "750g.com"
+  },
+  {
+    "name": "Semoule aux epices",
+    "time": 30,
+    "servings": 2,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Semoule",
+        "qty": "250g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Curcuma",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Cumin",
+        "qty": "1 cc",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Huile d'olive",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Revenir cumin dans l'huile. 2. Ajouter eau et curcuma. 3. Verser sur la semoule, couvrir 10 min.",
+    "id": "fr83",
+    "source": "750g.com"
+  },
+  {
+    "name": "Boeuf glace miel moutarde",
+    "time": 20,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Tournedos",
+        "qty": "4",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Bouillon",
+        "qty": "12cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Miel",
+        "qty": "80g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Moutarde",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Sauce soja",
+        "qty": "1 cs",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Ail",
+        "qty": "2 gousses",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Gingembre",
+        "qty": "2 cc",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Saisir tournedos 2 min/face. 2. Reduire sauce : bouillon, miel, moutarde, soja. 3. Napper.",
+    "id": "fr84",
+    "source": "750g.com"
+  },
+  {
+    "name": "Croziflette au reblochon",
+    "time": 55,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Crozets",
+        "qty": "300g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Reblochon",
+        "qty": "400g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Jambon cru",
+        "qty": "4 tranches",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Oignon",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Creme fraiche",
+        "qty": "4 cs",
+        "cat": "Frais"
+      },
+      {
+        "name": "Vin blanc",
+        "qty": "4 cs",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Cuire les crozets. 2. Confire oignon au vin blanc. 3. Alterner crozets, oignons, jambon. 4. Couvrir de reblochon. 5. Enfourner 25-30 min a 200°C.",
+    "id": "fr85",
+    "source": "750g.com"
+  },
+  {
+    "name": "Pizza margherita",
+    "time": 30,
+    "servings": 8,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Farine",
+        "qty": "500g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Levure",
+        "qty": "11g",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Pulpe de tomate",
+        "qty": "800g",
+        "cat": "Conserves"
+      },
+      {
+        "name": "Mozzarella",
+        "qty": "400g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Huile olive",
+        "qty": "4 cs",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Preparer la pate, laisser lever 2h. 2. Etaler, garnir de tomate et mozzarella. 3. Enfourner 10-15 min a 210°C.",
+    "id": "fr86",
+    "source": "750g.com"
+  },
+  {
+    "name": "Risotto au chorizo",
+    "time": 18,
+    "servings": 4,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Riz a risotto",
+        "qty": "250g",
+        "cat": "Feculents"
+      },
+      {
+        "name": "Chorizo",
+        "qty": "1/2",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Echalote",
+        "qty": "1",
+        "cat": "Legumes"
+      },
+      {
+        "name": "Vin blanc",
+        "qty": "15cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Bouillon",
+        "qty": "50cl",
+        "cat": "Epicerie"
+      },
+      {
+        "name": "Beurre",
+        "qty": "20g",
+        "cat": "Frais"
+      },
+      {
+        "name": "Parmesan",
+        "qty": "80g",
+        "cat": "Frais"
+      }
+    ],
+    "steps": "1. Fondre beurre, revenir echalote et riz. 2. Vin blanc, bouillon, chorizo. 3. Cuire. 4. Ajouter parmesan.",
+    "id": "fr87",
+    "source": "750g.com"
+  },
+  {
+    "name": "Steak hache a la poele",
+    "time": 10,
+    "servings": 2,
+    "difficulty": "facile",
+    "ingredients": [
+      {
+        "name": "Steaks haches",
+        "qty": "2",
+        "cat": "Viandes"
+      },
+      {
+        "name": "Huile olive",
+        "qty": "",
+        "cat": "Epicerie"
+      }
+    ],
+    "steps": "1. Chauffer la poele. 2. Cuire 2-3 min par face. 3. Assaisonner.",
+    "id": "fr88",
+    "source": "750g.com"
+  }
+]

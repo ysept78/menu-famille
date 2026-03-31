@@ -385,6 +385,7 @@ nav button.active {
   <button class="active" onclick="showTab('planning')">Planning</button>
   <button onclick="showTab('courses')">Liste de courses</button>
   <button onclick="showTab('recettes')">Mes recettes</button>
+  <button onclick="showTab('frrecipes')">Recettes FR</button>
   <button onclick="showTab('extrecipes')">Recettes+</button>
 </nav>
 
@@ -441,6 +442,19 @@ nav button.active {
     <div class="recipe-grid" id="recipeGrid"></div>
   </div>
 </div>
+
+  <!-- RECETTES FR TAB -->
+  <div id="tab-frrecipes" class="hidden">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;flex-wrap:wrap;gap:0.5rem">
+      <h2>Recettes FR</h2>
+      <span style="font-size:0.8rem;color:var(--text-light)">88 recettes francaises &bull; Source : 750g.com</span>
+    </div>
+    <div class="ext-search-bar">
+      <input type="text" id="frSearch" placeholder="Rechercher une recette francaise..." oninput="renderFrRecipes()">
+    </div>
+    <div class="ext-cats" id="frCats"></div>
+    <div class="ext-grid" id="frResults"></div>
+  </div>
 
   <!-- RECETTES+ TAB -->
   <div id="tab-extrecipes" class="hidden">
@@ -713,6 +727,7 @@ function showTab(tab) {
   event.target.classList.add('active');
   if (tab === 'courses') renderShopping();
   if (tab === 'recettes') renderRecipes();
+  if (tab === 'frrecipes') { loadFrRecipes().then(() => renderFrRecipes()); }
   if (tab === 'extrecipes') renderExtSaved();
 }
 
@@ -1908,9 +1923,132 @@ function initExtCategories() {
   container.innerHTML = cats.map(c => `<button onclick="browseExtCategory('${c}')">${c}</button>`).join('');
 }
 
+// ============ RECETTES FR (750g) ============
+let frRecipesData = [];
+let frFilter = '';
+
+async function loadFrRecipes() {
+  if (frRecipesData.length > 0) return;
+  try {
+    const resp = await fetch('recettes-fr.json');
+    frRecipesData = await resp.json();
+  } catch(e) {
+    console.error('Erreur chargement recettes FR:', e);
+  }
+}
+
+function renderFrRecipes() {
+  const q = (document.getElementById('frSearch')?.value || '').toLowerCase();
+  let recipes = frRecipesData;
+  if (q) recipes = recipes.filter(r => r.name.toLowerCase().includes(q) || r.ingredients.some(i => i.name.toLowerCase().includes(q)));
+  if (frFilter) recipes = recipes.filter(r => {
+    if (frFilter === 'Viandes') return r.ingredients.some(i => i.cat === 'Viandes');
+    if (frFilter === 'Poissons') return r.ingredients.some(i => i.cat === 'Poissons');
+    if (frFilter === 'Vegetarien') return !r.ingredients.some(i => i.cat === 'Viandes' || i.cat === 'Poissons');
+    if (frFilter === 'Rapide') return r.time <= 30;
+    if (frFilter === 'Familial') return r.servings >= 4;
+    return true;
+  });
+  const grid = document.getElementById('frResults');
+  if (recipes.length === 0) {
+    grid.innerHTML = '<div class="ext-loading">Aucune recette trouvee.</div>';
+    return;
+  }
+  grid.innerHTML = recipes.map(r => {
+    const isSaved = state.recipes.some(sr => sr.id === r.id);
+    const ingPreview = r.ingredients.slice(0, 4).map(i => i.name).join(', ');
+    const timeLabel = r.time >= 60 ? Math.floor(r.time/60) + 'h' + (r.time%60 > 0 ? r.time%60 : '') : r.time + ' min';
+    return `<div class="ext-card" style="cursor:default">
+      <div class="ext-body">
+        <h4>${r.name} ${isSaved ? '<span class="ext-saved-badge">Importe</span>' : ''}</h4>
+        <p>${timeLabel} &bull; ${r.servings} pers. &bull; ${r.difficulty}</p>
+        <p style="margin-top:0.3rem;font-size:0.8rem;color:var(--text-light)">${ingPreview}...</p>
+        <div class="ext-actions">
+          <button class="btn btn-outline btn-sm" onclick="viewFrRecipe('${r.id}')">Voir</button>
+          ${!isSaved ? `<button class="btn btn-primary btn-sm" onclick="importFrRecipe('${r.id}')">Ajouter au planning</button>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function filterFrRecipes(cat) {
+  frFilter = frFilter === cat ? '' : cat;
+  document.querySelectorAll('#frCats button').forEach(b => b.classList.toggle('active', b.dataset.cat === frFilter));
+  renderFrRecipes();
+}
+
+function viewFrRecipe(id) {
+  const r = frRecipesData.find(x => x.id === id);
+  if (!r) return;
+  const modal = document.getElementById('modalContent');
+  const isSaved = state.recipes.some(sr => sr.id === r.id);
+  // Group ingredients by category
+  const ingByCat = {};
+  r.ingredients.forEach(i => { if (!ingByCat[i.cat]) ingByCat[i.cat] = []; ingByCat[i.cat].push(i); });
+  let ingHtml = '';
+  Object.keys(ingByCat).forEach(cat => {
+    ingHtml += `<div style="margin-bottom:0.3rem"><strong style="font-size:0.8rem;color:var(--text-light)">${cat}</strong>`;
+    ingHtml += '<ul style="padding-left:1.2rem;margin:0.2rem 0">' + ingByCat[cat].map(i => `<li>${i.name}${i.qty ? ' — <em>' + i.qty + '</em>' : ''}</li>`).join('') + '</ul></div>';
+  });
+  // Steps
+  const stepsText = r.steps || '';
+  const numberedSteps = stepsText.match(/\d+\.\s[^]*?(?=\d+\.|$)/g);
+  let stepsHtml;
+  if (numberedSteps && numberedSteps.length > 1) {
+    stepsHtml = '<ol style="padding-left:1.2rem;font-size:0.9rem;line-height:1.6">' + numberedSteps.map(s => `<li style="margin-bottom:0.4rem">${s.replace(/^\d+\.\s*/, '').trim()}</li>`).join('') + '</ol>';
+  } else {
+    stepsHtml = `<p style="font-size:0.9rem;line-height:1.5">${stepsText}</p>`;
+  }
+  const timeLabel = r.time >= 60 ? Math.floor(r.time/60) + 'h' + (r.time%60 > 0 ? r.time%60 : '') : r.time + ' min';
+  modal.innerHTML = `
+    <h3>${r.name}</h3>
+    <p style="margin-bottom:0.5rem"><span style="font-size:0.85rem;color:var(--text-light)">${timeLabel} &bull; ${r.servings} personnes &bull; ${r.difficulty}</span>
+    ${isSaved ? ' <span class="ext-saved-badge">Dans le planning</span>' : ''}</p>
+    <h4 style="margin-top:0.8rem;margin-bottom:0.5rem">Ingredients</h4>
+    ${ingHtml}
+    <h4 style="margin-top:1rem;margin-bottom:0.5rem">Preparation</h4>
+    ${stepsHtml}
+    <div class="modal-actions">
+      ${!isSaved ? `<button class="btn btn-primary" onclick="importFrRecipe('${r.id}');closeModal()">Ajouter au planning</button>` : ''}
+      <button class="btn btn-outline" onclick="closeModal()">Fermer</button>
+    </div>`;
+  document.getElementById('modalOverlay').classList.remove('hidden');
+}
+
+function importFrRecipe(id) {
+  const r = frRecipesData.find(x => x.id === id);
+  if (!r || state.recipes.some(sr => sr.id === r.id)) return;
+  state.recipes.push({
+    id: r.id,
+    name: r.name,
+    category: 'Plat',
+    type: 'equilibre',
+    difficulty: r.difficulty,
+    time: r.time,
+    ingredients: r.ingredients,
+    steps: r.steps,
+    source: 'fr'
+  });
+  saveState();
+  renderFrRecipes();
+}
+
+function initFrCategories() {
+  const cats = [
+    {id:'Viandes',label:'Viandes'},
+    {id:'Poissons',label:'Poissons'},
+    {id:'Vegetarien',label:'Vegetarien'},
+    {id:'Rapide',label:'Rapide (< 30 min)'},
+    {id:'Familial',label:'Familial (4+ pers.)'}
+  ];
+  document.getElementById('frCats').innerHTML = cats.map(c => `<button data-cat="${c.id}" onclick="filterFrRecipes('${c.id}')">${c.label}</button>`).join('');
+}
+
 // ============ INIT ============
 document.getElementById('headerDate').textContent = new Date().toLocaleDateString('fr-FR', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
 initExtCategories();
+initFrCategories();
 renderPlanning();
 </script>
 </body>
