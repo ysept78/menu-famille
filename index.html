@@ -348,6 +348,22 @@ nav button.active {
   .container { padding: 0.5rem; }
 }
 .hidden { display: none !important; }
+/* Recettes+ */
+.ext-search-bar { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+.ext-search-bar input { flex: 1; padding: 0.6rem; border: 1px solid var(--border); border-radius: 8px; font-size: 0.9rem; }
+.ext-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+.ext-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: white; transition: all 0.2s; }
+.ext-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-color: var(--primary); }
+.ext-card img { width: 100%; height: 180px; object-fit: cover; }
+.ext-card .ext-body { padding: 0.8rem; }
+.ext-card h4 { font-size: 0.95rem; margin-bottom: 0.3rem; }
+.ext-card p { font-size: 0.8rem; color: var(--text-light); }
+.ext-card .ext-actions { display: flex; gap: 0.5rem; margin-top: 0.6rem; }
+.ext-cats { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.ext-cats button { padding: 0.35rem 0.7rem; border: 1px solid var(--border); background: white; border-radius: 20px; cursor: pointer; font-size: 0.8rem; transition: all 0.15s; }
+.ext-cats button:hover, .ext-cats button.active { background: var(--accent); color: white; border-color: var(--accent); }
+.ext-loading { text-align: center; padding: 2rem; color: var(--text-light); }
+.ext-saved-badge { display: inline-block; background: var(--success); color: white; font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 10px; font-weight: 600; }
 </style>
 </head>
 <body>
@@ -369,6 +385,7 @@ nav button.active {
   <button class="active" onclick="showTab('planning')">Planning</button>
   <button onclick="showTab('courses')">Liste de courses</button>
   <button onclick="showTab('recettes')">Mes recettes</button>
+  <button onclick="showTab('extrecipes')">Recettes+</button>
 </nav>
 
 <div class="container">
@@ -424,6 +441,22 @@ nav button.active {
     <div class="recipe-grid" id="recipeGrid"></div>
   </div>
 </div>
+
+  <!-- RECETTES+ TAB -->
+  <div id="tab-extrecipes" class="hidden">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;flex-wrap:wrap;gap:0.5rem">
+      <h2>Recettes+</h2>
+      <span style="font-size:0.8rem;color:var(--text-light)">Source : TheMealDB</span>
+    </div>
+    <div class="ext-search-bar">
+      <input type="text" id="extSearch" placeholder="Rechercher un plat (ex: chicken, pasta, salmon...)" onkeydown="if(event.key==='Enter')searchExtRecipes()">
+      <button class="btn btn-primary" onclick="searchExtRecipes()">Rechercher</button>
+      <button class="btn btn-accent" onclick="randomExtRecipe()">Au hasard</button>
+    </div>
+    <div class="ext-cats" id="extCats"></div>
+    <div id="extResults"></div>
+    <div id="extSaved" style="margin-top:1.5rem"></div>
+  </div>
 
 <!-- MODAL -->
 <div class="modal-overlay hidden" id="modalOverlay" onclick="if(event.target===this)closeModal()">
@@ -680,6 +713,7 @@ function showTab(tab) {
   event.target.classList.add('active');
   if (tab === 'courses') renderShopping();
   if (tab === 'recettes') renderRecipes();
+  if (tab === 'extrecipes') renderExtSaved();
 }
 
 // ============ PLANNING ============
@@ -1017,7 +1051,9 @@ function viewRecipe(id) {
     ingHtml += `<div style="margin-bottom:0.3rem"><strong style="font-size:0.8rem;color:var(--text-light)">${cat}</strong>`;
     ingHtml += '<ul style="padding-left:1.2rem;margin:0.2rem 0">' + ingByCat[cat].map(i => `<li>${i.name}${i.qty ? ' — <em>' + i.qty + '</em>' : ''}</li>`).join('') + '</ul></div>';
   });
+  const thumbHtml = r.thumb ? `<img src="${r.thumb}/preview" alt="" style="width:100%;border-radius:8px;margin-bottom:1rem;max-height:200px;object-fit:cover">` : '';
   modal.innerHTML = `
+    ${thumbHtml}
     <h3>${r.name}</h3>
     <p>${typeTag} <span class="tag ${r.difficulty === 'facile' ? 'tag-easy' : 'tag-medium'}">${r.difficulty}</span> &bull; ${r.time}min &bull; ${r.category}</p>
     <h4 style="margin-top:1rem;margin-bottom:0.5rem">Ingredients</h4>
@@ -1124,8 +1160,396 @@ function closeModal() {
   document.getElementById('modalOverlay').classList.add('hidden');
 }
 
+// ============ RECETTES+ (TheMealDB) ============
+const MEALDB_API = 'https://www.themealdb.com/api/json/v1/1';
+
+// Dictionnaire traduction ingredients EN -> FR
+const TRAD_ING = {
+  'chicken':'poulet','chicken breast':'blanc de poulet','chicken thighs':'cuisses de poulet','chicken legs':'cuisses de poulet','chicken stock':'bouillon de poulet',
+  'beef':'boeuf','beef stock':'bouillon de boeuf','beef brisket':'poitrine de boeuf','beef fillet':'filet de boeuf','minced beef':'boeuf hache','ground beef':'boeuf hache','stewing beef':'boeuf a braiser',
+  'pork':'porc','pork chops':'cotes de porc','bacon':'lardons','sausages':'saucisses','chorizo':'chorizo','ham':'jambon','prosciutto':'jambon cru',
+  'lamb':'agneau','lamb chops':'cotelettes d\'agneau','lamb mince':'agneau hache','veal':'veau',
+  'salmon':'saumon','salmon fillets':'filets de saumon','cod':'cabillaud','tuna':'thon','prawns':'crevettes','shrimp':'crevettes','fish':'poisson','white fish':'poisson blanc','fish stock':'fumet de poisson','mussels':'moules','anchovy':'anchois',
+  'eggs':'oeufs','egg':'oeuf','egg yolks':'jaunes d\'oeufs','egg whites':'blancs d\'oeufs',
+  'butter':'beurre','cream':'creme fraiche','double cream':'creme epaisse','heavy cream':'creme epaisse','sour cream':'creme aigre','milk':'lait','cheese':'fromage','cheddar cheese':'cheddar','parmesan cheese':'parmesan','parmesan':'parmesan','gruyere':'gruyere','mozzarella':'mozzarella','feta':'feta','cream cheese':'fromage frais','goat cheese':'fromage de chevre','brie':'brie','yogurt':'yaourt','greek yogurt':'yaourt grec',
+  'flour':'farine','plain flour':'farine','self-raising flour':'farine avec levure','bread flour':'farine a pain','cornflour':'maizena','cornstarch':'maizena',
+  'rice':'riz','basmati rice':'riz basmati','brown rice':'riz complet','long grain rice':'riz long grain','arborio rice':'riz arborio',
+  'pasta':'pates','spaghetti':'spaghetti','penne':'penne','lasagne sheets':'feuilles de lasagne','noodles':'nouilles','egg noodles':'nouilles aux oeufs','udon noodles':'nouilles udon',
+  'bread':'pain','bread crumbs':'chapelure','breadcrumbs':'chapelure','pita bread':'pain pita','tortillas':'tortillas','baguette':'baguette',
+  'potatoes':'pommes de terre','potato':'pomme de terre','sweet potatoes':'patates douces','sweet potato':'patate douce',
+  'onion':'oignon','onions':'oignons','red onion':'oignon rouge','red onions':'oignons rouges','shallots':'echalotes','spring onions':'oignons verts','green onions':'oignons verts','leek':'poireau','leeks':'poireaux',
+  'garlic':'ail','garlic clove':'gousse d\'ail','garlic cloves':'gousses d\'ail',
+  'ginger':'gingembre','fresh ginger':'gingembre frais',
+  'tomatoes':'tomates','tomato':'tomate','cherry tomatoes':'tomates cerises','sun-dried tomatoes':'tomates sechees','chopped tomatoes':'tomates concassees','tomato puree':'concentre de tomate','tomato paste':'concentre de tomate','tomato sauce':'sauce tomate','passata':'coulis de tomate','tomato ketchup':'ketchup',
+  'carrot':'carotte','carrots':'carottes','courgette':'courgette','courgettes':'courgettes','zucchini':'courgette',
+  'pepper':'poivron','peppers':'poivrons','red pepper':'poivron rouge','green pepper':'poivron vert','yellow pepper':'poivron jaune','bell pepper':'poivron',
+  'mushrooms':'champignons','mushroom':'champignon',
+  'spinach':'epinards','broccoli':'brocolis','cauliflower':'chou-fleur','cabbage':'chou','lettuce':'laitue','cucumber':'concombre','celery':'celeri','asparagus':'asperges','green beans':'haricots verts','peas':'petits pois','sweetcorn':'mais','corn':'mais','avocado':'avocat','aubergine':'aubergine','eggplant':'aubergine','beetroot':'betterave','turnip':'navet','parsnip':'panais','radishes':'radis',
+  'lemon':'citron','lemon juice':'jus de citron','lime':'citron vert','lime juice':'jus de citron vert','orange':'orange','orange juice':'jus d\'orange','apple':'pomme','apples':'pommes','pear':'poire','banana':'banane','berries':'fruits rouges','strawberries':'fraises','raspberries':'framboises','blueberries':'myrtilles','coconut':'noix de coco','coconut milk':'lait de coco','coconut cream':'creme de coco','raisins':'raisins secs','dried apricots':'abricots secs',
+  'olive oil':'huile d\'olive','vegetable oil':'huile vegetale','sesame oil':'huile de sesame','sunflower oil':'huile de tournesol','oil':'huile','cooking oil':'huile de cuisson',
+  'salt':'sel','pepper':'poivre','black pepper':'poivre noir','sugar':'sucre','brown sugar':'sucre roux','caster sugar':'sucre en poudre','icing sugar':'sucre glace','honey':'miel','maple syrup':'sirop d\'erable',
+  'soy sauce':'sauce soja','worcestershire sauce':'sauce worcestershire','fish sauce':'sauce de poisson','hot sauce':'sauce piquante','sriracha':'sriracha','mustard':'moutarde','dijon mustard':'moutarde de Dijon','vinegar':'vinaigre','balsamic vinegar':'vinaigre balsamique','red wine vinegar':'vinaigre de vin rouge','white wine vinegar':'vinaigre de vin blanc','mayonnaise':'mayonnaise',
+  'cumin':'cumin','paprika':'paprika','turmeric':'curcuma','cinnamon':'cannelle','nutmeg':'muscade','coriander':'coriandre','ground coriander':'coriandre moulue','oregano':'origan','basil':'basilic','fresh basil':'basilic frais','thyme':'thym','rosemary':'romarin','parsley':'persil','fresh parsley':'persil frais','mint':'menthe','bay leaf':'feuille de laurier','bay leaves':'feuilles de laurier','chili':'piment','chili powder':'piment en poudre','chilli':'piment','chilli flakes':'piment en flocons','cayenne pepper':'piment de Cayenne','curry powder':'curry en poudre','garam masala':'garam masala','mixed herbs':'herbes de Provence','dried oregano':'origan seche','smoked paprika':'paprika fume',
+  'wine':'vin','red wine':'vin rouge','white wine':'vin blanc','dry white wine':'vin blanc sec','beer':'biere',
+  'chocolate':'chocolat','dark chocolate':'chocolat noir','cocoa':'cacao','cocoa powder':'cacao en poudre','vanilla':'vanille','vanilla extract':'extrait de vanille','baking powder':'levure chimique','baking soda':'bicarbonate','yeast':'levure','gelatine':'gelatine',
+  'chickpeas':'pois chiches','lentils':'lentilles','red lentils':'lentilles corail','kidney beans':'haricots rouges','black beans':'haricots noirs','cannellini beans':'haricots blancs','butter beans':'haricots beurre','white beans':'haricots blancs',
+  'almonds':'amandes','walnuts':'noix','pine nuts':'pignons','cashews':'noix de cajou','peanuts':'cacahuetes','peanut butter':'beurre de cacahuete','sesame seeds':'graines de sesame','flaked almonds':'amandes effilees',
+  'water':'eau','stock':'bouillon','vegetable stock':'bouillon de legumes','chicken broth':'bouillon de poulet','beef broth':'bouillon de boeuf',
+  'olives':'olives','black olives':'olives noires','capers':'capres','pickles':'cornichons','dried fruit':'fruits secs',
+  'creme fraiche':'creme fraiche','mascarpone':'mascarpone','ricotta':'ricotta','condensed milk':'lait concentre','evaporated milk':'lait evapore',
+  'plain chocolate':'chocolat noir','white chocolate':'chocolat blanc','puff pastry':'pate feuilletee','shortcrust pastry':'pate brisee','filo pastry':'pate filo',
+};
+
+// Conversion unites vers grammes/ml
+function convertMeasure(measure) {
+  if (!measure) return '';
+  let m = measure.trim();
+  // Deja en g/kg/ml/cl/L -> garder
+  if (/^\d+[\s]*(g|kg|ml|cl|l)\b/i.test(m)) return m;
+  // Conversions
+  const conversions = [
+    {regex: /([\d.\/]+)\s*oz\b/i, factor: 28, unit: 'g'},
+    {regex: /([\d.\/]+)\s*lb[s]?\b/i, factor: 454, unit: 'g'},
+    {regex: /([\d.\/]+)\s*cup[s]?\b/i, factor: 240, unit: 'ml'},
+    {regex: /([\d.\/]+)\s*tbsp\b/i, factor: 15, unit: 'ml'},
+    {regex: /([\d.\/]+)\s*tbs\b/i, factor: 15, unit: 'ml'},
+    {regex: /([\d.\/]+)\s*tsp\b/i, factor: 5, unit: 'ml'},
+    {regex: /([\d.\/]+)\s*pint[s]?\b/i, factor: 473, unit: 'ml'},
+    {regex: /([\d.\/]+)\s*quart[s]?\b/i, factor: 946, unit: 'ml'},
+    {regex: /([\d.\/]+)\s*fl\s*oz\b/i, factor: 30, unit: 'ml'},
+  ];
+  for (const c of conversions) {
+    const match = m.match(c.regex);
+    if (match) {
+      let val = match[1];
+      // Handle fractions like 1/2
+      if (val.includes('/')) {
+        const parts = val.split('/');
+        val = parseFloat(parts[0]) / parseFloat(parts[1]);
+      } else {
+        val = parseFloat(val);
+      }
+      if (isNaN(val)) continue;
+      let result = Math.round(val * c.factor);
+      // Convert g to kg if >= 1000
+      if (c.unit === 'g' && result >= 1000) return (result/1000).toFixed(1).replace('.0','') + 'kg';
+      // Keep rest of string (like "chopped")
+      const rest = m.replace(c.regex, '').trim();
+      return result + c.unit + (rest ? ' ' + rest : '');
+    }
+  }
+  // Fractions unicode
+  m = m.replace('½', '1/2').replace('¼', '1/4').replace('¾', '3/4').replace('⅓', '1/3').replace('⅔', '2/3');
+  return m;
+}
+
+function translateIngredient(name) {
+  if (!name) return '';
+  const lower = name.toLowerCase().trim();
+  // Exact match
+  if (TRAD_ING[lower]) return TRAD_ING[lower].charAt(0).toUpperCase() + TRAD_ING[lower].slice(1);
+  // Partial match: try removing adjectives
+  for (const [en, fr] of Object.entries(TRAD_ING)) {
+    if (lower.includes(en) && en.length > 3) return fr.charAt(0).toUpperCase() + fr.slice(1);
+  }
+  // Capitalize original
+  return name.charAt(0).toUpperCase() + name.slice(1);
+}
+
+// Basic instruction translation
+function translateInstructions(text) {
+  if (!text) return '';
+  let t = text;
+  const instrReplacements = [
+    [/\bPreheat\b/gi,'Prechauffer'],[/\bthe oven\b/gi,'le four'],[/\boven\b/gi,'four'],
+    [/\bHeat\b/gi,'Chauffer'],[/\bBoil\b/gi,'Porter a ebullition'],[/\bSimmer\b/gi,'Laisser mijoter'],
+    [/\bStir\b/gi,'Remuer'],[/\bMix\b/gi,'Melanger'],[/\bAdd\b/gi,'Ajouter'],[/\bPour\b/gi,'Verser'],
+    [/\bCut\b/gi,'Couper'],[/\bChop\b/gi,'Hacher'],[/\bSlice\b/gi,'Trancher'],[/\bDice\b/gi,'Couper en des'],
+    [/\bFry\b/gi,'Faire frire'],[/\bSaute\b/gi,'Faire sauter'],[/\bBake\b/gi,'Cuire au four'],
+    [/\bRoast\b/gi,'Rotir'],[/\bGrill\b/gi,'Griller'],[/\bServe\b/gi,'Servir'],
+    [/\bSeason\b/gi,'Assaisonner'],[/\bSprinkle\b/gi,'Saupoudrer'],[/\bGarnish\b/gi,'Garnir'],
+    [/\bCover\b/gi,'Couvrir'],[/\bDrain\b/gi,'Egoutter'],[/\bRinse\b/gi,'Rincer'],
+    [/\bRemove\b/gi,'Retirer'],[/\bPlace\b/gi,'Placer'],[/\bCook\b/gi,'Cuire'],
+    [/\bBring to a boil\b/gi,'Porter a ebullition'],[/\bLet it rest\b/gi,'Laisser reposer'],
+    [/\bminutes\b/gi,'minutes'],[/\bhours?\b/gi,'heure(s)'],[/\buntil\b/gi,'jusqu\'a ce que'],
+    [/\bwith\b/gi,'avec'],[/\band\b/gi,'et'],[/\bthe\b/gi,'le'],[/\bin a\b/gi,'dans une'],
+    [/\bsalt and pepper\b/gi,'sel et poivre'],[/\bto taste\b/gi,'selon le gout'],
+    [/\bWash\b/gi,'Laver'],[/\bPeel\b/gi,'Eplucher'],[/\bMelt\b/gi,'Faire fondre'],
+    [/\bWhisk\b/gi,'Fouetter'],[/\bFold\b/gi,'Incorporer'],[/\bFlip\b/gi,'Retourner'],
+    [/\bReduce\b/gi,'Reduire'],[/\bBlend\b/gi,'Mixer'],[/\bMarinate\b/gi,'Faire mariner'],
+    [/\bToss\b/gi,'Melanger'],[/\bSet aside\b/gi,'Reserver'],[/\bTransfer\b/gi,'Transferer'],
+    // Temperature
+    [/(\d+)\s*°?\s*F/g, (_, f) => Math.round((parseInt(f)-32)*5/9) + '°C'],
+    [/Gas Mark \d+/gi, ''],
+  ];
+  instrReplacements.forEach(([pattern, replacement]) => {
+    t = t.replace(pattern, replacement);
+  });
+  return t;
+}
+
+function parseMealDBRecipe(meal) {
+  const ingredients = [];
+  for (let i = 1; i <= 20; i++) {
+    const ing = meal[`strIngredient${i}`];
+    const measure = meal[`strMeasure${i}`];
+    if (ing && ing.trim()) {
+      const name = translateIngredient(ing);
+      const qty = convertMeasure(measure);
+      // Guess category
+      let cat = 'Epicerie';
+      const lower = ing.toLowerCase();
+      if (/chicken|beef|pork|lamb|bacon|sausage|ham|veal|duck|chorizo|prosciutto|mince/.test(lower)) cat = 'Viandes';
+      else if (/salmon|cod|tuna|prawn|shrimp|fish|mussel|anchov/.test(lower)) cat = 'Poissons';
+      else if (/butter|cream|milk|cheese|egg|yogu|mascarpone|ricotta|creme/.test(lower)) cat = 'Frais';
+      else if (/rice|pasta|spaghetti|noodle|penne|lasagne|bread|flour|tortilla|baguette|pita|pastry/.test(lower)) cat = 'Feculents';
+      else if (/onion|garlic|tomato|pepper|carrot|potato|courgette|zucchini|mushroom|spinach|broccoli|cauliflower|cabbage|lettuce|cucumber|celery|asparagus|bean|pea|corn|avocado|aubergine|eggplant|leek|turnip|ginger|beetroot|shallot|radish/.test(lower)) cat = 'Legumes';
+      else if (/lemon|lime|orange|apple|pear|banana|berr|strawberr|raspberr|blueberr|coconut|raisin|apricot/.test(lower)) cat = 'Fruits';
+      else if (/chickpea|lentil|kidney|black bean|cannellini|butter bean|white bean/.test(lower)) cat = 'Feculents';
+      else if (/canned|tinned|chopped tomato|tomato sauce|passata|tomato puree/.test(lower)) cat = 'Conserves';
+      ingredients.push({name, qty, cat});
+    }
+  }
+  return {
+    name: meal.strMeal,
+    category: 'Plat',
+    type: 'equilibre',
+    difficulty: 'moyen',
+    time: 30,
+    ingredients,
+    steps: translateInstructions(meal.strInstructions || ''),
+    thumb: meal.strMealThumb || '',
+    youtube: meal.strYoutube || '',
+    mealdbId: meal.idMeal
+  };
+}
+
+async function searchExtRecipes() {
+  const query = document.getElementById('extSearch').value.trim();
+  if (!query) return;
+  const results = document.getElementById('extResults');
+  results.innerHTML = '<div class="ext-loading">Recherche en cours...</div>';
+  try {
+    const resp = await fetch(`${MEALDB_API}/search.php?s=${encodeURIComponent(query)}`);
+    const data = await resp.json();
+    if (!data.meals) {
+      results.innerHTML = '<div class="ext-loading">Aucun resultat. Essayez en anglais (ex: chicken, beef, pasta...)</div>';
+      return;
+    }
+    renderExtResults(data.meals);
+  } catch(e) {
+    results.innerHTML = '<div class="ext-loading">Erreur de connexion. Verifiez votre connexion internet.</div>';
+  }
+}
+
+async function randomExtRecipe() {
+  const results = document.getElementById('extResults');
+  results.innerHTML = '<div class="ext-loading">Chargement...</div>';
+  try {
+    const resp = await fetch(`${MEALDB_API}/random.php`);
+    const data = await resp.json();
+    if (data.meals) renderExtResults(data.meals);
+  } catch(e) {
+    results.innerHTML = '<div class="ext-loading">Erreur de connexion.</div>';
+  }
+}
+
+async function browseExtCategory(cat) {
+  document.querySelectorAll('.ext-cats button').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  const results = document.getElementById('extResults');
+  results.innerHTML = '<div class="ext-loading">Chargement...</div>';
+  try {
+    const resp = await fetch(`${MEALDB_API}/filter.php?c=${encodeURIComponent(cat)}`);
+    const data = await resp.json();
+    if (!data.meals) { results.innerHTML = '<div class="ext-loading">Aucun resultat.</div>'; return; }
+    // filter.php returns limited data, we need to show cards with just image/name
+    let html = '<div class="ext-grid">';
+    data.meals.slice(0, 20).forEach(m => {
+      const isSaved = isExtRecipeSaved(m.idMeal);
+      html += `<div class="ext-card">
+        <img src="${m.strMealThumb}/preview" alt="${m.strMeal}" loading="lazy">
+        <div class="ext-body">
+          <h4>${m.strMeal} ${isSaved ? '<span class="ext-saved-badge">Importe</span>' : ''}</h4>
+          <div class="ext-actions">
+            <button class="btn btn-outline btn-sm" onclick="viewExtRecipeById('${m.idMeal}')">Voir la recette</button>
+            ${!isSaved ? `<button class="btn btn-primary btn-sm" onclick="importExtRecipeById('${m.idMeal}')">Importer</button>` : ''}
+          </div>
+        </div>
+      </div>`;
+    });
+    html += '</div>';
+    results.innerHTML = html;
+  } catch(e) {
+    results.innerHTML = '<div class="ext-loading">Erreur de connexion.</div>';
+  }
+}
+
+function renderExtResults(meals) {
+  const results = document.getElementById('extResults');
+  let html = '<div class="ext-grid">';
+  meals.forEach(meal => {
+    const parsed = parseMealDBRecipe(meal);
+    const isSaved = isExtRecipeSaved(meal.idMeal);
+    html += `<div class="ext-card">
+      <img src="${meal.strMealThumb}/preview" alt="${parsed.name}" loading="lazy">
+      <div class="ext-body">
+        <h4>${parsed.name} ${isSaved ? '<span class="ext-saved-badge">Importe</span>' : ''}</h4>
+        <p>${meal.strArea || ''} &bull; ${meal.strCategory || ''}</p>
+        <p style="margin-top:0.2rem">${parsed.ingredients.slice(0,5).map(i=>i.name).join(', ')}${parsed.ingredients.length > 5 ? '...' : ''}</p>
+        <div class="ext-actions">
+          <button class="btn btn-outline btn-sm" onclick="viewExtRecipeById('${meal.idMeal}')">Voir</button>
+          ${!isSaved ? `<button class="btn btn-primary btn-sm" onclick="importExtRecipeById('${meal.idMeal}')">Importer</button>` : ''}
+          ${meal.strYoutube ? `<a href="${meal.strYoutube}" target="_blank" class="btn btn-accent btn-sm" style="text-decoration:none">Video</a>` : ''}
+        </div>
+      </div>
+    </div>`;
+  });
+  html += '</div>';
+  results.innerHTML = html;
+}
+
+async function viewExtRecipeById(id) {
+  try {
+    const resp = await fetch(`${MEALDB_API}/lookup.php?i=${id}`);
+    const data = await resp.json();
+    if (!data.meals || !data.meals[0]) return;
+    const meal = data.meals[0];
+    const parsed = parseMealDBRecipe(meal);
+    showExtRecipeModal(parsed, meal);
+  } catch(e) { alert('Erreur de chargement.'); }
+}
+
+function showExtRecipeModal(parsed, meal) {
+  const modal = document.getElementById('modalContent');
+  const isSaved = isExtRecipeSaved(meal.idMeal);
+  // Group ingredients by category
+  const ingByCat = {};
+  parsed.ingredients.forEach(i => {
+    if (!ingByCat[i.cat]) ingByCat[i.cat] = [];
+    ingByCat[i.cat].push(i);
+  });
+  let ingHtml = '';
+  Object.keys(ingByCat).forEach(cat => {
+    ingHtml += `<div style="margin-bottom:0.3rem"><strong style="font-size:0.8rem;color:var(--text-light)">${cat}</strong>`;
+    ingHtml += '<ul style="padding-left:1.2rem;margin:0.2rem 0">' + ingByCat[cat].map(i => `<li>${i.name}${i.qty ? ' — <em>' + i.qty + '</em>' : ''}</li>`).join('') + '</ul></div>';
+  });
+  // Steps
+  const stepsText = parsed.steps;
+  const lines = stepsText.split(/\r?\n/).filter(l => l.trim());
+  let stepsHtml;
+  if (lines.length > 1) {
+    stepsHtml = '<ol style="padding-left:1.2rem;font-size:0.9rem;line-height:1.6">' + lines.map(l => `<li style="margin-bottom:0.4rem">${l.replace(/^[\d]+[\.\)]\s*/, '').trim()}</li>`).join('') + '</ol>';
+  } else {
+    stepsHtml = `<p style="font-size:0.9rem;line-height:1.6">${stepsText}</p>`;
+  }
+  modal.innerHTML = `
+    ${meal.strMealThumb ? `<img src="${meal.strMealThumb}/preview" alt="" style="width:100%;border-radius:8px;margin-bottom:1rem;max-height:200px;object-fit:cover">` : ''}
+    <h3>${parsed.name}</h3>
+    <p style="margin-bottom:0.5rem"><span style="font-size:0.85rem;color:var(--text-light)">${meal.strArea || ''} &bull; ${meal.strCategory || ''}</span>
+    ${isSaved ? ' <span class="ext-saved-badge">Deja importe</span>' : ''}</p>
+    <h4 style="margin-top:0.8rem;margin-bottom:0.5rem">Ingredients</h4>
+    ${ingHtml}
+    <h4 style="margin-top:1rem;margin-bottom:0.5rem">Preparation</h4>
+    ${stepsHtml}
+    <div class="modal-actions">
+      ${!isSaved ? `<button class="btn btn-primary" onclick="importExtRecipe(${meal.idMeal});closeModal()">Importer dans mes recettes</button>` : ''}
+      ${meal.strYoutube ? `<a href="${meal.strYoutube}" target="_blank" class="btn btn-accent" style="text-decoration:none">Voir la video</a>` : ''}
+      <button class="btn btn-outline" onclick="closeModal()">Fermer</button>
+    </div>`;
+  document.getElementById('modalOverlay').classList.remove('hidden');
+}
+
+async function importExtRecipeById(id) {
+  try {
+    const resp = await fetch(`${MEALDB_API}/lookup.php?i=${id}`);
+    const data = await resp.json();
+    if (!data.meals || !data.meals[0]) return;
+    importExtRecipe(id, data.meals[0]);
+  } catch(e) { alert('Erreur de chargement.'); }
+}
+
+function importExtRecipe(id, mealData) {
+  // If mealData not provided, fetch it
+  if (!mealData) {
+    fetch(`${MEALDB_API}/lookup.php?i=${id}`)
+      .then(r => r.json())
+      .then(data => { if (data.meals && data.meals[0]) importExtRecipe(id, data.meals[0]); });
+    return;
+  }
+  if (isExtRecipeSaved(id)) return;
+  const parsed = parseMealDBRecipe(mealData);
+  const recipe = {
+    id: 'ext-' + id,
+    name: parsed.name,
+    category: parsed.category,
+    type: 'equilibre',
+    difficulty: parsed.difficulty,
+    time: parsed.time,
+    ingredients: parsed.ingredients,
+    steps: parsed.steps,
+    thumb: parsed.thumb,
+    source: 'themealdb'
+  };
+  state.recipes.push(recipe);
+  saveState();
+  // Refresh display
+  renderExtSaved();
+  // Re-render results to show "Importe" badge
+  const searchInput = document.getElementById('extSearch');
+  if (searchInput && searchInput.value.trim()) searchExtRecipes();
+  alert('Recette "' + parsed.name + '" importee ! Vous pouvez maintenant l\'utiliser dans le planning.');
+}
+
+function isExtRecipeSaved(mealdbId) {
+  return state.recipes.some(r => r.id === 'ext-' + mealdbId);
+}
+
+function renderExtSaved() {
+  const container = document.getElementById('extSaved');
+  const extRecipes = state.recipes.filter(r => r.id.startsWith('ext-'));
+  if (extRecipes.length === 0) {
+    container.innerHTML = '';
+    return;
+  }
+  let html = '<div class="card"><h3>Mes recettes importees (' + extRecipes.length + ')</h3>';
+  html += '<div class="ext-grid" style="margin-top:0.8rem">';
+  extRecipes.forEach(r => {
+    html += `<div class="ext-card" style="display:flex;align-items:center;gap:0.8rem;padding:0.6rem">
+      ${r.thumb ? `<img src="${r.thumb}/preview" alt="" style="width:60px;height:60px;border-radius:8px;object-fit:cover">` : ''}
+      <div style="flex:1;min-width:0">
+        <h4 style="font-size:0.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${r.name}</h4>
+        <div class="ext-actions" style="margin-top:0.3rem">
+          <button class="btn btn-outline btn-sm" onclick="viewRecipe('${r.id}')">Voir</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteExtRecipe('${r.id}')">Retirer</button>
+        </div>
+      </div>
+    </div>`;
+  });
+  html += '</div></div>';
+  container.innerHTML = html;
+}
+
+function deleteExtRecipe(id) {
+  if (!confirm('Retirer cette recette importee ?')) return;
+  state.recipes = state.recipes.filter(r => r.id !== id);
+  // Remove from menus too
+  Object.keys(state.menus).forEach(k => {
+    if (state.menus[k] === id) delete state.menus[k];
+  });
+  saveState();
+  renderExtSaved();
+}
+
+function initExtCategories() {
+  const cats = ['Chicken','Beef','Seafood','Pasta','Vegetarian','Pork','Lamb','Dessert','Breakfast','Side'];
+  const container = document.getElementById('extCats');
+  container.innerHTML = cats.map(c => `<button onclick="browseExtCategory('${c}')">${c}</button>`).join('');
+}
+
 // ============ INIT ============
 document.getElementById('headerDate').textContent = new Date().toLocaleDateString('fr-FR', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+initExtCategories();
 renderPlanning();
 </script>
 </body>
