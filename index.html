@@ -1163,66 +1163,309 @@ function closeModal() {
 // ============ RECETTES+ (TheMealDB) ============
 const MEALDB_API = 'https://www.themealdb.com/api/json/v1/1';
 
-// Dictionnaire traduction ingredients EN -> FR
-const TRAD_ING = {
-  'chicken':'poulet','chicken breast':'blanc de poulet','chicken thighs':'cuisses de poulet','chicken legs':'cuisses de poulet','chicken stock':'bouillon de poulet',
-  'beef':'boeuf','beef stock':'bouillon de boeuf','beef brisket':'poitrine de boeuf','beef fillet':'filet de boeuf','minced beef':'boeuf hache','ground beef':'boeuf hache','stewing beef':'boeuf a braiser',
-  'pork':'porc','pork chops':'cotes de porc','bacon':'lardons','sausages':'saucisses','chorizo':'chorizo','ham':'jambon','prosciutto':'jambon cru',
-  'lamb':'agneau','lamb chops':'cotelettes d\'agneau','lamb mince':'agneau hache','veal':'veau',
-  'salmon':'saumon','salmon fillets':'filets de saumon','cod':'cabillaud','tuna':'thon','prawns':'crevettes','shrimp':'crevettes','fish':'poisson','white fish':'poisson blanc','fish stock':'fumet de poisson','mussels':'moules','anchovy':'anchois',
-  'eggs':'oeufs','egg':'oeuf','egg yolks':'jaunes d\'oeufs','egg whites':'blancs d\'oeufs',
-  'butter':'beurre','cream':'creme fraiche','double cream':'creme epaisse','heavy cream':'creme epaisse','sour cream':'creme aigre','milk':'lait','cheese':'fromage','cheddar cheese':'cheddar','parmesan cheese':'parmesan','parmesan':'parmesan','gruyere':'gruyere','mozzarella':'mozzarella','feta':'feta','cream cheese':'fromage frais','goat cheese':'fromage de chevre','brie':'brie','yogurt':'yaourt','greek yogurt':'yaourt grec',
-  'flour':'farine','plain flour':'farine','self-raising flour':'farine avec levure','bread flour':'farine a pain','cornflour':'maizena','cornstarch':'maizena',
-  'rice':'riz','basmati rice':'riz basmati','brown rice':'riz complet','long grain rice':'riz long grain','arborio rice':'riz arborio',
-  'pasta':'pates','spaghetti':'spaghetti','penne':'penne','lasagne sheets':'feuilles de lasagne','noodles':'nouilles','egg noodles':'nouilles aux oeufs','udon noodles':'nouilles udon',
-  'bread':'pain','bread crumbs':'chapelure','breadcrumbs':'chapelure','pita bread':'pain pita','tortillas':'tortillas','baguette':'baguette',
-  'potatoes':'pommes de terre','potato':'pomme de terre','sweet potatoes':'patates douces','sweet potato':'patate douce',
-  'onion':'oignon','onions':'oignons','red onion':'oignon rouge','red onions':'oignons rouges','shallots':'echalotes','spring onions':'oignons verts','green onions':'oignons verts','leek':'poireau','leeks':'poireaux',
-  'garlic':'ail','garlic clove':'gousse d\'ail','garlic cloves':'gousses d\'ail',
-  'ginger':'gingembre','fresh ginger':'gingembre frais',
-  'tomatoes':'tomates','tomato':'tomate','cherry tomatoes':'tomates cerises','sun-dried tomatoes':'tomates sechees','chopped tomatoes':'tomates concassees','tomato puree':'concentre de tomate','tomato paste':'concentre de tomate','tomato sauce':'sauce tomate','passata':'coulis de tomate','tomato ketchup':'ketchup',
-  'carrot':'carotte','carrots':'carottes','courgette':'courgette','courgettes':'courgettes','zucchini':'courgette',
-  'pepper':'poivron','peppers':'poivrons','red pepper':'poivron rouge','green pepper':'poivron vert','yellow pepper':'poivron jaune','bell pepper':'poivron',
-  'mushrooms':'champignons','mushroom':'champignon',
-  'spinach':'epinards','broccoli':'brocolis','cauliflower':'chou-fleur','cabbage':'chou','lettuce':'laitue','cucumber':'concombre','celery':'celeri','asparagus':'asperges','green beans':'haricots verts','peas':'petits pois','sweetcorn':'mais','corn':'mais','avocado':'avocat','aubergine':'aubergine','eggplant':'aubergine','beetroot':'betterave','turnip':'navet','parsnip':'panais','radishes':'radis',
-  'lemon':'citron','lemon juice':'jus de citron','lime':'citron vert','lime juice':'jus de citron vert','orange':'orange','orange juice':'jus d\'orange','apple':'pomme','apples':'pommes','pear':'poire','banana':'banane','berries':'fruits rouges','strawberries':'fraises','raspberries':'framboises','blueberries':'myrtilles','coconut':'noix de coco','coconut milk':'lait de coco','coconut cream':'creme de coco','raisins':'raisins secs','dried apricots':'abricots secs',
-  'olive oil':'huile d\'olive','vegetable oil':'huile vegetale','sesame oil':'huile de sesame','sunflower oil':'huile de tournesol','oil':'huile','cooking oil':'huile de cuisson',
-  'salt':'sel','pepper':'poivre','black pepper':'poivre noir','sugar':'sucre','brown sugar':'sucre roux','caster sugar':'sucre en poudre','icing sugar':'sucre glace','honey':'miel','maple syrup':'sirop d\'erable',
-  'soy sauce':'sauce soja','worcestershire sauce':'sauce worcestershire','fish sauce':'sauce de poisson','hot sauce':'sauce piquante','sriracha':'sriracha','mustard':'moutarde','dijon mustard':'moutarde de Dijon','vinegar':'vinaigre','balsamic vinegar':'vinaigre balsamique','red wine vinegar':'vinaigre de vin rouge','white wine vinegar':'vinaigre de vin blanc','mayonnaise':'mayonnaise',
-  'cumin':'cumin','paprika':'paprika','turmeric':'curcuma','cinnamon':'cannelle','nutmeg':'muscade','coriander':'coriandre','ground coriander':'coriandre moulue','oregano':'origan','basil':'basilic','fresh basil':'basilic frais','thyme':'thym','rosemary':'romarin','parsley':'persil','fresh parsley':'persil frais','mint':'menthe','bay leaf':'feuille de laurier','bay leaves':'feuilles de laurier','chili':'piment','chili powder':'piment en poudre','chilli':'piment','chilli flakes':'piment en flocons','cayenne pepper':'piment de Cayenne','curry powder':'curry en poudre','garam masala':'garam masala','mixed herbs':'herbes de Provence','dried oregano':'origan seche','smoked paprika':'paprika fume',
-  'wine':'vin','red wine':'vin rouge','white wine':'vin blanc','dry white wine':'vin blanc sec','beer':'biere',
-  'chocolate':'chocolat','dark chocolate':'chocolat noir','cocoa':'cacao','cocoa powder':'cacao en poudre','vanilla':'vanille','vanilla extract':'extrait de vanille','baking powder':'levure chimique','baking soda':'bicarbonate','yeast':'levure','gelatine':'gelatine',
-  'chickpeas':'pois chiches','lentils':'lentilles','red lentils':'lentilles corail','kidney beans':'haricots rouges','black beans':'haricots noirs','cannellini beans':'haricots blancs','butter beans':'haricots beurre','white beans':'haricots blancs',
-  'almonds':'amandes','walnuts':'noix','pine nuts':'pignons','cashews':'noix de cajou','peanuts':'cacahuetes','peanut butter':'beurre de cacahuete','sesame seeds':'graines de sesame','flaked almonds':'amandes effilees',
-  'water':'eau','stock':'bouillon','vegetable stock':'bouillon de legumes','chicken broth':'bouillon de poulet','beef broth':'bouillon de boeuf',
-  'olives':'olives','black olives':'olives noires','capers':'capres','pickles':'cornichons','dried fruit':'fruits secs',
-  'creme fraiche':'creme fraiche','mascarpone':'mascarpone','ricotta':'ricotta','condensed milk':'lait concentre','evaporated milk':'lait evapore',
-  'plain chocolate':'chocolat noir','white chocolate':'chocolat blanc','puff pastry':'pate feuilletee','shortcrust pastry':'pate brisee','filo pastry':'pate filo',
+// ===== TRADUCTION NOMS DE RECETTES =====
+const TRAD_RECIPES = {
+  'Beef Bourguignon':'Boeuf bourguignon','Chicken Basquaise':'Poulet basquaise','Chicken Marengo':'Poulet Marengo',
+  'Chicken Parmentier':'Parmentier de poulet','Chocolate Gateau':'Gateau au chocolat','Chocolate Souffle':'Souffle au chocolat',
+  'Coq au vin':'Coq au vin','Duck Confit':'Confit de canard','Fennel Dauphinoise':'Gratin dauphinois au fenouil',
+  'Fish Stew with Rouille':'Ragout de poisson a la rouille','Flamiche':'Flamiche aux poireaux',
+  'French Lentils With Garlic and Thyme':'Lentilles a l\'ail et au thym','French Omelette':'Omelette francaise',
+  'French Onion Soup':'Soupe a l\'oignon gratinee','French Onion Chicken with Roasted Carrots & Mashed Potatoes':'Poulet facon soupe a l\'oignon, carottes roties et puree',
+  'Pear Tarte Tatin':'Tarte tatin aux poires','Ratatouille':'Ratatouille','Steak Diane':'Steak Diane',
+  'Tarte Tatin':'Tarte tatin','Three-cheese souffles':'Souffles aux trois fromages','Tuna Nicoise':'Salade nicoise au thon',
+  'White chocolate creme brulee':'Creme brulee au chocolat blanc','Boulangère Potatoes':'Pommes boulangere',
+  'Chinon Apple Tarts':'Tartelettes aux pommes de Chinon','Brie wrapped in prosciutto & brioche':'Brie en croute de jambon cru et brioche',
+  // Plats internationaux populaires
+  'Beef Stroganoff':'Boeuf Stroganoff','Beef Wellington':'Boeuf Wellington','Beef Lo Mein':'Nouilles sautees au boeuf',
+  'Beef Brisket Pot Roast':'Poitrine de boeuf braisee','Beef and Mustard Pie':'Tourte boeuf-moutarde',
+  'Beef Sunday Roast':'Roti de boeuf du dimanche','Beef Dumpling Stew':'Ragout de boeuf aux boulettes',
+  'Chicken Alfredo Primavera':'Poulet Alfredo Primavera','Chicken Fajita Mac and Cheese':'Mac & cheese fajitas au poulet',
+  'Chicken Enchilada Casserole':'Gratin d\'enchiladas au poulet','Chicken Handi':'Poulet Handi',
+  'Chicken Karaage':'Poulet frit japonais (Karaage)','Chicken Ham and Leek Pie':'Tourte poulet, jambon et poireaux',
+  'Chicken Couscous':'Couscous au poulet','Chicken Congee':'Congee au poulet',
+  'Chicken Quinoa Greek Salad':'Salade grecque au poulet et quinoa',
+  'General Tsos Chicken':'Poulet du General Tso','Kung Pao Chicken':'Poulet Kung Pao',
+  'Katsu Chicken curry':'Curry de poulet Katsu','Nutty Chicken Curry':'Curry de poulet aux noix',
+  'Teriyaki Chicken Casserole':'Gratin de poulet teriyaki','Tandoori chicken':'Poulet tandoori',
+  'Honey Teriyaki Salmon':'Saumon teriyaki au miel','Salmon Prawn Risotto':'Risotto saumon et crevettes',
+  'Salmon Avocado Salad':'Salade saumon-avocat','Salmon Eggs Eggs Benedict':'Oeufs Benedict au saumon',
+  'Pad See Ew':'Pad See Ew (nouilles sautees thai)','Pad Thai':'Pad Thai','Thai Green Curry':'Curry vert thai',
+  'Massaman Beef curry':'Curry Massaman au boeuf','Tom yum soup with prawns':'Soupe Tom Yum aux crevettes',
+  'Spaghetti Bolognese':'Spaghetti bolognaise','Spaghetti alla Carbonara':'Spaghetti carbonara',
+  'Lasagne':'Lasagnes','Vegan Lasagna':'Lasagnes vegetaliennes','Lasagna Sandwiches':'Sandwichs lasagne',
+  'Mediterranean Pasta Salad':'Salade de pates mediterraneenne','Rigatoni with fennel sausage sauce':'Rigatoni sauce saucisse au fenouil',
+  'Osso Buco alla Milanese':'Osso buco a la milanaise','Ribollita':'Ribollita (soupe toscane)',
+  'Pizza Express Margherita':'Pizza Margherita','Spicy Arrabiata Penne':'Penne a l\'arrabiata',
+  'Spinach & Ricotta Cannelloni':'Cannelloni epinards-ricotta',
+  'Moussaka':'Moussaka','Garides Saganaki':'Crevettes Saganaki','Lamb Tzatziki Burgers':'Burgers d\'agneau au tzatziki',
+  'Lamb Biryani':'Biryani d\'agneau','Lamb Rogan josh':'Agneau Rogan Josh','Lamb Tagine':'Tajine d\'agneau',
+  'Lamb tomato and sweet spices':'Agneau aux tomates et epices douces',
+  'Irish stew':'Ragout irlandais','Fish pie':'Tourte au poisson','Shepherd\'s Pie':'Hachis parmentier',
+  'Vegetable Shepherds Pie':'Hachis parmentier vegetarien','Pancakes':'Pancakes','Banana Pancakes':'Pancakes a la banane',
+  'Apple & Blackberry Crumble':'Crumble pommes-mures','Apple Frangipan Tart':'Tarte frangipane aux pommes',
+  'Bread and Butter Pudding':'Pudding au pain beurre','Sticky Toffee Pudding':'Pudding au caramel',
+  'Carrot Cake':'Gateau aux carottes','New York cheesecake':'Cheesecake new-yorkais',
+  'Key Lime Pie':'Tarte au citron vert','Peanut Butter Cheesecake':'Cheesecake au beurre de cacahuete',
+  'Chocolate Raspberry Brownies':'Brownies chocolat-framboise','Chocolate Avocado Mousse':'Mousse chocolat-avocat',
+  'Vegan Chocolate Cake':'Gateau au chocolat vegetalien','Choc Chip Pecan Pie':'Tarte aux noix de pecan et pepites de chocolat',
+  'Bakewell tart':'Tarte de Bakewell','Battenberg Cake':'Gateau Battenberg','Rock Cakes':'Gateaux aux fruits secs',
+  'Eccles Cakes':'Chaussons aux raisins','Spotted Dick':'Pudding aux raisins',
+  'Clam chowder':'Chaudrée de palourdes','Cream Cheese Tart':'Tarte au fromage frais',
+  'BBQ Pork Sloppy Joes':'Sandwichs porc BBQ','Big Mac':'Big Mac','Crispy Sausages and Greens':'Saucisses croustillantes aux legumes',
+  'Corned Beef and Cabbage':'Corned beef au chou','English Breakfast':'Petit dejeuner anglais',
+  'Full English Breakfast':'Petit dejeuner anglais complet','Shakshuka':'Shakshuka (oeufs en sauce tomate)',
+  'Falafel':'Falafels','Hummus':'Houmous','Baba Ghanoush':'Baba ganoush (caviar d\'aubergine)',
+  'Dal fry':'Dal fry (lentilles indiennes)','Kidney Bean Curry':'Curry de haricots rouges',
+  'Matar Paneer':'Matar Paneer (petits pois au fromage indien)',
+  'Chilli prawn linguine':'Linguine crevettes et piment','Seafood fideuà':'Fideua aux fruits de mer',
+  'Paella':'Paella','Churros':'Churros','Crema Catalana':'Creme catalane','Spanish Tortilla':'Tortilla espagnole',
+  'Gambas al ajillo':'Gambas a l\'ail','Patatas bravas':'Patatas bravas',
+  'Jerk chicken with rice & peas':'Poulet jerk, riz et haricots','Brown Stew Chicken':'Poulet braise jamaicain',
+  'Escovitch Fish':'Poisson Escovitch','Saltfish and Ackee':'Morue et ackee',
+  'Pork Cassoulet':'Cassoulet au porc','Beef Rendang':'Rendang de boeuf','Nasi lemak':'Nasi lemak (riz au lait de coco)',
+  'Ma Po Tofu':'Mapo Tofu','Egg Drop Soup':'Soupe aux oeufs','Hot and Sour Soup':'Soupe aigre-piquante',
+  'Wontons':'Raviolis chinois','Shrimp Chow Fun':'Nouilles de riz sautees aux crevettes',
+  'Grilled Mac and Cheese Sandwich':'Croque mac & cheese','Moroccan Carrot Soup':'Soupe marocaine aux carottes',
+  'Tahini Lentils':'Lentilles au tahini','Roasted Eggplant With Tahini, Pine Nuts, and Lentils':'Aubergine rotie au tahini, pignons et lentilles',
+  'Vegetarian Casserole':'Gratin vegetarien','Vegetarian Chilli':'Chili vegetarien',
+  'Chickpea Fajitas':'Fajitas aux pois chiches','Smoky Lentil Chili with Squash':'Chili de lentilles fumees a la courge',
+  'Stovetop Eggplant With Harissa, Chickpeas, and Cumin Yogurt':'Aubergine a la harissa, pois chiches et yaourt au cumin',
+  'Broccoli & Stilton soup':'Soupe brocoli et Stilton','Creamy Tomato Soup':'Soupe cremeuse a la tomate',
+  'Leblebi Soup':'Soupe Leblebi','Tunisian Lamb Soup':'Soupe tunisienne a l\'agneau',
+  'Honey Balsamic Chicken with Crispy Broccoli & Potatoes':'Poulet miel-balsamique, brocolis croustillants et pommes de terre',
+  'Skillet Apple Pork Chops with Roasted Sweet Potatoes & Zucchini':'Cotes de porc aux pommes, patates douces roties et courgettes',
+  'Beef Pho':'Pho au boeuf','Beef Banh Mi Bowls with Sriracha Mayo, Carrot & Pickled Cucumber':'Bol Banh Mi au boeuf, mayo sriracha, carottes et concombre marine',
+  'Vietnamese Grilled Pork (bun-thit-nuong)':'Porc grille vietnamien (bun thit nuong)',
+  'Tourtiere':'Tourtiere (tourte quebecoise)','Pate Chinois':'Pate chinois','BeaverTails':'Queues de castor (patisserie)',
+  'Split Pea Soup':'Soupe aux pois casses','Montreal Smoked Meat':'Viande fumee de Montreal',
+  'Toad In The Hole':'Saucisses en pate Yorkshire','Yorkshire Puddings':'Puddings Yorkshire',
+  'Lancashire hotpot':'Ragout du Lancashire','Cumberland Pie':'Tourte Cumberland',
+  'Steak and Kidney Pie':'Tourte steak et rognons','Bean & Sausage Hotpot':'Ragout haricots et saucisses',
+  'Kedgeree':'Kedgeree (riz au poisson fume)','Fish Stew':'Ragout de poisson',
+  'Empanadas':'Empanadas','Asado':'Asado (grillade argentine)','Choripán':'Choripan',
+  'Milanesa':'Escalope milanaise','Carbonada Criolla':'Carbonada Criolla (ragout argentin)',
+  'Cevapi Sausages':'Cevapcici (saucisses des Balkans)','Traditional Croatian Goulash':'Goulash croate traditionnel',
+  'Stamppot':'Stamppot (puree hollandaise)','Bitterballen (Dutch meatballs)':'Bitterballen (boulettes hollandaises)',
+  'Kapsalon':'Kapsalon (frites hollandaises garnies)','Chicken Fried Rice':'Riz saute au poulet',
+  'Beef and Broccoli Stir-Fry':'Boeuf saute aux brocolis','Chinese Orange Chicken':'Poulet a l\'orange chinois',
+  'Singapore Noodles with Shrimp':'Nouilles de Singapour aux crevettes',
+  'Ramen Noodles with Boiled Egg':'Ramen aux oeufs','Egg Foo Young':'Omelette chinoise (Egg Foo Young)',
 };
 
-// Conversion unites vers grammes/ml
+// ===== TRADUCTION INGREDIENTS EN -> FR =====
+const TRAD_ING = {
+  // Viandes
+  'chicken':'poulet','chicken breast':'blanc de poulet','chicken breasts':'blancs de poulet','chicken thighs':'cuisses de poulet',
+  'chicken legs':'cuisses de poulet','chicken stock':'bouillon de poulet','chicken thigh':'cuisse de poulet',
+  'whole chicken':'poulet entier','chicken wings':'ailes de poulet','chicken drumsticks':'pilons de poulet',
+  'beef':'boeuf','beef stock':'bouillon de boeuf','beef brisket':'poitrine de boeuf','beef fillet':'filet de boeuf',
+  'minced beef':'boeuf hache','ground beef':'boeuf hache','stewing beef':'boeuf a braiser','beef mince':'boeuf hache',
+  'beef shin':'jarret de boeuf','beef sirloin':'faux-filet','beef chuck':'paleron de boeuf','braising steak':'boeuf a braiser',
+  'pork':'porc','pork chops':'cotes de porc','pork loin':'longe de porc','pork belly':'poitrine de porc',
+  'pork shoulder':'epaule de porc','pork fillet':'filet mignon de porc','pork mince':'porc hache','ground pork':'porc hache',
+  'bacon':'lardons','smoked bacon':'lardons fumes','streaky bacon':'lardons','back bacon':'bacon',
+  'sausages':'saucisses','sausage':'saucisse','italian sausage':'saucisse italienne','pork sausages':'saucisses de porc',
+  'chorizo':'chorizo','ham':'jambon','prosciutto':'jambon cru','pancetta':'pancetta','salami':'salami',
+  'lamb':'agneau','lamb chops':'cotelettes d\'agneau','lamb mince':'agneau hache','lamb shoulder':'epaule d\'agneau',
+  'lamb leg':'gigot d\'agneau','lamb shank':'souris d\'agneau','lamb shanks':'souris d\'agneau','rack of lamb':'carre d\'agneau',
+  'veal':'veau','duck':'canard','duck legs':'cuisses de canard','turkey':'dinde','turkey mince':'dinde hachee',
+  'mince':'viande hachee','minced meat':'viande hachee',
+  // Poissons et fruits de mer
+  'salmon':'saumon','salmon fillets':'filets de saumon','salmon fillet':'filet de saumon','smoked salmon':'saumon fume',
+  'cod':'cabillaud','cod fillets':'filets de cabillaud','tuna':'thon','tuna steak':'steak de thon',
+  'prawns':'crevettes','king prawns':'grosses crevettes','shrimp':'crevettes','tiger prawns':'crevettes tigrées',
+  'fish':'poisson','white fish':'poisson blanc','white fish fillets':'filets de poisson blanc','fish fillets':'filets de poisson',
+  'fish stock':'fumet de poisson','mussels':'moules','clams':'palourdes','squid':'calamar','calamari':'calamar',
+  'anchovy':'anchois','anchovies':'anchois','anchovy fillets':'filets d\'anchois','sardines':'sardines',
+  'sea bass':'bar (loup de mer)','haddock':'aiglefin','smoked haddock':'haddock fume','mackerel':'maquereau',
+  'crab':'crabe','crab meat':'chair de crabe','lobster':'homard','scallops':'coquilles Saint-Jacques',
+  // Produits frais / laitiers
+  'eggs':'oeufs','egg':'oeuf','egg yolks':'jaunes d\'oeufs','egg whites':'blancs d\'oeufs','egg yolk':'jaune d\'oeuf',
+  'free-range eggs':'oeufs fermiers','large eggs':'gros oeufs',
+  'butter':'beurre','unsalted butter':'beurre doux','salted butter':'beurre sale','melted butter':'beurre fondu',
+  'cream':'creme fraiche','double cream':'creme epaisse','heavy cream':'creme epaisse','single cream':'creme liquide',
+  'whipping cream':'creme fouettee','sour cream':'creme aigre','clotted cream':'creme caillee',
+  'milk':'lait','whole milk':'lait entier','semi-skimmed milk':'lait demi-ecreme','skimmed milk':'lait ecreme','buttermilk':'babeurre',
+  'cheese':'fromage','cheddar cheese':'cheddar','cheddar':'cheddar','parmesan cheese':'parmesan','parmesan':'parmesan',
+  'gruyere':'gruyere','gruyère':'gruyere','mozzarella':'mozzarella','mozzarella ball':'boule de mozzarella',
+  'feta':'feta','feta cheese':'feta','cream cheese':'fromage frais','goat cheese':'fromage de chevre','goats cheese':'fromage de chevre',
+  'brie':'brie','stilton':'stilton','blue cheese':'fromage bleu','ricotta':'ricotta','mascarpone':'mascarpone',
+  'halloumi':'halloumi','pecorino':'pecorino','reblochon':'reblochon',
+  'yogurt':'yaourt','yoghurt':'yaourt','greek yogurt':'yaourt grec','greek yoghurt':'yaourt grec','natural yoghurt':'yaourt nature',
+  'creme fraiche':'creme fraiche','fromage frais':'fromage frais',
+  'condensed milk':'lait concentre sucre','evaporated milk':'lait evapore','coconut cream':'creme de coco',
+  // Feculents
+  'flour':'farine','plain flour':'farine','all-purpose flour':'farine','self-raising flour':'farine avec levure',
+  'bread flour':'farine a pain','cornflour':'maizena','cornstarch':'maizena','strong flour':'farine de gruau',
+  'wholemeal flour':'farine complete','semolina':'semoule',
+  'rice':'riz','basmati rice':'riz basmati','brown rice':'riz complet','long grain rice':'riz long grain',
+  'arborio rice':'riz arborio','jasmine rice':'riz jasmin','wild rice':'riz sauvage','risotto rice':'riz a risotto',
+  'pasta':'pates','spaghetti':'spaghetti','penne':'penne','tagliatelle':'tagliatelles','fusilli':'fusilli',
+  'rigatoni':'rigatoni','macaroni':'macaroni','farfalle':'farfalle','orzo':'orzo','fettuccine':'fettuccine',
+  'lasagne sheets':'feuilles de lasagne','lasagna sheets':'feuilles de lasagne','egg noodles':'nouilles aux oeufs',
+  'noodles':'nouilles','rice noodles':'nouilles de riz','udon noodles':'nouilles udon','vermicelli':'vermicelles',
+  'bread':'pain','bread crumbs':'chapelure','breadcrumbs':'chapelure','panko breadcrumbs':'chapelure panko',
+  'pita bread':'pain pita','tortillas':'tortillas','flour tortillas':'tortillas de ble','baguette':'baguette',
+  'sourdough bread':'pain au levain','ciabatta':'ciabatta','naan bread':'pain naan','flatbread':'pain plat',
+  'couscous':'couscous','bulgur wheat':'boulgour','quinoa':'quinoa','polenta':'polenta','oats':'flocons d\'avoine',
+  'rolled oats':'flocons d\'avoine','porridge oats':'flocons d\'avoine',
+  // Legumes
+  'potatoes':'pommes de terre','potato':'pomme de terre','new potatoes':'pommes de terre nouvelles',
+  'sweet potatoes':'patates douces','sweet potato':'patate douce','mashed potatoes':'puree de pommes de terre',
+  'onion':'oignon','onions':'oignons','red onion':'oignon rouge','red onions':'oignons rouges',
+  'white onion':'oignon blanc','shallots':'echalotes','shallot':'echalote',
+  'spring onions':'oignons verts','green onions':'oignons verts','spring onion':'oignon vert',
+  'leek':'poireau','leeks':'poireaux',
+  'garlic':'ail','garlic clove':'gousse d\'ail','garlic cloves':'gousses d\'ail','minced garlic':'ail hache',
+  'ginger':'gingembre','fresh ginger':'gingembre frais','root ginger':'gingembre frais','ginger paste':'pate de gingembre',
+  'tomatoes':'tomates','tomato':'tomate','cherry tomatoes':'tomates cerises','plum tomatoes':'tomates allongees',
+  'sun-dried tomatoes':'tomates sechees','chopped tomatoes':'tomates concassees','tinned tomatoes':'tomates en conserve',
+  'tomato puree':'concentre de tomate','tomato paste':'concentre de tomate','tomato sauce':'sauce tomate',
+  'passata':'coulis de tomate','tomato ketchup':'ketchup','canned tomatoes':'tomates en conserve',
+  'carrot':'carotte','carrots':'carottes','courgette':'courgette','courgettes':'courgettes','zucchini':'courgette',
+  'pepper':'poivron','peppers':'poivrons','red pepper':'poivron rouge','green pepper':'poivron vert',
+  'yellow pepper':'poivron jaune','bell pepper':'poivron','red bell pepper':'poivron rouge',
+  'chilli pepper':'piment','chili pepper':'piment','jalapeno':'jalapeno',
+  'mushrooms':'champignons','mushroom':'champignon','button mushrooms':'champignons de Paris',
+  'chestnut mushrooms':'champignons bruns','shiitake mushrooms':'champignons shiitake','portobello mushrooms':'champignons portobello',
+  'spinach':'epinards','baby spinach':'jeunes pousses d\'epinards','broccoli':'brocolis','broccoli florets':'bouquets de brocolis',
+  'cauliflower':'chou-fleur','cabbage':'chou','red cabbage':'chou rouge','savoy cabbage':'chou frise',
+  'lettuce':'laitue','rocket':'roquette','arugula':'roquette','watercress':'cresson','kale':'chou frise',
+  'cucumber':'concombre','celery':'celeri','celery sticks':'branches de celeri','celeriac':'celeri-rave',
+  'asparagus':'asperges','green beans':'haricots verts','french beans':'haricots verts','runner beans':'haricots verts',
+  'peas':'petits pois','frozen peas':'petits pois surgeles','mange tout':'pois mange-tout','sugar snap peas':'pois gourmands',
+  'sweetcorn':'mais','corn':'mais','corn on the cob':'epis de mais',
+  'avocado':'avocat','aubergine':'aubergine','eggplant':'aubergine',
+  'beetroot':'betterave','turnip':'navet','turnips':'navets','parsnip':'panais','parsnips':'panais',
+  'radishes':'radis','fennel':'fenouil','artichoke':'artichaut',
+  'butternut squash':'courge butternut','pumpkin':'potiron','squash':'courge',
+  'broad beans':'feves','edamame':'edamame','bean sprouts':'germes de soja',
+  'mixed vegetables':'legumes varies','salad':'salade','mixed salad':'mesclun',
+  // Fruits
+  'lemon':'citron','lemons':'citrons','lemon juice':'jus de citron','lemon zest':'zeste de citron',
+  'lime':'citron vert','limes':'citrons verts','lime juice':'jus de citron vert','lime zest':'zeste de citron vert',
+  'orange':'orange','oranges':'oranges','orange juice':'jus d\'orange','orange zest':'zeste d\'orange',
+  'apple':'pomme','apples':'pommes','pear':'poire','pears':'poires','banana':'banane','bananas':'bananes',
+  'berries':'fruits rouges','strawberries':'fraises','raspberries':'framboises','blueberries':'myrtilles',
+  'blackberries':'mures','cranberries':'canneberges','redcurrants':'groseilles',
+  'coconut':'noix de coco','coconut milk':'lait de coco','desiccated coconut':'noix de coco rapee',
+  'raisins':'raisins secs','sultanas':'raisins de Smyrne','currants':'raisins de Corinthe',
+  'dried apricots':'abricots secs','dates':'dattes','figs':'figues','prunes':'pruneaux',
+  'mango':'mangue','pineapple':'ananas','peach':'peche','plum':'prune','grapes':'raisins',
+  'pomegranate':'grenade','pomegranate seeds':'graines de grenade','passion fruit':'fruit de la passion',
+  'melon':'melon','watermelon':'pasteque','cherries':'cerises',
+  // Huiles et graisses
+  'olive oil':'huile d\'olive','extra virgin olive oil':'huile d\'olive extra vierge','vegetable oil':'huile vegetale',
+  'sesame oil':'huile de sesame','sunflower oil':'huile de tournesol','oil':'huile','cooking oil':'huile de cuisson',
+  'rapeseed oil':'huile de colza','coconut oil':'huile de coco','groundnut oil':'huile d\'arachide',
+  // Assaisonnements
+  'salt':'sel','sea salt':'sel de mer','kosher salt':'gros sel','black pepper':'poivre noir','white pepper':'poivre blanc',
+  'salt and pepper':'sel et poivre','pepper':'poivre','ground black pepper':'poivre noir moulu',
+  'sugar':'sucre','brown sugar':'sucre roux','caster sugar':'sucre en poudre','icing sugar':'sucre glace',
+  'granulated sugar':'sucre cristallise','demerara sugar':'sucre demerara','muscovado sugar':'sucre muscovado',
+  'honey':'miel','maple syrup':'sirop d\'erable','golden syrup':'sirop dore','treacle':'melasse',
+  // Sauces et condiments
+  'soy sauce':'sauce soja','dark soy sauce':'sauce soja foncee','light soy sauce':'sauce soja claire',
+  'worcestershire sauce':'sauce Worcestershire','fish sauce':'sauce nuoc-mam','oyster sauce':'sauce huitre',
+  'hot sauce':'sauce piquante','sriracha':'sriracha','tabasco':'tabasco','harissa':'harissa','sambal':'sambal',
+  'mustard':'moutarde','dijon mustard':'moutarde de Dijon','english mustard':'moutarde forte','wholegrain mustard':'moutarde a l\'ancienne',
+  'vinegar':'vinaigre','balsamic vinegar':'vinaigre balsamique','red wine vinegar':'vinaigre de vin rouge',
+  'white wine vinegar':'vinaigre de vin blanc','cider vinegar':'vinaigre de cidre','rice vinegar':'vinaigre de riz',
+  'mayonnaise':'mayonnaise','tahini':'tahini (pate de sesame)','hoisin sauce':'sauce hoisin',
+  'mirin':'mirin','rice wine':'vin de riz','sake':'sake',
+  'pesto':'pesto','tapenade':'tapenade','chutney':'chutney','pickle':'pickles','pickles':'cornichons',
+  // Epices et herbes
+  'cumin':'cumin','ground cumin':'cumin moulu','cumin seeds':'graines de cumin',
+  'paprika':'paprika','smoked paprika':'paprika fume','sweet paprika':'paprika doux',
+  'turmeric':'curcuma','ground turmeric':'curcuma moulu',
+  'cinnamon':'cannelle','cinnamon stick':'baton de cannelle','ground cinnamon':'cannelle moulue',
+  'nutmeg':'muscade','ground nutmeg':'muscade moulue',
+  'coriander':'coriandre','ground coriander':'coriandre moulue','fresh coriander':'coriandre fraiche','coriander seeds':'graines de coriandre','cilantro':'coriandre fraiche',
+  'oregano':'origan','dried oregano':'origan seche',
+  'basil':'basilic','fresh basil':'basilic frais','dried basil':'basilic seche',
+  'thyme':'thym','fresh thyme':'thym frais','dried thyme':'thym seche',
+  'rosemary':'romarin','fresh rosemary':'romarin frais',
+  'parsley':'persil','fresh parsley':'persil frais','flat leaf parsley':'persil plat',
+  'mint':'menthe','fresh mint':'menthe fraiche','dried mint':'menthe sechee',
+  'dill':'aneth','fresh dill':'aneth frais',
+  'bay leaf':'feuille de laurier','bay leaves':'feuilles de laurier',
+  'sage':'sauge','tarragon':'estragon','chives':'ciboulette','lemongrass':'citronnelle',
+  'chili':'piment','chili powder':'piment en poudre','chilli':'piment','chilli flakes':'piment en flocons',
+  'chili flakes':'piment en flocons','red chilli':'piment rouge','green chilli':'piment vert',
+  'cayenne pepper':'piment de Cayenne','cayenne':'piment de Cayenne',
+  'curry powder':'curry en poudre','curry paste':'pate de curry','green curry paste':'pate de curry vert',
+  'red curry paste':'pate de curry rouge','garam masala':'garam masala','tandoori paste':'pate tandoori',
+  'mixed herbs':'herbes de Provence','herbes de provence':'herbes de Provence','italian seasoning':'herbes italiennes',
+  'five spice':'cinq epices','chinese five spice':'cinq epices chinois','allspice':'quatre-epices',
+  'cardamom':'cardamome','cloves':'clous de girofle','star anise':'anis etoile','saffron':'safran',
+  'fennel seeds':'graines de fenouil','mustard seeds':'graines de moutarde','poppy seeds':'graines de pavot',
+  'caraway seeds':'graines de carvi','sumac':'sumac','za\'atar':'za\'atar','ras el hanout':'ras el hanout',
+  'piment d\'espelette':'piment d\'Espelette','espelette pepper':'piment d\'Espelette',
+  // Boissons / alcools
+  'wine':'vin','red wine':'vin rouge','white wine':'vin blanc','dry white wine':'vin blanc sec',
+  'beer':'biere','stout':'biere brune','cider':'cidre','brandy':'cognac','sherry':'xeres',
+  'rum':'rhum','port':'porto','marsala':'marsala','champagne':'champagne',
+  // Patisserie / sucre
+  'chocolate':'chocolat','dark chocolate':'chocolat noir','milk chocolate':'chocolat au lait',
+  'white chocolate':'chocolat blanc','plain chocolate':'chocolat noir','chocolate chips':'pepites de chocolat',
+  'cocoa':'cacao','cocoa powder':'cacao en poudre',
+  'vanilla':'vanille','vanilla extract':'extrait de vanille','vanilla pod':'gousse de vanille','vanilla essence':'essence de vanille',
+  'baking powder':'levure chimique','baking soda':'bicarbonate de soude','bicarbonate of soda':'bicarbonate de soude',
+  'yeast':'levure','dried yeast':'levure seche','fresh yeast':'levure fraiche',
+  'gelatine':'gelatine','gelatin':'gelatine','cornflour':'maizena',
+  'puff pastry':'pate feuilletee','shortcrust pastry':'pate brisee','filo pastry':'pate filo',
+  'pastry':'pate','pie crust':'fond de tarte',
+  // Legumineuses
+  'chickpeas':'pois chiches','tinned chickpeas':'pois chiches en conserve','dried chickpeas':'pois chiches secs',
+  'lentils':'lentilles','red lentils':'lentilles corail','green lentils':'lentilles vertes','puy lentils':'lentilles du Puy',
+  'kidney beans':'haricots rouges','black beans':'haricots noirs','cannellini beans':'haricots blancs',
+  'butter beans':'haricots beurre','white beans':'haricots blancs','borlotti beans':'haricots borlotti',
+  'baked beans':'haricots a la tomate','broad beans':'feves','lima beans':'haricots de Lima',
+  // Noix et graines
+  'almonds':'amandes','ground almonds':'amandes en poudre','flaked almonds':'amandes effilees','blanched almonds':'amandes mondees',
+  'walnuts':'noix','pine nuts':'pignons de pin','pine kernels':'pignons de pin',
+  'cashews':'noix de cajou','cashew nuts':'noix de cajou','peanuts':'cacahuetes',
+  'peanut butter':'beurre de cacahuete','hazelnuts':'noisettes','pecans':'noix de pecan',
+  'pistachios':'pistaches','mixed nuts':'fruits a coque varies',
+  'sesame seeds':'graines de sesame','sunflower seeds':'graines de tournesol','pumpkin seeds':'graines de courge',
+  'chia seeds':'graines de chia','flax seeds':'graines de lin','poppy seeds':'graines de pavot',
+  // Divers
+  'water':'eau','ice':'glace','stock':'bouillon','vegetable stock':'bouillon de legumes',
+  'chicken broth':'bouillon de poulet','beef broth':'bouillon de boeuf','stock cube':'cube de bouillon',
+  'olives':'olives','black olives':'olives noires','green olives':'olives vertes',
+  'capers':'capres','dried fruit':'fruits secs','mixed peel':'ecorces confites',
+  'tofu':'tofu','tempeh':'tempeh','miso':'miso','miso paste':'pate de miso',
+  'rice paper':'feuilles de riz','wonton wrappers':'feuilles de wonton','spring roll wrappers':'feuilles de nem',
+  'tortilla chips':'chips de tortilla','crackers':'crackers',
+};
+
+// ===== CONVERSION UNITES =====
 function convertMeasure(measure) {
   if (!measure) return '';
   let m = measure.trim();
-  // Deja en g/kg/ml/cl/L -> garder
+  // Fractions unicode d'abord
+  m = m.replace('½', '0.5').replace('¼', '0.25').replace('¾', '0.75').replace('⅓', '0.33').replace('⅔', '0.67').replace('⅛', '0.125');
+  // Deja en g/kg/ml/cl/L -> garder tel quel
   if (/^\d+[\s]*(g|kg|ml|cl|l)\b/i.test(m)) return m;
-  // Conversions
+  // Table de conversions
   const conversions = [
     {regex: /([\d.\/]+)\s*oz\b/i, factor: 28, unit: 'g'},
     {regex: /([\d.\/]+)\s*lb[s]?\b/i, factor: 454, unit: 'g'},
     {regex: /([\d.\/]+)\s*cup[s]?\b/i, factor: 240, unit: 'ml'},
     {regex: /([\d.\/]+)\s*tbsp\b/i, factor: 15, unit: 'ml'},
     {regex: /([\d.\/]+)\s*tbs\b/i, factor: 15, unit: 'ml'},
+    {regex: /([\d.\/]+)\s*tablespoons?\b/i, factor: 15, unit: 'ml'},
     {regex: /([\d.\/]+)\s*tsp\b/i, factor: 5, unit: 'ml'},
+    {regex: /([\d.\/]+)\s*teaspoons?\b/i, factor: 5, unit: 'ml'},
     {regex: /([\d.\/]+)\s*pint[s]?\b/i, factor: 473, unit: 'ml'},
     {regex: /([\d.\/]+)\s*quart[s]?\b/i, factor: 946, unit: 'ml'},
-    {regex: /([\d.\/]+)\s*fl\s*oz\b/i, factor: 30, unit: 'ml'},
+    {regex: /([\d.\/]+)\s*fl\.?\s*oz\b/i, factor: 30, unit: 'ml'},
+    {regex: /([\d.\/]+)\s*stick[s]?\s*(of\s*)?butter/i, factor: 113, unit: 'g'},
   ];
   for (const c of conversions) {
     const match = m.match(c.regex);
     if (match) {
       let val = match[1];
-      // Handle fractions like 1/2
       if (val.includes('/')) {
         const parts = val.split('/');
         val = parseFloat(parts[0]) / parseFloat(parts[1]);
@@ -1231,15 +1474,28 @@ function convertMeasure(measure) {
       }
       if (isNaN(val)) continue;
       let result = Math.round(val * c.factor);
-      // Convert g to kg if >= 1000
       if (c.unit === 'g' && result >= 1000) return (result/1000).toFixed(1).replace('.0','') + 'kg';
-      // Keep rest of string (like "chopped")
       const rest = m.replace(c.regex, '').trim();
-      return result + c.unit + (rest ? ' ' + rest : '');
+      // Traduire les restes courants
+      const restTrad = rest.replace(/\bchopped\b/gi,'hache').replace(/\bsliced\b/gi,'tranche').replace(/\bdiced\b/gi,'en des')
+        .replace(/\bminced\b/gi,'hache').replace(/\bcrushed\b/gi,'ecrase').replace(/\bfinely\b/gi,'finement')
+        .replace(/\bfresh\b/gi,'frais').replace(/\bdried\b/gi,'seche').replace(/\bground\b/gi,'moulu')
+        .replace(/\bpeeled\b/gi,'epluche').replace(/\btrimmed\b/gi,'pare').replace(/\bsoftened\b/gi,'ramolli');
+      return result + c.unit + (restTrad ? ' ' + restTrad : '');
     }
   }
-  // Fractions unicode
-  m = m.replace('½', '1/2').replace('¼', '1/4').replace('¾', '3/4').replace('⅓', '1/3').replace('⅔', '2/3');
+  // Traduire les descripteurs meme sans conversion
+  m = m.replace(/\bto taste\b/gi,'selon le gout').replace(/\bto serve\b/gi,'pour servir')
+    .replace(/\bHandful\b/gi,'une poignee').replace(/\bhandful\b/gi,'une poignee')
+    .replace(/\ba drizzle\b/gi,'un filet').replace(/\bdrizzle\b/gi,'un filet')
+    .replace(/\ba pinch\b/gi,'une pincee').replace(/\bpinch\b/gi,'une pincee')
+    .replace(/\bsprigs?\b/gi,'brin(s)').replace(/\bbunch\b/gi,'botte')
+    .replace(/\bchopped\b/gi,'hache').replace(/\bsliced\b/gi,'tranche').replace(/\bdiced\b/gi,'en des')
+    .replace(/\bminced\b/gi,'hache').replace(/\bcrushed\b/gi,'ecrase').replace(/\bfinely\b/gi,'finement')
+    .replace(/\bfresh\b/gi,'frais').replace(/\bdried\b/gi,'seche').replace(/\bground\b/gi,'moulu')
+    .replace(/\bpeeled\b/gi,'epluche').replace(/\blarge\b/gi,'gros').replace(/\bsmall\b/gi,'petit')
+    .replace(/\bmedium\b/gi,'moyen').replace(/\bthinly\b/gi,'finement').replace(/\bthick\b/gi,'epais')
+    .replace(/\broughly\b/gi,'grossierement').replace(/\bgrated\b/gi,'rape');
   return m;
 }
 
@@ -1248,41 +1504,141 @@ function translateIngredient(name) {
   const lower = name.toLowerCase().trim();
   // Exact match
   if (TRAD_ING[lower]) return TRAD_ING[lower].charAt(0).toUpperCase() + TRAD_ING[lower].slice(1);
-  // Partial match: try removing adjectives
-  for (const [en, fr] of Object.entries(TRAD_ING)) {
-    if (lower.includes(en) && en.length > 3) return fr.charAt(0).toUpperCase() + fr.slice(1);
+  // Try without trailing 's'
+  if (lower.endsWith('s') && TRAD_ING[lower.slice(0,-1)]) {
+    return TRAD_ING[lower.slice(0,-1)].charAt(0).toUpperCase() + TRAD_ING[lower.slice(0,-1)].slice(1);
   }
-  // Capitalize original
+  // Partial match: longest match first
+  let bestMatch = '';
+  let bestFr = '';
+  for (const [en, fr] of Object.entries(TRAD_ING)) {
+    if (lower.includes(en) && en.length > bestMatch.length) {
+      bestMatch = en;
+      bestFr = fr;
+    }
+  }
+  if (bestFr && bestMatch.length > 3) return bestFr.charAt(0).toUpperCase() + bestFr.slice(1);
   return name.charAt(0).toUpperCase() + name.slice(1);
 }
 
-// Basic instruction translation
+function translateRecipeName(name) {
+  if (!name) return name;
+  if (TRAD_RECIPES[name]) return TRAD_RECIPES[name];
+  // Try partial match
+  for (const [en, fr] of Object.entries(TRAD_RECIPES)) {
+    if (name.includes(en)) return fr;
+  }
+  return name;
+}
+
+// ===== TRADUCTION INSTRUCTIONS (phrases completes) =====
 function translateInstructions(text) {
   if (!text) return '';
   let t = text;
-  const instrReplacements = [
-    [/\bPreheat\b/gi,'Prechauffer'],[/\bthe oven\b/gi,'le four'],[/\boven\b/gi,'four'],
-    [/\bHeat\b/gi,'Chauffer'],[/\bBoil\b/gi,'Porter a ebullition'],[/\bSimmer\b/gi,'Laisser mijoter'],
-    [/\bStir\b/gi,'Remuer'],[/\bMix\b/gi,'Melanger'],[/\bAdd\b/gi,'Ajouter'],[/\bPour\b/gi,'Verser'],
-    [/\bCut\b/gi,'Couper'],[/\bChop\b/gi,'Hacher'],[/\bSlice\b/gi,'Trancher'],[/\bDice\b/gi,'Couper en des'],
-    [/\bFry\b/gi,'Faire frire'],[/\bSaute\b/gi,'Faire sauter'],[/\bBake\b/gi,'Cuire au four'],
-    [/\bRoast\b/gi,'Rotir'],[/\bGrill\b/gi,'Griller'],[/\bServe\b/gi,'Servir'],
-    [/\bSeason\b/gi,'Assaisonner'],[/\bSprinkle\b/gi,'Saupoudrer'],[/\bGarnish\b/gi,'Garnir'],
-    [/\bCover\b/gi,'Couvrir'],[/\bDrain\b/gi,'Egoutter'],[/\bRinse\b/gi,'Rincer'],
-    [/\bRemove\b/gi,'Retirer'],[/\bPlace\b/gi,'Placer'],[/\bCook\b/gi,'Cuire'],
-    [/\bBring to a boil\b/gi,'Porter a ebullition'],[/\bLet it rest\b/gi,'Laisser reposer'],
+  // Temperature F -> C
+  t = t.replace(/(\d+)\s*°?\s*F\b/g, (_, f) => Math.round((parseInt(f)-32)*5/9) + '°C');
+  t = t.replace(/Gas Mark \d+/gi, '');
+  // Phrases completes et expressions (ordre: plus longues d'abord)
+  const phrases = [
+    [/\bBring to a boil\b/gi,'Porter a ebullition'],[/\bBring to the boil\b/gi,'Porter a ebullition'],
+    [/\bLet it rest\b/gi,'Laisser reposer'],[/\bLet rest\b/gi,'Laisser reposer'],[/\bLeave to rest\b/gi,'Laisser reposer'],
+    [/\bLet it cool\b/gi,'Laisser refroidir'],[/\bLeave to cool\b/gi,'Laisser refroidir'],[/\bAllow to cool\b/gi,'Laisser refroidir'],
+    [/\bSet aside\b/gi,'Reserver'],[/\bPut aside\b/gi,'Reserver'],
+    [/\bBring to a simmer\b/gi,'Porter a fremissement'],
+    [/\bReduce the heat\b/gi,'Baisser le feu'],[/\bLower the heat\b/gi,'Baisser le feu'],
+    [/\bIncrease the heat\b/gi,'Augmenter le feu'],[/\bTurn up the heat\b/gi,'Augmenter le feu'],
+    [/\bover medium heat\b/gi,'a feu moyen'],[/\bover high heat\b/gi,'a feu vif'],[/\bover low heat\b/gi,'a feu doux'],
+    [/\bon medium heat\b/gi,'a feu moyen'],[/\bon high heat\b/gi,'a feu vif'],[/\bon low heat\b/gi,'a feu doux'],
+    [/\bmedium-high heat\b/gi,'feu moyen-vif'],[/\bmedium-low heat\b/gi,'feu moyen-doux'],
+    [/\buntil golden brown\b/gi,'jusqu\'a coloration doree'],[/\buntil golden\b/gi,'jusqu\'a coloration doree'],
+    [/\buntil browned\b/gi,'jusqu\'a coloration'],[/\buntil softened\b/gi,'jusqu\'a ce que ce soit tendre'],
+    [/\buntil tender\b/gi,'jusqu\'a ce que ce soit tendre'],[/\buntil cooked through\b/gi,'jusqu\'a cuisson complete'],
+    [/\buntil crispy\b/gi,'jusqu\'a ce que ce soit croustillant'],[/\buntil fragrant\b/gi,'jusqu\'a ce que les aromes se degagent'],
+    [/\buntil smooth\b/gi,'jusqu\'a obtenir une consistance lisse'],
+    [/\buntil the sauce thickens\b/gi,'jusqu\'a epaississement de la sauce'],
+    [/\bsalt and pepper to taste\b/gi,'sel et poivre selon le gout'],
+    [/\bseason with salt and pepper\b/gi,'assaisonner de sel et poivre'],
+    [/\bseason to taste\b/gi,'assaisonner selon le gout'],
+    [/\bto taste\b/gi,'selon le gout'],
+    [/\bat room temperature\b/gi,'a temperature ambiante'],
+    [/\bin a large\b/gi,'dans une grande'],[/\bin a small\b/gi,'dans une petite'],[/\bin a medium\b/gi,'dans une moyenne'],
+    [/\ba large\b/gi,'une grande'],[/\ba small\b/gi,'une petite'],
+    [/\blarge bowl\b/gi,'grand saladier'],[/\bmixing bowl\b/gi,'saladier'],[/\bbowl\b/gi,'bol'],
+    [/\bfrying pan\b/gi,'poele'],[/\bskillet\b/gi,'poele'],[/\bsaucepan\b/gi,'casserole'],
+    [/\bbaking tray\b/gi,'plaque de cuisson'],[/\bbaking sheet\b/gi,'plaque de cuisson'],[/\bbaking dish\b/gi,'plat allant au four'],
+    [/\bcasserole dish\b/gi,'cocotte'],[/\bdutch oven\b/gi,'cocotte en fonte'],
+    [/\bchopping board\b/gi,'planche a decouper'],[/\bwire rack\b/gi,'grille'],
+    [/\bon each side\b/gi,'de chaque cote'],[/\bon both sides\b/gi,'des deux cotes'],
+    [/\bper side\b/gi,'par cote'],
+    [/\bfor about\b/gi,'pendant environ'],[/\bfor (\d+) minutes\b/gi,'pendant $1 minutes'],
+    [/\bfor (\d+) hours?\b/gi,'pendant $1 heure(s)'],
+    [/\bor until\b/gi,'ou jusqu\'a ce que'],
+    [/\bif needed\b/gi,'si necessaire'],[/\bif necessary\b/gi,'si necessaire'],
+    [/\bas needed\b/gi,'selon le besoin'],
+    // Verbes principaux
+    [/\bPreheat the oven to\b/gi,'Prechauffer le four a'],[/\bPreheat oven to\b/gi,'Prechauffer le four a'],
+    [/\bPreheat\b/gi,'Prechauffer'],[/\bthe oven\b/gi,'le four'],
+    [/\bHeat the oil\b/gi,'Chauffer l\'huile'],[/\bHeat oil\b/gi,'Chauffer l\'huile'],
+    [/\bHeat the butter\b/gi,'Chauffer le beurre'],[/\bHeat\b/gi,'Chauffer'],
+    [/\bMelt the butter\b/gi,'Faire fondre le beurre'],[/\bMelt\b/gi,'Faire fondre'],
+    [/\bStir well\b/gi,'Bien remuer'],[/\bStir constantly\b/gi,'Remuer constamment'],
+    [/\bStir occasionally\b/gi,'Remuer de temps en temps'],[/\bStir in\b/gi,'Incorporer en remuant'],
+    [/\bStir\b/gi,'Remuer'],
+    [/\bMix well\b/gi,'Bien melanger'],[/\bMix together\b/gi,'Melanger ensemble'],[/\bMix until\b/gi,'Melanger jusqu\'a'],
+    [/\bMix\b/gi,'Melanger'],
+    [/\bCombine\b/gi,'Combiner'],
+    [/\bAdd the\b/gi,'Ajouter le/la'],[/\bAdd\b/gi,'Ajouter'],
+    [/\bPour over\b/gi,'Verser par-dessus'],[/\bPour into\b/gi,'Verser dans'],[/\bPour in\b/gi,'Verser'],
+    [/\bPour\b/gi,'Verser'],
+    [/\bCut into\b/gi,'Couper en'],[/\bCut\b/gi,'Couper'],[/\bChop finely\b/gi,'Hacher finement'],[/\bChop\b/gi,'Hacher'],
+    [/\bSlice thinly\b/gi,'Trancher finement'],[/\bSlice\b/gi,'Trancher'],
+    [/\bDice\b/gi,'Couper en des'],[/\bMince\b/gi,'Hacher finement'],
+    [/\bGrate\b/gi,'Raper'],[/\bSqueeze\b/gi,'Presser'],[/\bZest\b/gi,'Zester'],
+    [/\bDeep fry\b/gi,'Faire frire en bain d\'huile'],[/\bShallow fry\b/gi,'Faire frire a la poele'],
+    [/\bStir-fry\b/gi,'Faire sauter'],[/\bStir fry\b/gi,'Faire sauter'],
+    [/\bFry\b/gi,'Faire frire'],[/\bSaute\b/gi,'Faire sauter'],[/\bSear\b/gi,'Saisir'],
+    [/\bBake for\b/gi,'Cuire au four pendant'],[/\bBake\b/gi,'Cuire au four'],
+    [/\bRoast for\b/gi,'Rotir pendant'],[/\bRoast\b/gi,'Rotir'],
+    [/\bGrill for\b/gi,'Griller pendant'],[/\bGrill\b/gi,'Griller'],[/\bBroil\b/gi,'Griller'],
+    [/\bSimmer for\b/gi,'Laisser mijoter pendant'],[/\bSimmer\b/gi,'Laisser mijoter'],
+    [/\bBoil for\b/gi,'Faire bouillir pendant'],[/\bBoil\b/gi,'Faire bouillir'],
+    [/\bSteam for\b/gi,'Cuire a la vapeur pendant'],[/\bSteam\b/gi,'Cuire a la vapeur'],
+    [/\bBlend until\b/gi,'Mixer jusqu\'a'],[/\bBlend\b/gi,'Mixer'],
+    [/\bWhisk together\b/gi,'Fouetter ensemble'],[/\bWhisk until\b/gi,'Fouetter jusqu\'a'],[/\bWhisk\b/gi,'Fouetter'],
+    [/\bBeat\b/gi,'Battre'],[/\bKnead\b/gi,'Petrir'],[/\bFold in\b/gi,'Incorporer delicatement'],
+    [/\bFold\b/gi,'Incorporer'],[/\bFlip\b/gi,'Retourner'],
+    [/\bServe immediately\b/gi,'Servir immediatement'],[/\bServe hot\b/gi,'Servir chaud'],
+    [/\bServe warm\b/gi,'Servir tiede'],[/\bServe cold\b/gi,'Servir froid'],
+    [/\bServe with\b/gi,'Servir avec'],[/\bServe\b/gi,'Servir'],
+    [/\bSeason\b/gi,'Assaisonner'],[/\bSprinkle with\b/gi,'Saupoudrer de'],[/\bSprinkle\b/gi,'Saupoudrer'],
+    [/\bGarnish with\b/gi,'Garnir de'],[/\bGarnish\b/gi,'Garnir'],
+    [/\bDrizzle with\b/gi,'Arroser de'],[/\bDrizzle\b/gi,'Arroser'],
+    [/\bCover with\b/gi,'Couvrir de'],[/\bCover\b/gi,'Couvrir'],[/\bUncover\b/gi,'Decouvrir'],
+    [/\bDrain well\b/gi,'Bien egoutter'],[/\bDrain\b/gi,'Egoutter'],
+    [/\bRinse\b/gi,'Rincer'],[/\bWash\b/gi,'Laver'],[/\bPeel\b/gi,'Eplucher'],[/\bTrim\b/gi,'Parer'],
+    [/\bRemove from\b/gi,'Retirer de'],[/\bRemove\b/gi,'Retirer'],
+    [/\bPlace on\b/gi,'Placer sur'],[/\bPlace in\b/gi,'Placer dans'],[/\bPlace\b/gi,'Placer'],
+    [/\bArrange\b/gi,'Disposer'],[/\bSpread\b/gi,'Etaler'],
+    [/\bCook for\b/gi,'Cuire pendant'],[/\bCook until\b/gi,'Cuire jusqu\'a'],[/\bCook\b/gi,'Cuire'],
+    [/\bReduce\b/gi,'Reduire'],[/\bMarinate\b/gi,'Faire mariner'],[/\bToss\b/gi,'Melanger'],
+    [/\bTransfer to\b/gi,'Transferer dans'],[/\bTransfer\b/gi,'Transferer'],
+    [/\bRepeat\b/gi,'Repeter'],[/\bContinue\b/gi,'Continuer'],[/\bAllow\b/gi,'Laisser'],
+    [/\bReturn\b/gi,'Remettre'],[/\bDiscard\b/gi,'Jeter'],[/\bReserve\b/gi,'Reserver'],
+    [/\bRefrigerate\b/gi,'Mettre au refrigerateur'],[/\bChill\b/gi,'Refroidir'],
+    // Mots courants restants
     [/\bminutes\b/gi,'minutes'],[/\bhours?\b/gi,'heure(s)'],[/\buntil\b/gi,'jusqu\'a ce que'],
-    [/\bwith\b/gi,'avec'],[/\band\b/gi,'et'],[/\bthe\b/gi,'le'],[/\bin a\b/gi,'dans une'],
-    [/\bsalt and pepper\b/gi,'sel et poivre'],[/\bto taste\b/gi,'selon le gout'],
-    [/\bWash\b/gi,'Laver'],[/\bPeel\b/gi,'Eplucher'],[/\bMelt\b/gi,'Faire fondre'],
-    [/\bWhisk\b/gi,'Fouetter'],[/\bFold\b/gi,'Incorporer'],[/\bFlip\b/gi,'Retourner'],
-    [/\bReduce\b/gi,'Reduire'],[/\bBlend\b/gi,'Mixer'],[/\bMarinate\b/gi,'Faire mariner'],
-    [/\bToss\b/gi,'Melanger'],[/\bSet aside\b/gi,'Reserver'],[/\bTransfer\b/gi,'Transferer'],
-    // Temperature
-    [/(\d+)\s*°?\s*F/g, (_, f) => Math.round((parseInt(f)-32)*5/9) + '°C'],
-    [/Gas Mark \d+/gi, ''],
+    [/\bapproximately\b/gi,'environ'],[/\babout\b/gi,'environ'],
+    [/\bthen\b/gi,'puis'],[/\bwhile\b/gi,'pendant que'],[/\bslowly\b/gi,'lentement'],
+    [/\bgently\b/gi,'delicatement'],[/\bvigorously\b/gi,'vigoureusement'],
+    [/\bimmediately\b/gi,'immediatement'],[/\bcarefully\b/gi,'delicatement'],
+    [/\beverything\b/gi,'le tout'],[/\bmixture\b/gi,'melange'],[/\bbatter\b/gi,'pate'],
+    [/\bdough\b/gi,'pate'],[/\bfilling\b/gi,'farce'],[/\btopping\b/gi,'garniture'],
+    [/\bgravy\b/gi,'sauce'],[/\bjuice\b/gi,'jus'],[/\bzest\b/gi,'zeste'],
+    [/\beach\b/gi,'chaque'],[/\bboth\b/gi,'les deux'],[/\bremaining\b/gi,'restant'],
+    [/\bhalf\b/gi,'moitie'],[/\bquarter\b/gi,'quart'],
+    [/\boven\b/gi,'four'],[/\bfridge\b/gi,'refrigerateur'],[/\bfreezer\b/gi,'congelateur'],
   ];
-  instrReplacements.forEach(([pattern, replacement]) => {
+  phrases.forEach(([pattern, replacement]) => {
     t = t.replace(pattern, replacement);
   });
   return t;
@@ -1311,7 +1667,8 @@ function parseMealDBRecipe(meal) {
     }
   }
   return {
-    name: meal.strMeal,
+    name: translateRecipeName(meal.strMeal),
+    nameOriginal: meal.strMeal,
     category: 'Plat',
     type: 'equilibre',
     difficulty: 'moyen',
@@ -1391,10 +1748,12 @@ function renderExtResults(meals) {
   meals.forEach(meal => {
     const parsed = parseMealDBRecipe(meal);
     const isSaved = isExtRecipeSaved(meal.idMeal);
+    const showOriginal = parsed.name !== meal.strMeal;
     html += `<div class="ext-card">
       <img src="${meal.strMealThumb}/preview" alt="${parsed.name}" loading="lazy">
       <div class="ext-body">
         <h4>${parsed.name} ${isSaved ? '<span class="ext-saved-badge">Importe</span>' : ''}</h4>
+        ${showOriginal ? `<p style="font-size:0.75rem;color:#999;font-style:italic">${meal.strMeal}</p>` : ''}
         <p>${meal.strArea || ''} &bull; ${meal.strCategory || ''}</p>
         <p style="margin-top:0.2rem">${parsed.ingredients.slice(0,5).map(i=>i.name).join(', ')}${parsed.ingredients.length > 5 ? '...' : ''}</p>
         <div class="ext-actions">
@@ -1443,9 +1802,11 @@ function showExtRecipeModal(parsed, meal) {
   } else {
     stepsHtml = `<p style="font-size:0.9rem;line-height:1.6">${stepsText}</p>`;
   }
+  const showOriginal = parsed.name !== meal.strMeal;
   modal.innerHTML = `
     ${meal.strMealThumb ? `<img src="${meal.strMealThumb}/preview" alt="" style="width:100%;border-radius:8px;margin-bottom:1rem;max-height:200px;object-fit:cover">` : ''}
     <h3>${parsed.name}</h3>
+    ${showOriginal ? `<p style="font-size:0.8rem;color:#999;font-style:italic;margin-bottom:0.3rem">${meal.strMeal}</p>` : ''}
     <p style="margin-bottom:0.5rem"><span style="font-size:0.85rem;color:var(--text-light)">${meal.strArea || ''} &bull; ${meal.strCategory || ''}</span>
     ${isSaved ? ' <span class="ext-saved-badge">Deja importe</span>' : ''}</p>
     <h4 style="margin-top:0.8rem;margin-bottom:0.5rem">Ingredients</h4>
